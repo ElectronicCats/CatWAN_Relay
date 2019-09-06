@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# +24V
+# +24V-agroin-rescue
 #
-DEF +24V #PWR 0 0 Y Y 1 F P
+DEF +24V-agroin-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "+24V" 0 140 50 H V C CNN
+F1 "+24V-agroin-rescue" 0 140 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -16,11 +16,11 @@ X +24V 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# +3.3V
+# +3.3V-agroin-rescue
 #
-DEF +3.3V #PWR 0 0 Y Y 1 F P
+DEF +3.3V-agroin-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "+3.3V" 0 140 50 H V C CNN
+F1 "+3.3V-agroin-rescue" 0 140 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -31,11 +31,11 @@ X +3V3 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# AP2114H-3.3TRG1
+# AP2114H-3.3TRG1-agroin-rescue
 #
-DEF AP2114H-3.3TRG1 U 0 40 Y Y 1 F N
+DEF AP2114H-3.3TRG1-agroin-rescue U 0 40 Y Y 1 F N
 F0 "U" -200 200 50 H V C CNN
-F1 "AP2114H-3.3TRG1" 0 200 50 H V L CNN
+F1 "AP2114H-3.3TRG1-agroin-rescue" 0 200 50 H V L CNN
 F2 "TO_SOT_Packages_SMD:SOT-223-3Lead_TabPin2" -460 270 50 H I C CIN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -49,11 +49,11 @@ X IN 3 -400 50 150 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# ATSAMD21E
+# ATSAMD21E-agroin-rescue
 #
-DEF ATSAMD21E U 0 40 Y Y 1 L N
+DEF ATSAMD21E-agroin-rescue U 0 40 Y Y 1 L N
 F0 "U" -470 1710 45 H V L BNN
-F1 "ATSAMD21E" 820 1730 45 H V L BNN
+F1 "ATSAMD21E-agroin-rescue" 820 1730 45 H V L BNN
 F2 "QFN32_5MM" 30 150 20 H I C CNN
 F3 "" 0 0 60 H I C CNN
 $FPLIST
@@ -97,11 +97,11 @@ X VDDA 9 -670 1210 200 R 40 40 1 1 W
 ENDDRAW
 ENDDEF
 #
-# Antenna_Shield
+# Antenna_Shield-agroin-rescue
 #
-DEF Antenna_Shield AE 0 40 N N 1 F N
+DEF Antenna_Shield-agroin-rescue AE 0 40 N N 1 F N
 F0 "AE" -75 175 50 H V R CNN
-F1 "Antenna_Shield" -75 100 50 H V R CNN
+F1 "Antenna_Shield-agroin-rescue" -75 100 50 H V R CNN
 F2 "" 0 100 50 H I C CNN
 F3 "" 0 100 50 H I C CNN
 DRAW
@@ -118,11 +118,11 @@ X Shield 2 100 -200 100 U 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# C
+# C-agroin-rescue
 #
-DEF C C 0 10 N Y 1 F N
+DEF C-agroin-rescue C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "C" 25 -100 50 H V L CNN
+F1 "C-agroin-rescue" 25 -100 50 H V L CNN
 F2 "" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -136,11 +136,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# CP1
+# CP1-agroin-rescue
 #
-DEF CP1 C 0 10 N N 1 F N
+DEF CP1-agroin-rescue C 0 10 N N 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "CP1" 25 -100 50 H V L CNN
+F1 "CP1-agroin-rescue" 25 -100 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -156,11 +156,11 @@ X ~ 2 0 -150 130 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Conn_01x02
+# Conn_01x02-agroin-rescue
 #
-DEF Conn_01x02 J 0 40 Y N 1 F N
+DEF Conn_01x02-agroin-rescue J 0 40 Y N 1 F N
 F0 "J" 0 100 50 H V C CNN
-F1 "Conn_01x02" 0 -200 50 H V C CNN
+F1 "Conn_01x02-agroin-rescue" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -180,11 +180,11 @@ X Pin_2 2 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Conn_01x03
+# Conn_01x03-agroin-rescue
 #
-DEF Conn_01x03 J 0 40 Y N 1 F N
+DEF Conn_01x03-agroin-rescue J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "Conn_01x03" 0 -200 50 H V C CNN
+F1 "Conn_01x03-agroin-rescue" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -206,11 +206,11 @@ X Pin_3 3 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Conn_01x04
+# Conn_01x04-agroin-rescue
 #
-DEF Conn_01x04 J 0 40 Y N 1 F N
+DEF Conn_01x04-agroin-rescue J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "Conn_01x04" 0 -300 50 H V C CNN
+F1 "Conn_01x04-agroin-rescue" 0 -300 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -234,11 +234,11 @@ X Pin_4 4 -200 -200 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# FM4007W-W
+# FM4007W-W-agroin-rescue
 #
-DEF FM4007W-W D 0 40 N N 1 F N
+DEF FM4007W-W-agroin-rescue D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "FM4007W-W" 0 -100 50 H V C CNN
+F1 "FM4007W-W-agroin-rescue" 0 -100 50 H V C CNN
 F2 "Diodes_SMD:D_SOD-123" 0 -175 50 H I C CNN
 F3 "https://www.mouser.mx/datasheet/2/345/fm4001-fm4007-1113844.pdf" 0 100 50 H I C CNN
 F4 "FM4007W-W" 100 200 60 H I C CNN "manf#"
@@ -256,11 +256,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# GND
+# GND-agroin-rescue
 #
-DEF GND #PWR 0 0 Y Y 1 F P
+DEF GND-agroin-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -250 50 H I C CNN
-F1 "GND" 0 -150 50 H V C CNN
+F1 "GND-agroin-rescue" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -269,11 +269,11 @@ X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# Jumper_NC_Small
+# Jumper_NC_Small-agroin-rescue
 #
-DEF Jumper_NC_Small JP 0 30 N N 1 F N
+DEF Jumper_NC_Small-agroin-rescue JP 0 30 N N 1 F N
 F0 "JP" 0 80 50 H V C CNN
-F1 "Jumper_NC_Small" 10 -60 50 H V C CNN
+F1 "Jumper_NC_Small-agroin-rescue" 10 -60 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -285,11 +285,11 @@ X 2 2 100 0 40 L 50 50 0 1 P
 ENDDRAW
 ENDDEF
 #
-# LED_Small
+# LED_Small-agroin-rescue
 #
-DEF LED_Small D 0 10 N N 1 F N
+DEF LED_Small-agroin-rescue D 0 10 N N 1 F N
 F0 "D" -50 125 50 H V L CNN
-F1 "LED_Small" -175 -100 50 H V L CNN
+F1 "LED_Small-agroin-rescue" -175 -100 50 H V L CNN
 F2 "" 0 0 50 V I C CNN
 F3 "" 0 0 50 V I C CNN
 $FPLIST
@@ -307,11 +307,11 @@ X A 2 100 0 70 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# LM2596_DC-DC
+# LM2596_DC-DC-agroin-rescue
 #
-DEF LM2596_DC-DC U 0 40 Y Y 1 F N
+DEF LM2596_DC-DC-agroin-rescue U 0 40 Y Y 1 F N
 F0 "U" 0 0 60 H V C CNN
-F1 "LM2596_DC-DC" 300 100 60 H V C CNN
+F1 "LM2596_DC-DC-agroin-rescue" 300 100 60 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -323,11 +323,11 @@ X OUT- 4 810 -300 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# LTV-817
+# LTV-817-agroin-rescue
 #
-DEF LTV-817 U 0 40 Y Y 1 F N
+DEF LTV-817-agroin-rescue U 0 40 Y Y 1 F N
 F0 "U" -200 200 50 H V L CNN
-F1 "LTV-817" 0 200 50 H V L CNN
+F1 "LTV-817-agroin-rescue" 0 200 50 H V L CNN
 F2 "Housings_DIP:DIP-4_W7.62mm" -200 -200 50 H I L CIN
 F3 "" 0 -100 50 H I L CNN
 $FPLIST
@@ -354,11 +354,11 @@ X ~ 4 300 100 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# MBR0520LT
+# MBR0520LT-agroin-rescue
 #
-DEF MBR0520LT D 0 40 N N 1 F N
+DEF MBR0520LT-agroin-rescue D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "MBR0520LT" 0 -100 50 H V C CNN
+F1 "MBR0520LT-agroin-rescue" 0 -100 50 H V C CNN
 F2 "Diodes_SMD:SOD-123" 0 -175 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -373,11 +373,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# MMBT2222A
+# MMBT2222A-agroin-rescue
 #
-DEF MMBT2222A Q 0 0 Y N 1 F N
+DEF MMBT2222A-agroin-rescue Q 0 0 Y N 1 F N
 F0 "Q" 200 75 50 H V L CNN
-F1 "MMBT2222A" 200 0 50 H V L CNN
+F1 "MMBT2222A-agroin-rescue" 200 0 50 H V L CNN
 F2 "TO_SOT_Packages_SMD:SOT-23" 200 -75 50 H I L CIN
 F3 "https://www.mouser.mx/datasheet/2/308/MMBT2222LT1-D-1292996.pdf" 200 75 50 H I L CNN
 $FPLIST
@@ -395,11 +395,11 @@ X C 3 100 200 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Mounting_Hole
+# Mounting_Hole-agroin-rescue
 #
-DEF Mounting_Hole MK 0 40 Y Y 1 F N
+DEF Mounting_Hole-agroin-rescue MK 0 40 Y Y 1 F N
 F0 "MK" 0 200 50 H V C CNN
-F1 "Mounting_Hole" 0 125 50 H V C CNN
+F1 "Mounting_Hole-agroin-rescue" 0 125 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -411,11 +411,11 @@ C 0 0 50 0 1 50 N
 ENDDRAW
 ENDDEF
 #
-# R
+# R-agroin-rescue
 #
-DEF R R 0 0 N Y 1 F N
+DEF R-agroin-rescue R 0 0 N Y 1 F N
 F0 "R" 80 0 50 V V C CNN
-F1 "R" 0 0 50 V V C CNN
+F1 "R-agroin-rescue" 0 0 50 V V C CNN
 F2 "" -70 0 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -429,11 +429,11 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# RFM95W-868S2
+# RFM95W-868S2-agroin-rescue
 #
-DEF RFM95W-868S2 U 0 40 Y Y 1 L N
+DEF RFM95W-868S2-agroin-rescue U 0 40 Y Y 1 L N
 F0 "U" -601 551 50 H V L BNN
-F1 "RFM95W-868S2" -602 -702 50 H V L BNN
+F1 "RFM95W-868S2-agroin-rescue" -602 -702 50 H V L BNN
 F2 "agroin:RFM95W" 0 0 50 H I L BNN
 F3 "SMD-16 Hope Microelectronics" -250 -150 50 H I L BNN
 F4 "RFM95W-868S2" 0 0 50 H I L BNN
@@ -464,11 +464,11 @@ X ANT 9 700 200 100 L 40 40 0 0 P
 ENDDRAW
 ENDDEF
 #
-# R_Small
+# R_Small-agroin-rescue
 #
-DEF R_Small R 0 10 N N 1 F N
+DEF R_Small-agroin-rescue R 0 10 N N 1 F N
 F0 "R" 30 20 50 H V L CNN
-F1 "R_Small" 30 -40 50 H V L CNN
+F1 "R_Small-agroin-rescue" 30 -40 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -481,11 +481,11 @@ X ~ 2 0 -100 30 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# SW_Push
+# SW_Push-agroin-rescue
 #
-DEF SW_Push SW 0 40 N N 1 F N
+DEF SW_Push-agroin-rescue SW 0 40 N N 1 F N
 F0 "SW" 50 100 50 H V L CNN
-F1 "SW_Push" 0 -60 50 H V C CNN
+F1 "SW_Push-agroin-rescue" 0 -60 50 H V C CNN
 F2 "" 0 200 50 H I C CNN
 F3 "" 0 200 50 H I C CNN
 DRAW
@@ -498,11 +498,11 @@ X 2 2 200 0 100 L 50 50 0 1 P
 ENDDRAW
 ENDDEF
 #
-# UD2-3NU
+# UD2-3NU-agroin-rescue
 #
-DEF UD2-3NU Y 0 40 Y Y 1 F N
+DEF UD2-3NU-agroin-rescue Y 0 40 Y Y 1 F N
 F0 "Y" -50 30 60 H V C CNN
-F1 "UD2-3NU" -40 -270 60 V V C CNN
+F1 "UD2-3NU-agroin-rescue" -40 -270 60 V V C CNN
 F2 "" 0 0 60 H I C CNN
 F3 "" 0 0 60 H I C CNN
 DRAW
@@ -520,11 +520,11 @@ X C1 8 140 140 138 D 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# USB_B
+# USB_B-agroin-rescue
 #
-DEF USB_B J 0 40 Y Y 1 F N
+DEF USB_B-agroin-rescue J 0 40 Y Y 1 F N
 F0 "J" -200 450 50 H V L CNN
-F1 "USB_B" -200 350 50 H V L CNN
+F1 "USB_B-agroin-rescue" -200 350 50 H V L CNN
 F2 "" 150 -50 50 H I C CNN
 F3 "" 150 -50 50 H I C CNN
 $FPLIST
@@ -553,11 +553,11 @@ X Shield 5 -100 -400 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# VBUS
+# VBUS-agroin-rescue
 #
-DEF VBUS #PWR 0 0 Y Y 1 F P
+DEF VBUS-agroin-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "VBUS" 0 150 50 H V C CNN
+F1 "VBUS-agroin-rescue" 0 150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW

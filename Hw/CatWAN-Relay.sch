@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:CatWAN-Relay-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -25,19 +25,19 @@ SCK
 Text Label 7680 725  0    60   ~ 0
 RST
 $Comp
-L agroin-rescue:SW_Push SW1
+L CatWAN-Relay-rescue:SW_Push-agroin-rescue SW1
 U 1 1 5AE4BB13
 P 7680 1025
 F 0 "SW1" H 7730 1125 50  0000 L CNN
 F 1 "RST" H 7680 965 50  0000 C CNN
-F 2 "Buttons_Switches_SMD:SW_SPST_B3U-1000P" H 7680 1225 50  0001 C CNN
+F 2 "Button_Switch_SMD:SW_SPST_TL3342" H 7680 1225 50  0001 C CNN
 F 3 "" H 7680 1225 50  0001 C CNN
-F 4 "B3U-1000P" H 7680 1025 60  0001 C CNN "manf#"
+F 4 "-" H 7680 1025 60  0001 C CNN "manf#"
 	1    7680 1025
 	0    1    1    0   
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR01
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR01
 U 1 1 5AE4BBF8
 P 7680 1270
 F 0 "#PWR01" H 7680 1020 50  0001 C CNN
@@ -48,7 +48,7 @@ F 3 "" H 7680 1270 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR02
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR02
 U 1 1 5AE4BE8D
 P 4805 3905
 F 0 "#PWR02" H 4805 3655 50  0001 C CNN
@@ -67,19 +67,7 @@ DIO2
 Text Label 5330 5545 2    60   ~ 0
 DIO5
 $Comp
-L agroin-rescue:Conn_01x02 J1
-U 1 1 5AE4C49D
-P 695 1355
-F 0 "J1" H 695 1455 50  0000 C CNN
-F 1 "24v" H 695 1155 50  0000 C CNN
-F 2 "agroin:691313710002" H 695 1355 50  0001 C CNN
-F 3 "" H 695 1355 50  0001 C CNN
-F 4 "691313710002" H 695 1355 60  0001 C CNN "manf#"
-	1    695  1355
-	-1   0    0    1   
-$EndComp
-$Comp
-L agroin-rescue:GND #PWR03
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR03
 U 1 1 5AE4C88F
 P 2665 1415
 F 0 "#PWR03" H 2665 1165 50  0001 C CNN
@@ -90,7 +78,7 @@ F 3 "" H 2665 1415 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR04
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR04
 U 1 1 5AE4C92E
 P 3430 1560
 F 0 "#PWR04" H 3430 1310 50  0001 C CNN
@@ -101,19 +89,19 @@ F 3 "" H 3430 1560 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:CP1 C2
+L CatWAN-Relay-rescue:CP1-agroin-rescue C2
 U 1 1 5AE4C9D7
 P 3165 1415
 F 0 "C2" H 3190 1515 50  0000 L CNN
 F 1 "470uF" H 3190 1315 50  0000 L CNN
-F 2 "Capacitors_SMD:c_elec_6.3x7.7" H 3165 1415 50  0001 C CNN
+F 2 "Capacitor_SMD:C_Elec_6.3x7.7" H 3165 1415 50  0001 C CNN
 F 3 "" H 3165 1415 50  0001 C CNN
 F 4 "UUR0G471MCL1GS" H 3165 1415 60  0001 C CNN "manf#"
 	1    3165 1415
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR05
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR05
 U 1 1 5AE4CB95
 P 3165 1565
 F 0 "#PWR05" H 3165 1315 50  0001 C CNN
@@ -124,30 +112,30 @@ F 3 "" H 3165 1565 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:Jumper_NC_Small JP1
+L CatWAN-Relay-rescue:Jumper_NC_Small-agroin-rescue JP1
 U 1 1 5AE4CD32
 P 2795 1195
 F 0 "JP1" H 2795 1275 50  0000 C CNN
 F 1 "ADJ" H 2795 1140 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 2795 1195 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2795 1195 50  0001 C CNN
 F 3 "" H 2795 1195 50  0001 C CNN
 	1    2795 1195
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:C C1
+L CatWAN-Relay-rescue:C-agroin-rescue C1
 U 1 1 5AE4C7D8
 P 3430 1410
 F 0 "C1" H 3455 1510 50  0000 L CNN
 F 1 "0.1uF" H 3455 1310 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3468 1260 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3468 1260 50  0001 C CNN
 F 3 "" H 3430 1410 50  0001 C CNN
 F 4 "885012207072" H 3430 1410 60  0001 C CNN "manf#"
 	1    3430 1410
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR06
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR06
 U 1 1 5AE4D348
 P 3530 1055
 F 0 "#PWR06" H 3530 905 50  0001 C CNN
@@ -162,19 +150,19 @@ Power regulation
 Text Notes 4360 600  0    60   ~ 0
 Microcontroller
 $Comp
-L agroin-rescue:C C4
+L CatWAN-Relay-rescue:C-agroin-rescue C4
 U 1 1 5AE4E748
 P 4820 2880
 F 0 "C4" H 4845 2980 50  0000 L CNN
 F 1 "0.1uF" H 4845 2780 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4858 2730 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4858 2730 50  0001 C CNN
 F 3 "" H 4820 2880 50  0001 C CNN
 F 4 "885012207072" H 4820 2880 60  0001 C CNN "manf#"
 	1    4820 2880
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR07
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR07
 U 1 1 5AE4E79C
 P 4820 2600
 F 0 "#PWR07" H 4820 2450 50  0001 C CNN
@@ -185,7 +173,7 @@ F 3 "" H 4820 2600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR08
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR08
 U 1 1 5AE4E948
 P 4820 3185
 F 0 "#PWR08" H 4820 2935 50  0001 C CNN
@@ -210,7 +198,7 @@ MISO
 Text Label 6730 5645 0    60   ~ 0
 MOSI
 $Comp
-L agroin-rescue:+3.3V #PWR09
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR09
 U 1 1 5AE531DB
 P 6765 5015
 F 0 "#PWR09" H 6765 4865 50  0001 C CNN
@@ -221,7 +209,7 @@ F 3 "" H 6765 5015 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR010
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR010
 U 1 1 5AE53467
 P 6880 6140
 F 0 "#PWR010" H 6880 5890 50  0001 C CNN
@@ -232,19 +220,19 @@ F 3 "" H 6880 6140 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:C C5
+L CatWAN-Relay-rescue:C-agroin-rescue C5
 U 1 1 5AE53A22
 P 4685 5545
 F 0 "C5" H 4710 5645 50  0000 L CNN
 F 1 "0.1uF" H 4710 5445 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4723 5395 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4723 5395 50  0001 C CNN
 F 3 "" H 4685 5545 50  0001 C CNN
 F 4 "885012207072" H 4685 5545 60  0001 C CNN "manf#"
 	1    4685 5545
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR011
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR011
 U 1 1 5AE53A28
 P 4685 5265
 F 0 "#PWR011" H 4685 5115 50  0001 C CNN
@@ -255,7 +243,7 @@ F 3 "" H 4685 5265 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR012
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR012
 U 1 1 5AE53A2E
 P 4685 5850
 F 0 "#PWR012" H 4685 5600 50  0001 C CNN
@@ -266,17 +254,13 @@ F 3 "" H 4685 5850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:RFM95W-868S2 U2
+L CatWAN-Relay-rescue:RFM95W-868S2-agroin-rescue U2
 U 1 1 5AE5452E
 P 6030 5545
 F 0 "U2" H 5429 6096 50  0000 L BNN
 F 1 "RFM95W-868S2" H 5428 4843 50  0000 L BNN
 F 2 "agroin:RFM95W" H 6030 5545 50  0001 L BNN
 F 3 "SMD-16 Hope Microelectronics" H 5780 5395 50  0001 L BNN
-F 4 "RFM95W-868S2" H 6030 5545 50  0001 L BNN "Field4"
-F 5 "Warning" H 6030 5545 50  0001 L BNN "Field5"
-F 6 "7.22 USD" H 6030 5545 50  0001 L BNN "Field6"
-F 7 "RF" H 6030 5545 50  0001 L BNN "Field7"
 	1    6030 5545
 	1    0    0    -1  
 $EndComp
@@ -287,19 +271,19 @@ Outputs
 Text Notes 555  2535 0    60   ~ 0
 Inputs\n
 $Comp
-L agroin-rescue:MMBT2222A Q1
+L CatWAN-Relay-rescue:MMBT2222A-agroin-rescue Q1
 U 1 1 5AE4C940
 P 8860 2075
 F 0 "Q1" H 9060 2150 50  0000 L CNN
 F 1 "MMBT2222A" H 9060 2075 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 9060 2000 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 9060 2000 50  0001 L CIN
 F 3 "https://www.mouser.mx/datasheet/2/308/MMBT2222LT1-D-1292996.pdf" H 9060 2150 50  0001 L CNN
 F 4 "MMBT2222A" H 8860 2075 60  0001 C CNN "manf#"
 	1    8860 2075
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:FM4007W-W D1
+L CatWAN-Relay-rescue:FM4007W-W-agroin-rescue D1
 U 1 1 5AE4D0C1
 P 8645 1225
 F 0 "D1" H 8645 1325 50  0000 C CNN
@@ -311,7 +295,7 @@ F 4 "FM4007W-W" H 8745 1425 60  0001 C CNN "manf#"
 	0    1    1    0   
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR013
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR013
 U 1 1 5AE784FB
 P 4650 1185
 F 0 "#PWR013" H 4650 1035 50  0001 C CNN
@@ -332,40 +316,38 @@ Rx
 Text Label 6965 1965 0    60   ~ 0
 Tx
 $Comp
-L agroin-rescue:LTV-817 U3
+L CatWAN-Relay-rescue:LTV-817-agroin-rescue U3
 U 1 1 5AE7B1C8
 P 3380 3375
 F 0 "U3" H 3180 3575 50  0000 L CNN
 F 1 "LTV-817" H 3380 3575 50  0000 L CNN
-F 2 "Housings_DIP:DIP-4_W7.62mm" H 3180 3175 50  0001 L CIN
+F 2 "Package_DIP:DIP-4_W7.62mm_Socket" H 3180 3175 50  0001 L CIN
 F 3 "" H 3380 3275 50  0001 L CNN
 F 4 "LTV-817" H 3380 3375 60  0001 C CNN "manf#"
 	1    3380 3375
 	1    0    0    -1  
 $EndComp
-Text Label 1185 3470 0    60   ~ 0
-IA1
-Text Label 1185 4630 0    60   ~ 0
+Text Label 1120 4570 0    60   ~ 0
 IB1
-Text Label 1275 6120 0    60   ~ 0
+Text Label 1120 4770 0    60   ~ 0
 IC1
-Text Label 1275 6020 0    60   ~ 0
+Text Label 1120 4670 0    60   ~ 0
 IC2
-Text Label 1185 4530 0    60   ~ 0
+Text Label 1120 4470 0    60   ~ 0
 IB2
 $Comp
-L agroin-rescue:R R3
+L CatWAN-Relay-rescue:R-agroin-rescue R3
 U 1 1 5AE7BE19
 P 2865 3275
 F 0 "R3" V 2945 3275 50  0000 C CNN
 F 1 "2.2k" V 2865 3275 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 2795 3275 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2795 3275 50  0001 C CNN
 F 3 "" H 2865 3275 50  0001 C CNN
 F 4 "CRCW08052K20FKEB" V 2865 3275 60  0001 C CNN "manf#"
 	1    2865 3275
 	0    1    1    0   
 $EndComp
-Text Label 1185 3370 0    60   ~ 0
+Text Label 1120 4270 0    60   ~ 0
 IA2
 Text Label 2940 3530 2    60   ~ 0
 IA2
@@ -376,7 +358,7 @@ IB1
 Text Label 1205 2890 2    60   ~ 0
 IC1
 $Comp
-L agroin-rescue:+24V #PWR014
+L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR014
 U 1 1 5AE7DFDE
 P 1455 1140
 F 0 "#PWR014" H 1455 990 50  0001 C CNN
@@ -387,18 +369,18 @@ F 3 "" H 1455 1140 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:+24V #PWR015
+L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR015
 U 1 1 5AE7E111
-P 1235 1130
-F 0 "#PWR015" H 1235 980 50  0001 C CNN
-F 1 "+24V" H 1235 1270 50  0000 C CNN
-F 2 "" H 1235 1130 50  0001 C CNN
-F 3 "" H 1235 1130 50  0001 C CNN
-	1    1235 1130
+P 1460 3945
+F 0 "#PWR015" H 1460 3795 50  0001 C CNN
+F 1 "+24V" H 1460 4085 50  0000 C CNN
+F 2 "" H 1460 3945 50  0001 C CNN
+F 3 "" H 1460 3945 50  0001 C CNN
+	1    1460 3945
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:+24V #PWR016
+L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR016
 U 1 1 5AE7EE53
 P 2640 3140
 F 0 "#PWR016" H 2640 2990 50  0001 C CNN
@@ -409,7 +391,7 @@ F 3 "" H 2640 3140 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR017
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR017
 U 1 1 5AE7FC5E
 P 3790 2775
 F 0 "#PWR017" H 3790 2625 50  0001 C CNN
@@ -420,19 +402,19 @@ F 3 "" H 3790 2775 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R R4
+L CatWAN-Relay-rescue:R-agroin-rescue R4
 U 1 1 5AE7FD5D
 P 3790 2925
 F 0 "R4" V 3870 2925 50  0000 C CNN
 F 1 "10K" V 3790 2925 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3720 2925 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3720 2925 50  0001 C CNN
 F 3 "" H 3790 2925 50  0001 C CNN
 F 4 "RC0402FR-1010KL" V 3790 2925 60  0001 C CNN "manf#"
 	1    3790 2925
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR018
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR018
 U 1 1 5AE80D7F
 P 3790 3545
 F 0 "#PWR018" H 3790 3295 50  0001 C CNN
@@ -442,10 +424,10 @@ F 3 "" H 3790 3545 50  0001 C CNN
 	1    3790 3545
 	1    0    0    -1  
 $EndComp
-Text Label 3990 3170 0    60   ~ 0
+Text Label 3985 5785 0    60   ~ 0
 DI1
 $Comp
-L agroin-rescue:UD2-3NU Y1
+L CatWAN-Relay-rescue:UD2-3NU-agroin-rescue Y1
 U 1 1 5B04BC8F
 P 8820 990
 F 0 "Y1" H 8845 1035 60  0000 C CNN
@@ -457,7 +439,7 @@ F 4 "UD2-3NU" H 8820 990 60  0001 C CNN "manf#"
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR019
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR019
 U 1 1 5B04C585
 P 8960 755
 F 0 "#PWR019" H 8960 605 50  0001 C CNN
@@ -468,31 +450,31 @@ F 3 "" H 8960 755 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R R2
+L CatWAN-Relay-rescue:R-agroin-rescue R2
 U 1 1 5B04C9BE
 P 8440 1875
 F 0 "R2" V 8520 1875 50  0000 C CNN
 F 1 "1K" V 8440 1875 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 8370 1875 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8370 1875 50  0001 C CNN
 F 3 "" H 8440 1875 50  0001 C CNN
 F 4 "RC0805FR-071KL" V 8440 1875 60  0001 C CNN "manf#"
 	1    8440 1875
 	-1   0    0    1   
 $EndComp
 $Comp
-L agroin-rescue:MMBT2222A Q2
+L CatWAN-Relay-rescue:MMBT2222A-agroin-rescue Q2
 U 1 1 5B04D0E1
 P 8805 4160
 F 0 "Q2" H 9005 4235 50  0000 L CNN
 F 1 "MMBT2222A" H 9005 4160 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 9005 4085 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 9005 4085 50  0001 L CIN
 F 3 "https://www.mouser.mx/datasheet/2/308/MMBT2222LT1-D-1292996.pdf" H 9005 4235 50  0001 L CNN
 F 4 "MMBT2222A" H 8805 4160 60  0001 C CNN "manf#"
 	1    8805 4160
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:FM4007W-W D2
+L CatWAN-Relay-rescue:FM4007W-W-agroin-rescue D2
 U 1 1 5B04D0E8
 P 8625 3245
 F 0 "D2" H 8625 3345 50  0000 C CNN
@@ -504,7 +486,7 @@ F 4 "FM4007W-W" H 8725 3445 60  0001 C CNN "manf#"
 	0    1    1    0   
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR020
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR020
 U 1 1 5B04D0F4
 P 8905 2770
 F 0 "#PWR020" H 8905 2620 50  0001 C CNN
@@ -515,31 +497,31 @@ F 3 "" H 8905 2770 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R R5
+L CatWAN-Relay-rescue:R-agroin-rescue R5
 U 1 1 5B04D0FA
 P 8420 3925
 F 0 "R5" V 8500 3925 50  0000 C CNN
 F 1 "1K" V 8420 3925 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 8350 3925 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8350 3925 50  0001 C CNN
 F 3 "" H 8420 3925 50  0001 C CNN
 F 4 "RC0805FR-071KL" V 8420 3925 60  0001 C CNN "manf#"
 	1    8420 3925
 	-1   0    0    1   
 $EndComp
 $Comp
-L agroin-rescue:MMBT2222A Q3
+L CatWAN-Relay-rescue:MMBT2222A-agroin-rescue Q3
 U 1 1 5B04D688
 P 8810 6140
 F 0 "Q3" H 8990 6185 50  0000 L CNN
 F 1 "MMBT2222A" H 9000 6115 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 9010 6065 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 9010 6065 50  0001 L CIN
 F 3 "https://www.mouser.mx/datasheet/2/308/MMBT2222LT1-D-1292996.pdf" H 9010 6215 50  0001 L CNN
 F 4 "MMBT2222A" H 8810 6140 60  0001 C CNN "manf#"
 	1    8810 6140
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:FM4007W-W D3
+L CatWAN-Relay-rescue:FM4007W-W-agroin-rescue D3
 U 1 1 5B04D68F
 P 8510 5340
 F 0 "D3" H 8510 5440 50  0000 C CNN
@@ -551,7 +533,7 @@ F 4 "FM4007W-W" H 8610 5540 60  0001 C CNN "manf#"
 	0    1    1    0   
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR021
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR021
 U 1 1 5B04D69B
 P 8910 4850
 F 0 "#PWR021" H 8910 4700 50  0001 C CNN
@@ -562,19 +544,19 @@ F 3 "" H 8910 4850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R R10
+L CatWAN-Relay-rescue:R-agroin-rescue R10
 U 1 1 5B04D6A1
 P 8465 5965
 F 0 "R10" V 8545 5965 50  0000 C CNN
 F 1 "1K" V 8465 5965 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 8395 5965 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8395 5965 50  0001 C CNN
 F 3 "" H 8465 5965 50  0001 C CNN
 F 4 "RC0805FR-071KL" V 8465 5965 60  0001 C CNN "manf#"
 	1    8465 5965
 	-1   0    0    1   
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR022
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR022
 U 1 1 5B04F8D0
 P 8960 2275
 F 0 "#PWR022" H 8960 2025 50  0001 C CNN
@@ -585,7 +567,7 @@ F 3 "" H 8960 2275 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR023
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR023
 U 1 1 5B04FD98
 P 8905 4360
 F 0 "#PWR023" H 8905 4110 50  0001 C CNN
@@ -596,7 +578,7 @@ F 3 "" H 8905 4360 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR024
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR024
 U 1 1 5B0502F5
 P 8910 6340
 F 0 "#PWR024" H 8910 6090 50  0001 C CNN
@@ -607,12 +589,12 @@ F 3 "" H 8910 6340 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:ATSAMD21E U1
+L CatWAN-Relay-rescue:ATSAMD21E-agroin-rescue U1
 U 1 1 5B04C5AF
 P 5565 2465
 F 0 "U1" H 5095 4175 45  0000 L BNN
 F 1 "ATSAMD21E" H 6385 4195 45  0000 L BNN
-F 2 "Housings_QFP:TQFP-32_7x7mm_Pitch0.8mm" H 5595 2615 20  0001 C CNN
+F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 5595 2615 20  0001 C CNN
 F 3 "" H 5565 2465 60  0001 C CNN
 F 4 "ATSAMD21E15B-AUT" H 5565 2465 60  0001 C CNN "manf#"
 	1    5565 2465
@@ -621,19 +603,19 @@ $EndComp
 Text Label 4895 965  2    60   ~ 0
 RST
 $Comp
-L agroin-rescue:C C3
+L CatWAN-Relay-rescue:C-agroin-rescue C3
 U 1 1 5B04EE2E
 P 4820 1810
 F 0 "C3" H 4845 1910 50  0000 L CNN
 F 1 "1uF" H 4845 1710 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4858 1660 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4858 1660 50  0001 C CNN
 F 3 "" H 4820 1810 50  0001 C CNN
 F 4 "GRM21BC80J106KE19L" H 4820 1810 60  0001 C CNN "manf#"
 	1    4820 1810
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR025
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR025
 U 1 1 5B04EE3A
 P 4820 2115
 F 0 "#PWR025" H 4820 1865 50  0001 C CNN
@@ -644,18 +626,18 @@ F 3 "" H 4820 2115 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:Conn_01x04 J4
+L CatWAN-Relay-rescue:Conn_01x04-agroin-rescue J4
 U 1 1 5B0502EC
 P 8050 4055
 F 0 "J4" H 8050 4255 50  0000 C CNN
 F 1 "SWD" H 8050 3755 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 8050 4055 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 8050 4055 50  0001 C CNN
 F 3 "" H 8050 4055 50  0001 C CNN
 	1    8050 4055
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR026
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR026
 U 1 1 5B050555
 P 7720 3140
 F 0 "#PWR026" H 7720 2890 50  0001 C CNN
@@ -666,7 +648,7 @@ F 3 "" H 7720 3140 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:+3.3V #PWR027
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR027
 U 1 1 5B050850
 P 7705 3875
 F 0 "#PWR027" H 7705 3725 50  0001 C CNN
@@ -736,10 +718,6 @@ Wire Wire Line
 	1455 1195 1455 1140
 Wire Wire Line
 	1460 1420 1460 1345
-Wire Wire Line
-	1095 1470 1095 1355
-Wire Wire Line
-	1095 1355 895  1355
 Wire Wire Line
 	3790 3275 3680 3275
 Wire Notes Line
@@ -834,12 +812,12 @@ NO1
 Text Label 9605 3635 3    60   ~ 0
 NO2
 $Comp
-L agroin-rescue:Conn_01x03 J5
+L CatWAN-Relay-rescue:Conn_01x03-agroin-rescue J5
 U 1 1 5B066480
 P 8010 2955
 F 0 "J5" H 8010 3155 50  0000 C CNN
 F 1 "Serial" H 8010 2755 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 8010 2955 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8010 2955 50  0001 C CNN
 F 3 "" H 8010 2955 50  0001 C CNN
 	1    8010 2955
 	1    0    0    -1  
@@ -873,28 +851,28 @@ Wire Wire Line
 Wire Wire Line
 	7720 3055 7810 3055
 $Comp
-L agroin-rescue:FM4007W-W D4
+L CatWAN-Relay-rescue:FM4007W-W-agroin-rescue D4
 U 1 1 5B06C8A9
-P 1045 1255
-F 0 "D4" H 1050 1165 50  0000 C CNN
-F 1 "FM4007W-W" H 1045 1155 50  0001 C CNN
-F 2 "Diodes_SMD:D_SOD-123" H 1045 1080 50  0001 C CNN
-F 3 "https://www.mouser.mx/datasheet/2/345/fm4001-fm4007-1113844.pdf" H 1045 1355 50  0001 C CNN
-F 4 "FM4007W-W" H 1145 1455 60  0001 C CNN "manf#"
-	1    1045 1255
+P 1270 4070
+F 0 "D4" H 1275 3980 50  0000 C CNN
+F 1 "FM4007W-W" H 1270 3970 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 1270 3895 50  0001 C CNN
+F 3 "https://www.mouser.mx/datasheet/2/345/fm4001-fm4007-1113844.pdf" H 1270 4170 50  0001 C CNN
+F 4 "FM4007W-W" H 1370 4270 60  0001 C CNN "manf#"
+	1    1270 4070
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	1195 1255 1235 1255
+	1420 4070 1460 4070
 Wire Wire Line
-	1235 1255 1235 1130
+	1460 4070 1460 3945
 $Comp
-L agroin-rescue:Antenna_Shield AE1
+L CatWAN-Relay-rescue:Antenna_Shield-agroin-rescue AE1
 U 1 1 5B06DD9B
 P 6985 4915
 F 0 "AE1" H 6910 5090 50  0000 R CNN
 F 1 "Antenna_Shield" H 7290 5165 50  0000 R CNN
-F 2 "agroin:SMA_EDGE" H 6985 5015 50  0001 C CNN
+F 2 "Connectors:MOLEX_1661" H 6985 5015 50  0001 C CNN
 F 3 "" H 6985 5015 50  0001 C CNN
 	1    6985 4915
 	1    0    0    -1  
@@ -908,7 +886,7 @@ Wire Wire Line
 Wire Wire Line
 	6985 5345 6985 5115
 $Comp
-L agroin-rescue:GND #PWR028
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR028
 U 1 1 5B06EEE9
 P 7085 5115
 F 0 "#PWR028" H 7085 4865 50  0001 C CNN
@@ -1488,7 +1466,7 @@ Ic=51.3mA
 Text Notes 9055 6055 1    60   ~ 0
 Ic=51.3mA
 $Comp
-L agroin-rescue:UD2-3NU Y3
+L CatWAN-Relay-rescue:UD2-3NU-agroin-rescue Y3
 U 1 1 5B04D695
 P 8770 5085
 F 0 "Y3" H 8770 5130 60  0000 C CNN
@@ -1511,24 +1489,24 @@ Wire Wire Line
 Wire Wire Line
 	3790 3475 3680 3475
 $Comp
-L agroin-rescue:LTV-817 U4
+L CatWAN-Relay-rescue:LTV-817-agroin-rescue U4
 U 1 1 5B076E7E
 P 3370 4650
 F 0 "U4" H 3170 4850 50  0000 L CNN
 F 1 "LTV-817" H 3370 4850 50  0000 L CNN
-F 2 "Housings_DIP:DIP-4_W7.62mm" H 3170 4450 50  0001 L CIN
+F 2 "Package_DIP:DIP-4_W7.62mm_Socket" H 3170 4450 50  0001 L CIN
 F 3 "" H 3370 4550 50  0001 L CNN
 F 4 "LTV-817" H 3370 4650 60  0001 C CNN "manf#"
 	1    3370 4650
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R R6
+L CatWAN-Relay-rescue:R-agroin-rescue R6
 U 1 1 5B076E84
 P 2850 4550
 F 0 "R6" V 2930 4550 50  0000 C CNN
 F 1 "2.2k" V 2850 4550 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 2780 4550 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2780 4550 50  0001 C CNN
 F 3 "" H 2850 4550 50  0001 C CNN
 F 4 "CRCW08052K20FKEB" V 2850 4550 60  0001 C CNN "manf#"
 	1    2850 4550
@@ -1537,7 +1515,7 @@ $EndComp
 Text Label 2995 4825 2    60   ~ 0
 IB2
 $Comp
-L agroin-rescue:+3.3V #PWR029
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR029
 U 1 1 5B076E91
 P 3780 4050
 F 0 "#PWR029" H 3780 3900 50  0001 C CNN
@@ -1548,19 +1526,19 @@ F 3 "" H 3780 4050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R R1
+L CatWAN-Relay-rescue:R-agroin-rescue R1
 U 1 1 5B076E97
 P 3780 4200
 F 0 "R1" V 3860 4200 50  0000 C CNN
 F 1 "10K" V 3780 4200 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3710 4200 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3710 4200 50  0001 C CNN
 F 3 "" H 3780 4200 50  0001 C CNN
 F 4 "RC0402FR-1010KL" V 3780 4200 60  0001 C CNN "manf#"
 	1    3780 4200
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR030
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR030
 U 1 1 5B076E9D
 P 3780 4820
 F 0 "#PWR030" H 3780 4570 50  0001 C CNN
@@ -1586,24 +1564,24 @@ Wire Wire Line
 Wire Wire Line
 	3780 4750 3670 4750
 $Comp
-L agroin-rescue:LTV-817 U5
+L CatWAN-Relay-rescue:LTV-817-agroin-rescue U5
 U 1 1 5B076F98
 P 3375 5990
 F 0 "U5" H 3175 6190 50  0000 L CNN
 F 1 "LTV-817" H 3375 6190 50  0000 L CNN
-F 2 "Housings_DIP:DIP-4_W7.62mm" H 3175 5790 50  0001 L CIN
+F 2 "Package_DIP:DIP-4_W7.62mm_Socket" H 3175 5790 50  0001 L CIN
 F 3 "" H 3375 5890 50  0001 L CNN
 F 4 "LTV-817" H 3375 5990 60  0001 C CNN "manf#"
 	1    3375 5990
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R R8
+L CatWAN-Relay-rescue:R-agroin-rescue R8
 U 1 1 5B076F9E
 P 2870 5890
 F 0 "R8" V 2950 5890 50  0000 C CNN
 F 1 "2.2k" V 2870 5890 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 2800 5890 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2800 5890 50  0001 C CNN
 F 3 "" H 2870 5890 50  0001 C CNN
 F 4 "CRCW08052K20FKEB" V 2870 5890 60  0001 C CNN "manf#"
 	1    2870 5890
@@ -1612,7 +1590,7 @@ $EndComp
 Text Label 2970 6145 2    60   ~ 0
 IC2
 $Comp
-L agroin-rescue:+3.3V #PWR031
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR031
 U 1 1 5B076FAB
 P 3785 5390
 F 0 "#PWR031" H 3785 5240 50  0001 C CNN
@@ -1623,19 +1601,19 @@ F 3 "" H 3785 5390 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R R7
+L CatWAN-Relay-rescue:R-agroin-rescue R7
 U 1 1 5B076FB1
 P 3785 5540
 F 0 "R7" V 3865 5540 50  0000 C CNN
 F 1 "10K" V 3785 5540 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3715 5540 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3715 5540 50  0001 C CNN
 F 3 "" H 3785 5540 50  0001 C CNN
 F 4 "RC0402FR-1010KL" V 3785 5540 60  0001 C CNN "manf#"
 	1    3785 5540
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR032
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR032
 U 1 1 5B076FB7
 P 3785 6160
 F 0 "#PWR032" H 3785 5910 50  0001 C CNN
@@ -1645,7 +1623,7 @@ F 3 "" H 3785 6160 50  0001 C CNN
 	1    3785 6160
 	1    0    0    -1  
 $EndComp
-Text Label 3985 5785 0    60   ~ 0
+Text Label 3990 3170 0    60   ~ 0
 DI3
 Wire Wire Line
 	2970 6090 3075 6090
@@ -1672,42 +1650,6 @@ Wire Wire Line
 	3020 5890 3075 5890
 Wire Wire Line
 	2970 6145 2970 6090
-$Comp
-L agroin-rescue:Conn_01x03 J2
-U 1 1 5B07A5F5
-P 10595 1400
-F 0 "J2" H 10595 1600 50  0000 C CNN
-F 1 "Output 3" H 10595 1200 50  0000 C CNN
-F 2 "agroin:691313710003" H 10595 1400 50  0001 C CNN
-F 3 "" H 10595 1400 50  0001 C CNN
-F 4 "691313710003" H 10595 1400 60  0001 C CNN "manf#"
-	1    10595 1400
-	1    0    0    -1  
-$EndComp
-$Comp
-L agroin-rescue:Conn_01x03 J6
-U 1 1 5B07A6BB
-P 10650 3385
-F 0 "J6" H 10650 3585 50  0000 C CNN
-F 1 "Output 2" H 10650 3185 50  0000 C CNN
-F 2 "agroin:691313710003" H 10650 3385 50  0001 C CNN
-F 3 "" H 10650 3385 50  0001 C CNN
-F 4 "691313710003" H 10650 3385 60  0001 C CNN "manf#"
-	1    10650 3385
-	1    0    0    -1  
-$EndComp
-$Comp
-L agroin-rescue:Conn_01x03 J7
-U 1 1 5B07A76F
-P 10625 5530
-F 0 "J7" H 10625 5730 50  0000 C CNN
-F 1 "Output 1" H 10625 5330 50  0000 C CNN
-F 2 "agroin:691313710003" H 10625 5530 50  0001 C CNN
-F 3 "" H 10625 5530 50  0001 C CNN
-F 4 "691313710003" H 10625 5530 60  0001 C CNN "manf#"
-	1    10625 5530
-	1    0    0    -1  
-$EndComp
 Wire Notes Line
 	8270 2485 9840 2485
 Wire Notes Line
@@ -1734,108 +1676,28 @@ Text Label 9470 5715 3    60   ~ 0
 COM3
 Text Label 9610 5715 3    60   ~ 0
 NO3
-Text Label 10425 5530 2    60   ~ 0
+Text Label 10460 3805 2    60   ~ 0
 COM3
-Text Label 10425 5430 2    60   ~ 0
+Text Label 10460 3705 2    60   ~ 0
 NO3
-Text Label 10425 5630 2    60   ~ 0
+Text Label 10460 3905 2    60   ~ 0
 NC3
-Text Label 10450 3385 2    60   ~ 0
+Text Label 10460 3505 2    60   ~ 0
 COM2
-Text Label 10450 3485 2    60   ~ 0
+Text Label 10460 3605 2    60   ~ 0
 NC2
-Text Label 10450 3285 2    60   ~ 0
+Text Label 10460 3405 2    60   ~ 0
 NO2
-Text Label 10395 1300 2    60   ~ 0
+Text Label 10460 3105 2    60   ~ 0
 NO1
-Text Label 10395 1400 2    60   ~ 0
+Text Label 10460 3205 2    60   ~ 0
 COM1
-Text Label 10395 1500 2    60   ~ 0
+Text Label 10460 3305 2    60   ~ 0
 NC1
-$Comp
-L agroin-rescue:Mounting_Hole MK1
-U 1 1 5B0810C4
-P 4730 7195
-F 0 "MK1" H 4730 7395 50  0000 C CNN
-F 1 "Mounting_Hole" H 4730 7320 50  0000 C CNN
-F 2 "Mounting_Holes:MountingHole_3.5mm_Pad_Via" H 4730 7195 50  0001 C CNN
-F 3 "" H 4730 7195 50  0001 C CNN
-	1    4730 7195
-	1    0    0    -1  
-$EndComp
-$Comp
-L agroin-rescue:Mounting_Hole MK3
-U 1 1 5B081269
-P 5315 7200
-F 0 "MK3" H 5315 7400 50  0000 C CNN
-F 1 "Mounting_Hole" H 5315 7325 50  0000 C CNN
-F 2 "Mounting_Holes:MountingHole_3.5mm_Pad_Via" H 5315 7200 50  0001 C CNN
-F 3 "" H 5315 7200 50  0001 C CNN
-	1    5315 7200
-	1    0    0    -1  
-$EndComp
-$Comp
-L agroin-rescue:Mounting_Hole MK2
-U 1 1 5B081339
-P 5960 7195
-F 0 "MK2" H 5960 7395 50  0000 C CNN
-F 1 "Mounting_Hole" H 5960 7320 50  0000 C CNN
-F 2 "Mounting_Holes:MountingHole_3.5mm_Pad_Via" H 5960 7195 50  0001 C CNN
-F 3 "" H 5960 7195 50  0001 C CNN
-	1    5960 7195
-	1    0    0    -1  
-$EndComp
-$Comp
-L agroin-rescue:Mounting_Hole MK4
-U 1 1 5B0813F3
-P 6595 7200
-F 0 "MK4" H 6595 7400 50  0000 C CNN
-F 1 "Mounting_Hole" H 6595 7325 50  0000 C CNN
-F 2 "Mounting_Holes:MountingHole_3.5mm_Pad_Via" H 6595 7200 50  0001 C CNN
-F 3 "" H 6595 7200 50  0001 C CNN
-	1    6595 7200
-	1    0    0    -1  
-$EndComp
 Text Notes 4370 6665 0    60   ~ 0
 Mounting holes
 $Comp
-L agroin-rescue:Conn_01x02 J3
-U 1 1 5B0830FD
-P 985 3470
-F 0 "J3" H 985 3570 50  0000 C CNN
-F 1 "Input 1" H 985 3270 50  0000 C CNN
-F 2 "agroin:691313710003" H 985 3470 50  0001 C CNN
-F 3 "" H 985 3470 50  0001 C CNN
-F 4 "691313710002" H 985 3470 60  0001 C CNN "manf#"
-	1    985  3470
-	-1   0    0    1   
-$EndComp
-$Comp
-L agroin-rescue:Conn_01x02 J8
-U 1 1 5B08351A
-P 985 4630
-F 0 "J8" H 985 4730 50  0000 C CNN
-F 1 "Input 2" H 985 4430 50  0000 C CNN
-F 2 "agroin:691313710002" H 985 4630 50  0001 C CNN
-F 3 "" H 985 4630 50  0001 C CNN
-F 4 "691313710002" H 985 4630 60  0001 C CNN "manf#"
-	1    985  4630
-	-1   0    0    1   
-$EndComp
-$Comp
-L agroin-rescue:Conn_01x02 J9
-U 1 1 5B083A3D
-P 1075 6120
-F 0 "J9" H 1075 6220 50  0000 C CNN
-F 1 "Input 3" H 1075 5920 50  0000 C CNN
-F 2 "agroin:691313710002" H 1075 6120 50  0001 C CNN
-F 3 "" H 1075 6120 50  0001 C CNN
-F 4 "691313710002" H 1075 6120 60  0001 C CNN "manf#"
-	1    1075 6120
-	-1   0    0    1   
-$EndComp
-$Comp
-L agroin-rescue:GND #PWR033
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR033
 U 1 1 5B08A6AC
 P 7715 4330
 F 0 "#PWR033" H 7715 4080 50  0001 C CNN
@@ -1846,7 +1708,7 @@ F 3 "" H 7715 4330 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:LM2596_DC-DC U6
+L CatWAN-Relay-rescue:LM2596_DC-DC-agroin-rescue U6
 U 1 1 5B08EBBE
 P 1785 1045
 F 0 "U6" H 1890 1010 60  0000 C CNN
@@ -1861,7 +1723,7 @@ RFM_RST
 NoConn ~ 9310 5715
 NoConn ~ 9610 4945
 $Comp
-L agroin-rescue:UD2-3NU Y2
+L CatWAN-Relay-rescue:UD2-3NU-agroin-rescue Y2
 U 1 1 5B04D0EE
 P 8765 3005
 F 0 "Y2" H 8785 3050 60  0000 C CNN
@@ -1877,7 +1739,7 @@ NoConn ~ 9605 2865
 NoConn ~ 9360 1620
 NoConn ~ 9660 850 
 $Comp
-L agroin-rescue:GND #PWR034
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR034
 U 1 1 5B0B4491
 P 1460 1420
 F 0 "#PWR034" H 1460 1170 50  0001 C CNN
@@ -1888,18 +1750,7 @@ F 3 "" H 1460 1420 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR035
-U 1 1 5B0B4582
-P 1095 1470
-F 0 "#PWR035" H 1095 1220 50  0001 C CNN
-F 1 "GND" H 1095 1320 50  0000 C CNN
-F 2 "" H 1095 1470 50  0001 C CNN
-F 3 "" H 1095 1470 50  0001 C CNN
-	1    1095 1470
-	1    0    0    -1  
-$EndComp
-$Comp
-L agroin-rescue:GND #PWR036
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR036
 U 1 1 5B0B4CA6
 P 970 2955
 F 0 "#PWR036" H 970 2705 50  0001 C CNN
@@ -1910,7 +1761,7 @@ F 3 "" H 970 2955 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR037
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR037
 U 1 1 5B0C9EAC
 P 7645 2520
 F 0 "#PWR037" H 7645 2270 50  0001 C CNN
@@ -1936,7 +1787,7 @@ D+
 Text Label 6965 3565 0    60   ~ 0
 D-
 $Comp
-L agroin-rescue:VBUS #PWR038
+L CatWAN-Relay-rescue:VBUS-agroin-rescue #PWR038
 U 1 1 5B0CB923
 P 8125 1755
 F 0 "#PWR038" H 8125 1605 50  0001 C CNN
@@ -1953,19 +1804,19 @@ Wire Wire Line
 Text Notes 535  6680 0    60   ~ 0
 USB voltage regulator\n
 $Comp
-L agroin-rescue:AP2114H-3.3TRG1 U7
+L CatWAN-Relay-rescue:AP2114H-3.3TRG1-agroin-rescue U7
 U 1 1 5B0CCD1F
 P 1235 7125
 F 0 "U7" H 1025 7385 50  0000 C CNN
 F 1 "AP2114H-3.3TRG1" H 915 7320 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-223-3Lead_TabPin2" H 775 7395 50  0001 C CIN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 775 7395 50  0001 C CIN
 F 3 "" H 1235 7125 50  0001 C CNN
 F 4 "AP2114H-3.3TRG1" H 1235 7125 60  0001 C CNN "manf#"
 	1    1235 7125
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:VBUS #PWR039
+L CatWAN-Relay-rescue:VBUS-agroin-rescue #PWR039
 U 1 1 5B0CD86E
 P 685 7010
 F 0 "#PWR039" H 685 6860 50  0001 C CNN
@@ -1980,12 +1831,12 @@ Wire Wire Line
 Wire Wire Line
 	685  7075 685  7010
 $Comp
-L agroin-rescue:MBR0520LT D5
+L CatWAN-Relay-rescue:MBR0520LT-agroin-rescue D5
 U 1 1 5B0CDF05
 P 1975 7075
 F 0 "D5" H 1975 7175 50  0000 C CNN
 F 1 "MBR120" H 1975 6975 50  0000 C CNN
-F 2 "Diodes_SMD:SOD-123" H 1975 6900 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 1975 6900 50  0001 C CNN
 F 3 "" H 1975 7075 50  0001 C CNN
 F 4 "MBR120VLSFT3G" H 1975 7075 60  0001 C CNN "manf#"
 	1    1975 7075
@@ -1994,7 +1845,7 @@ $EndComp
 Wire Wire Line
 	1635 7075 1725 7075
 $Comp
-L agroin-rescue:GND #PWR040
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR040
 U 1 1 5B0CEDD6
 P 1235 7430
 F 0 "#PWR040" H 1235 7180 50  0001 C CNN
@@ -2007,12 +1858,12 @@ $EndComp
 Wire Wire Line
 	1235 7375 1235 7430
 $Comp
-L agroin-rescue:C C7
+L CatWAN-Relay-rescue:C-agroin-rescue C7
 U 1 1 5B0CF618
 P 1725 7270
 F 0 "C7" H 1750 7370 50  0000 L CNN
 F 1 "10uF" H 1750 7170 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 1763 7120 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1763 7120 50  0001 C CNN
 F 3 "" H 1725 7270 50  0001 C CNN
 F 4 "GRM21BC80J106KE19L" H 1725 7270 60  0001 C CNN "manf#"
 	1    1725 7270
@@ -2022,12 +1873,12 @@ Wire Wire Line
 	1725 7120 1725 7075
 Connection ~ 1725 7075
 $Comp
-L agroin-rescue:C C6
+L CatWAN-Relay-rescue:C-agroin-rescue C6
 U 1 1 5B0CFE06
 P 765 7260
 F 0 "C6" H 790 7360 50  0000 L CNN
 F 1 "10uF" H 790 7160 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 803 7110 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 803 7110 50  0001 C CNN
 F 3 "" H 765 7260 50  0001 C CNN
 F 4 "GRM21BC80J106KE19L" H 765 7260 60  0001 C CNN "manf#"
 	1    765  7260
@@ -2037,7 +1888,7 @@ Wire Wire Line
 	765  7110 765  7075
 Connection ~ 765  7075
 $Comp
-L agroin-rescue:GND #PWR041
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR041
 U 1 1 5B0D03BC
 P 765 7450
 F 0 "#PWR041" H 765 7200 50  0001 C CNN
@@ -2048,7 +1899,7 @@ F 3 "" H 765 7450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR042
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR042
 U 1 1 5B0D0460
 P 1725 7460
 F 0 "#PWR042" H 1725 7210 50  0001 C CNN
@@ -2063,7 +1914,7 @@ Wire Wire Line
 Wire Wire Line
 	765  7450 765  7410
 $Comp
-L agroin-rescue:+3.3V #PWR043
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR043
 U 1 1 5B0D0D73
 P 2330 6960
 F 0 "#PWR043" H 2330 6810 50  0001 C CNN
@@ -2079,105 +1930,105 @@ Wire Wire Line
 	2330 7075 2330 6960
 Wire Notes Line
 	2515 7795 2515 6540
-Text Notes 2540 6655 0    60   ~ 0
+Text Notes 9890 660  0    60   ~ 0
 Led's indicators
 $Comp
-L agroin-rescue:LED_Small D7
+L CatWAN-Relay-rescue:LED_Small-agroin-rescue D7
 U 1 1 5B0D290D
-P 2960 7320
-F 0 "D7" H 2910 7445 50  0000 L CNN
-F 1 "Rx" V 2960 7180 50  0000 L CNN
-F 2 "LEDs:LED_0805_HandSoldering" V 2960 7320 50  0001 C CNN
-F 3 "" V 2960 7320 50  0001 C CNN
-F 4 "APT2012SGC" H 2960 7320 60  0001 C CNN "manf#"
-	1    2960 7320
+P 10200 1715
+F 0 "D7" H 10150 1840 50  0000 L CNN
+F 1 "Rx" V 10200 1575 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 10200 1715 50  0001 C CNN
+F 3 "" V 10200 1715 50  0001 C CNN
+F 4 "APT2012SGC" H 10200 1715 60  0001 C CNN "manf#"
+	1    10200 1715
 	0    -1   -1   0   
 $EndComp
 $Comp
-L agroin-rescue:LED_Small D6
+L CatWAN-Relay-rescue:LED_Small-agroin-rescue D6
 U 1 1 5B0D2AA0
-P 3665 7310
-F 0 "D6" H 3615 7435 50  0000 L CNN
-F 1 "ON" V 3665 7150 50  0000 L CNN
-F 2 "LEDs:LED_0805_HandSoldering" V 3665 7310 50  0001 C CNN
-F 3 "" V 3665 7310 50  0001 C CNN
-F 4 "AP2012EC" H 3665 7310 60  0001 C CNN "manf#"
-	1    3665 7310
+P 10905 1705
+F 0 "D6" H 10855 1830 50  0000 L CNN
+F 1 "ON" V 10905 1545 50  0000 L CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 10905 1705 50  0001 C CNN
+F 3 "" V 10905 1705 50  0001 C CNN
+F 4 "AP2012EC" H 10905 1705 60  0001 C CNN "manf#"
+	1    10905 1705
 	0    -1   -1   0   
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR044
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR044
 U 1 1 5B0D2B7E
-P 2960 7485
-F 0 "#PWR044" H 2960 7235 50  0001 C CNN
-F 1 "GND" H 2960 7335 50  0000 C CNN
-F 2 "" H 2960 7485 50  0001 C CNN
-F 3 "" H 2960 7485 50  0001 C CNN
-	1    2960 7485
+P 10200 1880
+F 0 "#PWR044" H 10200 1630 50  0001 C CNN
+F 1 "GND" H 10200 1730 50  0000 C CNN
+F 2 "" H 10200 1880 50  0001 C CNN
+F 3 "" H 10200 1880 50  0001 C CNN
+	1    10200 1880
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:GND #PWR045
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR045
 U 1 1 5B0D2ED9
-P 3665 7465
-F 0 "#PWR045" H 3665 7215 50  0001 C CNN
-F 1 "GND" H 3665 7315 50  0000 C CNN
-F 2 "" H 3665 7465 50  0001 C CNN
-F 3 "" H 3665 7465 50  0001 C CNN
-	1    3665 7465
+P 10905 1860
+F 0 "#PWR045" H 10905 1610 50  0001 C CNN
+F 1 "GND" H 10905 1710 50  0000 C CNN
+F 2 "" H 10905 1860 50  0001 C CNN
+F 3 "" H 10905 1860 50  0001 C CNN
+	1    10905 1860
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2960 7420 2960 7485
+	10200 1815 10200 1880
 Wire Wire Line
-	3665 7410 3665 7465
+	10905 1805 10905 1860
 $Comp
-L agroin-rescue:R_Small R9
+L CatWAN-Relay-rescue:R_Small-agroin-rescue R9
 U 1 1 5B0D38E2
-P 3665 7025
-F 0 "R9" H 3695 7045 50  0000 L CNN
-F 1 "120R" H 3695 6985 50  0000 L CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" H 3665 7025 50  0001 C CNN
-F 3 "" H 3665 7025 50  0001 C CNN
-F 4 "RMC1/10K1200FTP" H 3665 7025 60  0001 C CNN "manf#"
-	1    3665 7025
+P 10905 1420
+F 0 "R9" H 10935 1440 50  0000 L CNN
+F 1 "120R" H 10935 1380 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 10905 1420 50  0001 C CNN
+F 3 "" H 10905 1420 50  0001 C CNN
+F 4 "RMC1/10K1200FTP" H 10905 1420 60  0001 C CNN "manf#"
+	1    10905 1420
 	1    0    0    -1  
 $EndComp
 $Comp
-L agroin-rescue:R_Small R11
+L CatWAN-Relay-rescue:R_Small-agroin-rescue R11
 U 1 1 5B0D3E93
-P 2960 7050
-F 0 "R11" H 2990 7070 50  0000 L CNN
-F 1 "120R" H 2990 7010 50  0000 L CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" H 2960 7050 50  0001 C CNN
-F 3 "" H 2960 7050 50  0001 C CNN
-F 4 "RMC1/10K1200FTP" H 2960 7050 60  0001 C CNN "manf#"
-	1    2960 7050
+P 10200 1445
+F 0 "R11" H 10230 1465 50  0000 L CNN
+F 1 "120R" H 10230 1405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 10200 1445 50  0001 C CNN
+F 3 "" H 10200 1445 50  0001 C CNN
+F 4 "RMC1/10K1200FTP" H 10200 1445 60  0001 C CNN "manf#"
+	1    10200 1445
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2960 7220 2960 7150
+	10200 1615 10200 1545
 Wire Wire Line
-	3665 7210 3665 7125
+	10905 1605 10905 1520
 $Comp
-L agroin-rescue:+3.3V #PWR046
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR046
 U 1 1 5B0D45E0
-P 3665 6875
-F 0 "#PWR046" H 3665 6725 50  0001 C CNN
-F 1 "+3.3V" H 3665 7015 50  0000 C CNN
-F 2 "" H 3665 6875 50  0001 C CNN
-F 3 "" H 3665 6875 50  0001 C CNN
-	1    3665 6875
+P 10905 1270
+F 0 "#PWR046" H 10905 1120 50  0001 C CNN
+F 1 "+3.3V" H 10905 1410 50  0000 C CNN
+F 2 "" H 10905 1270 50  0001 C CNN
+F 3 "" H 10905 1270 50  0001 C CNN
+	1    10905 1270
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3665 6925 3665 6875
+	10905 1320 10905 1270
 Text Label 6965 2465 0    60   ~ 0
 Rx_LED
-Text Label 2960 6810 0    60   ~ 0
+Text Label 10200 1205 0    60   ~ 0
 Rx_LED
 Wire Wire Line
-	2960 6810 2960 6950
+	10200 1205 10200 1345
 Wire Wire Line
 	2715 3275 2640 3275
 Wire Wire Line
@@ -2187,10 +2038,8 @@ Wire Wire Line
 Wire Wire Line
 	1215 2735 970  2735
 Connection ~ 970  2735
-Wire Wire Line
-	1205 2890 970  2890
 $Comp
-L agroin-rescue:+24V #PWR047
+L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR047
 U 1 1 5B0CD439
 P 2545 4475
 F 0 "#PWR047" H 2545 4325 50  0001 C CNN
@@ -2205,7 +2054,7 @@ Wire Wire Line
 Wire Wire Line
 	2545 4550 2545 4475
 $Comp
-L agroin-rescue:+24V #PWR048
+L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR048
 U 1 1 5B0CE393
 P 2580 5795
 F 0 "#PWR048" H 2580 5645 50  0001 C CNN
@@ -2228,13 +2077,14 @@ NoConn ~ 6965 1765
 NoConn ~ 6965 1865
 NoConn ~ 6965 1165
 $Comp
-L agroin-rescue:USB_B J10
+L CatWAN-Relay-rescue:USB_B-agroin-rescue J10
 U 1 1 5B11F4BB
 P 7745 2015
 F 0 "J10" H 7545 2465 50  0000 L CNN
 F 1 "USB_B" H 7545 2365 50  0000 L CNN
 F 2 "USB:629105150521" H 7895 1965 50  0001 C CNN
 F 3 "" H 7895 1965 50  0001 C CNN
+F 4 "629105150521" H 0   0   50  0001 C CNN "manf#"
 	1    7745 2015
 	1    0    0    -1  
 $EndComp
@@ -2288,5 +2138,64 @@ Wire Notes Line
 Wire Notes Line
 	2290 2365 2290 6540
 Wire Wire Line
-	970  2735 970  2955
+	970  2735 970  2890
+$Comp
+L Connector:Conn_01x09_Female J2
+U 1 1 5D64F5E3
+P 920 4470
+F 0 "J2" H 812 3845 50  0000 C CNN
+F 1 "INPUTS" H 812 3936 50  0000 C CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-9-5.08_1x09_P5.08mm_Horizontal" H 920 4470 50  0001 C CNN
+F 3 "~" H 920 4470 50  0001 C CNN
+	1    920  4470
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1205 2890 970  2890
+Connection ~ 970  2890
+Wire Wire Line
+	970  2890 970  2955
+Text Label 1120 4370 0    60   ~ 0
+IA1
+$Comp
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR0101
+U 1 1 5D68930B
+P 1220 4940
+F 0 "#PWR0101" H 1220 4690 50  0001 C CNN
+F 1 "GND" H 1220 4790 50  0000 C CNN
+F 2 "" H 1220 4940 50  0001 C CNN
+F 3 "" H 1220 4940 50  0001 C CNN
+	1    1220 4940
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1220 4940 1220 4870
+Wire Wire Line
+	1220 4870 1120 4870
+$Comp
+L CatWAN-Relay-rescue:GND-agroin-rescue #PWR0102
+U 1 1 5D6909A3
+P 1395 4200
+F 0 "#PWR0102" H 1395 3950 50  0001 C CNN
+F 1 "GND" H 1395 4050 50  0000 C CNN
+F 2 "" H 1395 4200 50  0001 C CNN
+F 3 "" H 1395 4200 50  0001 C CNN
+	1    1395 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1395 4200 1395 4170
+Wire Wire Line
+	1395 4170 1120 4170
+$Comp
+L Connector:Conn_01x09_Female J3
+U 1 1 5D6C6C0C
+P 10660 3505
+F 0 "J3" H 10688 3531 50  0000 L CNN
+F 1 "OUTPUTS" H 10688 3440 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-9-5.08_1x09_P5.08mm_Horizontal" H 10660 3505 50  0001 C CNN
+F 3 "~" H 10660 3505 50  0001 C CNN
+	1    10660 3505
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

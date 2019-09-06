@@ -1,3 +1,3 @@
 (sym_lib_table
-  (lib (name agroin-rescue)(type Legacy)(uri ${KIPRJMOD}/agroin-rescue.lib)(options "")(descr ""))
+  (lib (name CatWAN-Relay-rescue)(type Legacy)(uri ${KIPRJMOD}/CatWAN-Relay-rescue.lib)(options "")(descr ""))
 )
