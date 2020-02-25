@@ -1,6 +1,10 @@
 #include <SPI.h>
 #include <LoRa.h>
+
 #define Serial SerialUSB
+#define LORA
+
+
 String dato="";
 bool flag_g=0;
 
@@ -23,19 +27,24 @@ void interrupt_2(){
   }
 
 void transmit(){
+    int bitOne = !digitalRead(0);
+    int bitTwo = !digitalRead(1);
+    int bitThree = !digitalRead(2);
+    #ifdef LORA
     LoRa.beginPacket();
-    LoRa.write(digitalRead(0));
-    LoRa.write(digitalRead(1));
-    LoRa.write(digitalRead(2));
+    LoRa.write(bitOne);
+    LoRa.write(bitTwo);
+    LoRa.write(bitThree);
     LoRa.endPacket();
-    SerialUSB.println("Dato enviado");
+    #endif
+    //Serial.println(String(bitOne)+String(bitTwo)+String(bitThree));
   }
   
 void setup() {
-  SerialUSB.begin(115200);
-
-  SerialUSB.println("LoRa Sender");
-  LoRa.setPins(17, 16, 4);
+  Serial.begin(115200);
+  //while(!Serial);
+  //Serial.println("LoRa Sender");
+  LoRa.setPins(SS, RFM_RST, RFM_DIO0);
   if (!LoRa.begin(915E6)) {
     Serial.println("Starting LoRa failed!");
     while (1);
@@ -44,18 +53,15 @@ void setup() {
   pinMode(0,INPUT); 
   pinMode(1,INPUT); 
   pinMode(2,INPUT); 
-  pinMode(5,OUTPUT);
-  pinMode(6,OUTPUT);
-  pinMode(7,OUTPUT);
+  pinMode(Relay_1,OUTPUT);
+  pinMode(Relay_2,OUTPUT);
+  pinMode(Relay_3,OUTPUT);
   pinMode(14,OUTPUT);
 
   attachInterrupt(0, interrupt_0, CHANGE);
   attachInterrupt(1,interrupt_1, CHANGE);
   attachInterrupt(2,interrupt_2, CHANGE);
   
-  digitalWrite(5,LOW);
-  digitalWrite(6,LOW);
-  digitalWrite(7,LOW);
   digitalWrite(14,LOW);
 }
 
@@ -83,9 +89,9 @@ void loop() {
       SerialUSB.println(dato[i]);
       i++;
     }
-    digitalWrite(5,!dato[0]);
-    digitalWrite(6,!dato[1]);
-    digitalWrite(7,!dato[2]);
+    digitalWrite(Relay_1,!dato[0]);
+    digitalWrite(Relay_2,!dato[1]);
+    digitalWrite(Relay_3,!dato[2]);
     digitalWrite(14,LOW);
   }
 }

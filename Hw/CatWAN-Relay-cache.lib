@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# agroin-rescue:+24V
+# CatWAN-Relay-rescue_+24V-agroin-rescue
 #
-DEF agroin-rescue:+24V #PWR 0 0 Y Y 1 F P
+DEF CatWAN-Relay-rescue_+24V-agroin-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "agroin-rescue:+24V" 0 140 50 H V C CNN
+F1 "CatWAN-Relay-rescue_+24V-agroin-rescue" 0 140 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -16,11 +16,11 @@ X +24V 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:+3.3V
+# CatWAN-Relay-rescue_+3.3V-agroin-rescue
 #
-DEF agroin-rescue:+3.3V #PWR 0 0 Y Y 1 F P
+DEF CatWAN-Relay-rescue_+3.3V-agroin-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "agroin-rescue:+3.3V" 0 140 50 H V C CNN
+F1 "CatWAN-Relay-rescue_+3.3V-agroin-rescue" 0 140 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -31,11 +31,11 @@ X +3V3 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:AP2114H-3.3TRG1
+# CatWAN-Relay-rescue_AP2114H-3.3TRG1-agroin-rescue
 #
-DEF agroin-rescue:AP2114H-3.3TRG1 U 0 40 Y Y 1 F N
+DEF CatWAN-Relay-rescue_AP2114H-3.3TRG1-agroin-rescue U 0 40 Y Y 1 F N
 F0 "U" -200 200 50 H V C CNN
-F1 "agroin-rescue:AP2114H-3.3TRG1" 0 200 50 H V L CNN
+F1 "CatWAN-Relay-rescue_AP2114H-3.3TRG1-agroin-rescue" 0 200 50 H V L CNN
 F2 "TO_SOT_Packages_SMD:SOT-223-3Lead_TabPin2" -460 270 50 H I C CIN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -49,11 +49,11 @@ X IN 3 -400 50 150 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:ATSAMD21E
+# CatWAN-Relay-rescue_ATSAMD21E-agroin-rescue
 #
-DEF agroin-rescue:ATSAMD21E U 0 40 Y Y 1 L N
+DEF CatWAN-Relay-rescue_ATSAMD21E-agroin-rescue U 0 40 Y Y 1 L N
 F0 "U" -470 1710 45 H V L BNN
-F1 "agroin-rescue:ATSAMD21E" 820 1730 45 H V L BNN
+F1 "CatWAN-Relay-rescue_ATSAMD21E-agroin-rescue" 820 1730 45 H V L BNN
 F2 "QFN32_5MM" 30 150 20 H I C CNN
 F3 "" 0 0 60 H I C CNN
 $FPLIST
@@ -97,11 +97,11 @@ X VDDA 9 -670 1210 200 R 40 40 1 1 W
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:Antenna_Shield
+# CatWAN-Relay-rescue_Antenna_Shield-agroin-rescue
 #
-DEF agroin-rescue:Antenna_Shield AE 0 40 N N 1 F N
+DEF CatWAN-Relay-rescue_Antenna_Shield-agroin-rescue AE 0 40 N N 1 F N
 F0 "AE" -75 175 50 H V R CNN
-F1 "agroin-rescue:Antenna_Shield" -75 100 50 H V R CNN
+F1 "CatWAN-Relay-rescue_Antenna_Shield-agroin-rescue" -75 100 50 H V R CNN
 F2 "" 0 100 50 H I C CNN
 F3 "" 0 100 50 H I C CNN
 DRAW
@@ -118,11 +118,11 @@ X Shield 2 100 -200 100 U 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:C
+# CatWAN-Relay-rescue_C-agroin-rescue
 #
-DEF agroin-rescue:C C 0 10 N Y 1 F N
+DEF CatWAN-Relay-rescue_C-agroin-rescue C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "agroin-rescue:C" 25 -100 50 H V L CNN
+F1 "CatWAN-Relay-rescue_C-agroin-rescue" 25 -100 50 H V L CNN
 F2 "" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -136,11 +136,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:CP1
+# CatWAN-Relay-rescue_CP1-agroin-rescue
 #
-DEF agroin-rescue:CP1 C 0 10 N N 1 F N
+DEF CatWAN-Relay-rescue_CP1-agroin-rescue C 0 10 N N 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "agroin-rescue:CP1" 25 -100 50 H V L CNN
+F1 "CatWAN-Relay-rescue_CP1-agroin-rescue" 25 -100 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -156,35 +156,11 @@ X ~ 2 0 -150 130 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:Conn_01x02
+# CatWAN-Relay-rescue_Conn_01x03-agroin-rescue
 #
-DEF agroin-rescue:Conn_01x02 J 0 40 Y N 1 F N
-F0 "J" 0 100 50 H V C CNN
-F1 "agroin-rescue:Conn_01x02" 0 -200 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- Connector*:*_??x*mm*
- Connector*:*1x??x*mm*
- Pin?Header?Straight?1X*
- Pin?Header?Angled?1X*
- Socket?Strip?Straight?1X*
- Socket?Strip?Angled?1X*
-$ENDFPLIST
-DRAW
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 50 50 -150 1 1 10 f
-X Pin_1 1 -200 0 150 R 50 50 1 1 P
-X Pin_2 2 -200 -100 150 R 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# agroin-rescue:Conn_01x03
-#
-DEF agroin-rescue:Conn_01x03 J 0 40 Y N 1 F N
+DEF CatWAN-Relay-rescue_Conn_01x03-agroin-rescue J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "agroin-rescue:Conn_01x03" 0 -200 50 H V C CNN
+F1 "CatWAN-Relay-rescue_Conn_01x03-agroin-rescue" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -206,11 +182,11 @@ X Pin_3 3 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:Conn_01x04
+# CatWAN-Relay-rescue_Conn_01x04-agroin-rescue
 #
-DEF agroin-rescue:Conn_01x04 J 0 40 Y N 1 F N
+DEF CatWAN-Relay-rescue_Conn_01x04-agroin-rescue J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "agroin-rescue:Conn_01x04" 0 -300 50 H V C CNN
+F1 "CatWAN-Relay-rescue_Conn_01x04-agroin-rescue" 0 -300 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -234,11 +210,11 @@ X Pin_4 4 -200 -200 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:FM4007W-W
+# CatWAN-Relay-rescue_FM4007W-W-agroin-rescue
 #
-DEF agroin-rescue:FM4007W-W D 0 40 N N 1 F N
+DEF CatWAN-Relay-rescue_FM4007W-W-agroin-rescue D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "agroin-rescue:FM4007W-W" 0 -100 50 H V C CNN
+F1 "CatWAN-Relay-rescue_FM4007W-W-agroin-rescue" 0 -100 50 H V C CNN
 F2 "Diodes_SMD:D_SOD-123" 0 -175 50 H I C CNN
 F3 "https://www.mouser.mx/datasheet/2/345/fm4001-fm4007-1113844.pdf" 0 100 50 H I C CNN
 F4 "FM4007W-W" 100 200 60 H I C CNN "manf#"
@@ -256,11 +232,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:GND
+# CatWAN-Relay-rescue_GND-agroin-rescue
 #
-DEF agroin-rescue:GND #PWR 0 0 Y Y 1 F P
+DEF CatWAN-Relay-rescue_GND-agroin-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -250 50 H I C CNN
-F1 "agroin-rescue:GND" 0 -150 50 H V C CNN
+F1 "CatWAN-Relay-rescue_GND-agroin-rescue" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -269,11 +245,11 @@ X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:Jumper_NC_Small
+# CatWAN-Relay-rescue_Jumper_NC_Small-agroin-rescue
 #
-DEF agroin-rescue:Jumper_NC_Small JP 0 30 N N 1 F N
+DEF CatWAN-Relay-rescue_Jumper_NC_Small-agroin-rescue JP 0 30 N N 1 F N
 F0 "JP" 0 80 50 H V C CNN
-F1 "agroin-rescue:Jumper_NC_Small" 10 -60 50 H V C CNN
+F1 "CatWAN-Relay-rescue_Jumper_NC_Small-agroin-rescue" 10 -60 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -285,11 +261,11 @@ X 2 2 100 0 40 L 50 50 0 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:LED_Small
+# CatWAN-Relay-rescue_LED_Small-agroin-rescue
 #
-DEF agroin-rescue:LED_Small D 0 10 N N 1 F N
+DEF CatWAN-Relay-rescue_LED_Small-agroin-rescue D 0 10 N N 1 F N
 F0 "D" -50 125 50 H V L CNN
-F1 "agroin-rescue:LED_Small" -175 -100 50 H V L CNN
+F1 "CatWAN-Relay-rescue_LED_Small-agroin-rescue" -175 -100 50 H V L CNN
 F2 "" 0 0 50 V I C CNN
 F3 "" 0 0 50 V I C CNN
 $FPLIST
@@ -307,11 +283,11 @@ X A 2 100 0 70 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:LM2596_DC-DC
+# CatWAN-Relay-rescue_LM2596_DC-DC-agroin-rescue
 #
-DEF agroin-rescue:LM2596_DC-DC U 0 40 Y Y 1 F N
+DEF CatWAN-Relay-rescue_LM2596_DC-DC-agroin-rescue U 0 40 Y Y 1 F N
 F0 "U" 0 0 60 H V C CNN
-F1 "agroin-rescue:LM2596_DC-DC" 300 100 60 H V C CNN
+F1 "CatWAN-Relay-rescue_LM2596_DC-DC-agroin-rescue" 300 100 60 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -323,11 +299,11 @@ X OUT- 4 810 -300 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:LTV-817
+# CatWAN-Relay-rescue_LTV-817-agroin-rescue
 #
-DEF agroin-rescue:LTV-817 U 0 40 Y Y 1 F N
+DEF CatWAN-Relay-rescue_LTV-817-agroin-rescue U 0 40 Y Y 1 F N
 F0 "U" -200 200 50 H V L CNN
-F1 "agroin-rescue:LTV-817" 0 200 50 H V L CNN
+F1 "CatWAN-Relay-rescue_LTV-817-agroin-rescue" 0 200 50 H V L CNN
 F2 "Housings_DIP:DIP-4_W7.62mm" -200 -200 50 H I L CIN
 F3 "" 0 -100 50 H I L CNN
 $FPLIST
@@ -354,11 +330,11 @@ X ~ 4 300 100 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:MBR0520LT
+# CatWAN-Relay-rescue_MBR0520LT-agroin-rescue
 #
-DEF agroin-rescue:MBR0520LT D 0 40 N N 1 F N
+DEF CatWAN-Relay-rescue_MBR0520LT-agroin-rescue D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "agroin-rescue:MBR0520LT" 0 -100 50 H V C CNN
+F1 "CatWAN-Relay-rescue_MBR0520LT-agroin-rescue" 0 -100 50 H V C CNN
 F2 "Diodes_SMD:SOD-123" 0 -175 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -373,11 +349,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:MMBT2222A
+# CatWAN-Relay-rescue_MMBT2222A-agroin-rescue
 #
-DEF agroin-rescue:MMBT2222A Q 0 0 Y N 1 F N
+DEF CatWAN-Relay-rescue_MMBT2222A-agroin-rescue Q 0 0 Y N 1 F N
 F0 "Q" 200 75 50 H V L CNN
-F1 "agroin-rescue:MMBT2222A" 200 0 50 H V L CNN
+F1 "CatWAN-Relay-rescue_MMBT2222A-agroin-rescue" 200 0 50 H V L CNN
 F2 "TO_SOT_Packages_SMD:SOT-23" 200 -75 50 H I L CIN
 F3 "https://www.mouser.mx/datasheet/2/308/MMBT2222LT1-D-1292996.pdf" 200 75 50 H I L CNN
 $FPLIST
@@ -395,27 +371,11 @@ X C 3 100 200 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:Mounting_Hole
+# CatWAN-Relay-rescue_R-agroin-rescue
 #
-DEF agroin-rescue:Mounting_Hole MK 0 40 Y Y 1 F N
-F0 "MK" 0 200 50 H V C CNN
-F1 "agroin-rescue:Mounting_Hole" 0 125 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- Mounting?Hole*
- Hole*
-$ENDFPLIST
-DRAW
-C 0 0 50 0 1 50 N
-ENDDRAW
-ENDDEF
-#
-# agroin-rescue:R
-#
-DEF agroin-rescue:R R 0 0 N Y 1 F N
+DEF CatWAN-Relay-rescue_R-agroin-rescue R 0 0 N Y 1 F N
 F0 "R" 80 0 50 V V C CNN
-F1 "agroin-rescue:R" 0 0 50 V V C CNN
+F1 "CatWAN-Relay-rescue_R-agroin-rescue" 0 0 50 V V C CNN
 F2 "" -70 0 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -429,11 +389,11 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:RFM95W-868S2
+# CatWAN-Relay-rescue_RFM95W-868S2-agroin-rescue
 #
-DEF agroin-rescue:RFM95W-868S2 U 0 40 Y Y 1 L N
+DEF CatWAN-Relay-rescue_RFM95W-868S2-agroin-rescue U 0 40 Y Y 1 L N
 F0 "U" -601 551 50 H V L BNN
-F1 "agroin-rescue:RFM95W-868S2" -602 -702 50 H V L BNN
+F1 "CatWAN-Relay-rescue_RFM95W-868S2-agroin-rescue" -602 -702 50 H V L BNN
 F2 "agroin:RFM95W" 0 0 50 H I L BNN
 F3 "SMD-16 Hope Microelectronics" -250 -150 50 H I L BNN
 F4 "RFM95W-868S2" 0 0 50 H I L BNN
@@ -464,11 +424,11 @@ X ANT 9 700 200 100 L 40 40 0 0 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:R_Small
+# CatWAN-Relay-rescue_R_Small-agroin-rescue
 #
-DEF agroin-rescue:R_Small R 0 10 N N 1 F N
+DEF CatWAN-Relay-rescue_R_Small-agroin-rescue R 0 10 N N 1 F N
 F0 "R" 30 20 50 H V L CNN
-F1 "agroin-rescue:R_Small" 30 -40 50 H V L CNN
+F1 "CatWAN-Relay-rescue_R_Small-agroin-rescue" 30 -40 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -481,11 +441,11 @@ X ~ 2 0 -100 30 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:SW_Push
+# CatWAN-Relay-rescue_SW_Push-agroin-rescue
 #
-DEF agroin-rescue:SW_Push SW 0 40 N N 1 F N
+DEF CatWAN-Relay-rescue_SW_Push-agroin-rescue SW 0 40 N N 1 F N
 F0 "SW" 50 100 50 H V L CNN
-F1 "agroin-rescue:SW_Push" 0 -60 50 H V C CNN
+F1 "CatWAN-Relay-rescue_SW_Push-agroin-rescue" 0 -60 50 H V C CNN
 F2 "" 0 200 50 H I C CNN
 F3 "" 0 200 50 H I C CNN
 DRAW
@@ -498,11 +458,11 @@ X 2 2 200 0 100 L 50 50 0 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:UD2-3NU
+# CatWAN-Relay-rescue_UD2-3NU-agroin-rescue
 #
-DEF agroin-rescue:UD2-3NU Y 0 40 Y Y 1 F N
+DEF CatWAN-Relay-rescue_UD2-3NU-agroin-rescue Y 0 40 Y Y 1 F N
 F0 "Y" -50 30 60 H V C CNN
-F1 "agroin-rescue:UD2-3NU" -40 -270 60 V V C CNN
+F1 "CatWAN-Relay-rescue_UD2-3NU-agroin-rescue" -40 -270 60 V V C CNN
 F2 "" 0 0 60 H I C CNN
 F3 "" 0 0 60 H I C CNN
 DRAW
@@ -520,11 +480,11 @@ X C1 8 140 140 138 D 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:USB_B
+# CatWAN-Relay-rescue_USB_B-agroin-rescue
 #
-DEF agroin-rescue:USB_B J 0 40 Y Y 1 F N
+DEF CatWAN-Relay-rescue_USB_B-agroin-rescue J 0 40 Y Y 1 F N
 F0 "J" -200 450 50 H V L CNN
-F1 "agroin-rescue:USB_B" -200 350 50 H V L CNN
+F1 "CatWAN-Relay-rescue_USB_B-agroin-rescue" -200 350 50 H V L CNN
 F2 "" 150 -50 50 H I C CNN
 F3 "" 150 -50 50 H I C CNN
 $FPLIST
@@ -553,11 +513,11 @@ X Shield 5 -100 -400 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# agroin-rescue:VBUS
+# CatWAN-Relay-rescue_VBUS-agroin-rescue
 #
-DEF agroin-rescue:VBUS #PWR 0 0 Y Y 1 F P
+DEF CatWAN-Relay-rescue_VBUS-agroin-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "agroin-rescue:VBUS" 0 150 50 H V C CNN
+F1 "CatWAN-Relay-rescue_VBUS-agroin-rescue" 0 150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -565,6 +525,47 @@ P 2 0 1 0 -30 50 0 100 N
 P 2 0 1 0 0 0 0 100 N
 P 2 0 1 0 0 100 30 50 N
 X VBUS 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# Connector_Conn_01x09_Female
+#
+DEF Connector_Conn_01x09_Female J 0 40 Y N 1 F N
+F0 "J" 0 500 50 H V C CNN
+F1 "Connector_Conn_01x09_Female" 0 -500 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_1x??_*
+$ENDFPLIST
+DRAW
+A 0 -400 20 901 -901 1 1 6 N 0 -380 0 -420
+A 0 -300 20 901 -901 1 1 6 N 0 -280 0 -320
+A 0 -200 20 901 -901 1 1 6 N 0 -180 0 -220
+A 0 -100 20 901 -901 1 1 6 N 0 -80 0 -120
+A 0 0 20 901 -901 1 1 6 N 0 20 0 -20
+A 0 100 20 901 -901 1 1 6 N 0 120 0 80
+A 0 200 20 901 -901 1 1 6 N 0 220 0 180
+A 0 300 20 901 -901 1 1 6 N 0 320 0 280
+A 0 400 20 901 -901 1 1 6 N 0 420 0 380
+P 2 1 1 6 -50 -400 -20 -400 N
+P 2 1 1 6 -50 -300 -20 -300 N
+P 2 1 1 6 -50 -200 -20 -200 N
+P 2 1 1 6 -50 -100 -20 -100 N
+P 2 1 1 6 -50 0 -20 0 N
+P 2 1 1 6 -50 100 -20 100 N
+P 2 1 1 6 -50 200 -20 200 N
+P 2 1 1 6 -50 300 -20 300 N
+P 2 1 1 6 -50 400 -20 400 N
+X Pin_1 1 -200 400 150 R 50 50 1 1 P
+X Pin_2 2 -200 300 150 R 50 50 1 1 P
+X Pin_3 3 -200 200 150 R 50 50 1 1 P
+X Pin_4 4 -200 100 150 R 50 50 1 1 P
+X Pin_5 5 -200 0 150 R 50 50 1 1 P
+X Pin_6 6 -200 -100 150 R 50 50 1 1 P
+X Pin_7 7 -200 -200 150 R 50 50 1 1 P
+X Pin_8 8 -200 -300 150 R 50 50 1 1 P
+X Pin_9 9 -200 -400 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
