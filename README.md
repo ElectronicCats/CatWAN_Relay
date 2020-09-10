@@ -20,6 +20,9 @@ This device has a SAMD21 ARM Cortex microcontroller at 48Mhz with native USB 2.1
 Check [our repository](https://github.com/ElectronicCats/Arduino_Boards_Index) for Arduino IDE more details and software downloads!
 
 Designed by Electronic Cats.
+# License 
+
+![OpenSourceLicense](https://github.com/ElectronicCats/AjoloteBoard/raw/master/OpenSourceLicense.png)
 
 Firmware released under an GNU AGPL v3.0 license. See the LICENSE file for more information.
 
