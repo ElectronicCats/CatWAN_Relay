@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:CatWAN-Relay-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -109,17 +108,6 @@ F 1 "GND" H 3165 1415 50  0000 C CNN
 F 2 "" H 3165 1565 50  0001 C CNN
 F 3 "" H 3165 1565 50  0001 C CNN
 	1    3165 1565
-	1    0    0    -1  
-$EndComp
-$Comp
-L CatWAN-Relay-rescue:Jumper_NC_Small-agroin-rescue JP1
-U 1 1 5AE4CD32
-P 2795 1195
-F 0 "JP1" H 2795 1275 50  0000 C CNN
-F 1 "ADJ" H 2795 1140 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2795 1195 50  0001 C CNN
-F 3 "" H 2795 1195 50  0001 C CNN
-	1    2795 1195
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -335,18 +323,6 @@ Text Label 1120 4670 0    60   ~ 0
 IC2
 Text Label 1120 4470 0    60   ~ 0
 IB2
-$Comp
-L CatWAN-Relay-rescue:R-agroin-rescue R3
-U 1 1 5AE7BE19
-P 2865 3275
-F 0 "R3" V 2945 3275 50  0000 C CNN
-F 1 "2.2k" V 2865 3275 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2795 3275 50  0001 C CNN
-F 3 "" H 2865 3275 50  0001 C CNN
-F 4 "CRCW08052K20FKEB" V 2865 3275 60  0001 C CNN "manf#"
-	1    2865 3275
-	0    1    1    0   
-$EndComp
 Text Label 1120 4270 0    60   ~ 0
 IA2
 Text Label 2940 3530 2    60   ~ 0
@@ -357,39 +333,6 @@ Text Label 1215 2735 2    60   ~ 0
 IB1
 Text Label 1205 2890 2    60   ~ 0
 IC1
-$Comp
-L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR014
-U 1 1 5AE7DFDE
-P 1455 1140
-F 0 "#PWR014" H 1455 990 50  0001 C CNN
-F 1 "+24V" H 1455 1280 50  0000 C CNN
-F 2 "" H 1455 1140 50  0001 C CNN
-F 3 "" H 1455 1140 50  0001 C CNN
-	1    1455 1140
-	1    0    0    -1  
-$EndComp
-$Comp
-L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR015
-U 1 1 5AE7E111
-P 1460 3945
-F 0 "#PWR015" H 1460 3795 50  0001 C CNN
-F 1 "+24V" H 1460 4085 50  0000 C CNN
-F 2 "" H 1460 3945 50  0001 C CNN
-F 3 "" H 1460 3945 50  0001 C CNN
-	1    1460 3945
-	1    0    0    -1  
-$EndComp
-$Comp
-L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR016
-U 1 1 5AE7EE53
-P 2640 3140
-F 0 "#PWR016" H 2640 2990 50  0001 C CNN
-F 1 "+24V" H 2640 3280 50  0000 C CNN
-F 2 "" H 2640 3140 50  0001 C CNN
-F 3 "" H 2640 3140 50  0001 C CNN
-	1    2640 3140
-	1    0    0    -1  
-$EndComp
 $Comp
 L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR017
 U 1 1 5AE7FC5E
@@ -677,14 +620,9 @@ Wire Wire Line
 Wire Wire Line
 	2665 1345 2595 1345
 Wire Wire Line
-	2595 1195 2695 1195
-Wire Wire Line
-	2895 1195 3165 1195
-Wire Wire Line
 	3430 1195 3430 1260
 Wire Wire Line
 	3165 1195 3165 1265
-Connection ~ 3165 1195
 Wire Wire Line
 	3530 1195 3530 1055
 Connection ~ 3430 1195
@@ -714,8 +652,6 @@ Wire Notes Line
 	475  6540 6970 6540
 Wire Wire Line
 	2940 3475 3080 3475
-Wire Wire Line
-	1455 1195 1455 1140
 Wire Wire Line
 	1460 1420 1460 1345
 Wire Wire Line
@@ -1500,18 +1436,6 @@ F 4 "LTV-817" H 3370 4650 60  0001 C CNN "manf#"
 	1    3370 4650
 	1    0    0    -1  
 $EndComp
-$Comp
-L CatWAN-Relay-rescue:R-agroin-rescue R6
-U 1 1 5B076E84
-P 2850 4550
-F 0 "R6" V 2930 4550 50  0000 C CNN
-F 1 "2.2k" V 2850 4550 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2780 4550 50  0001 C CNN
-F 3 "" H 2850 4550 50  0001 C CNN
-F 4 "CRCW08052K20FKEB" V 2850 4550 60  0001 C CNN "manf#"
-	1    2850 4550
-	0    1    1    0   
-$EndComp
 Text Label 2995 4825 2    60   ~ 0
 IB2
 $Comp
@@ -1574,18 +1498,6 @@ F 3 "" H 3375 5890 50  0001 L CNN
 F 4 "LTV-817" H 3375 5990 60  0001 C CNN "manf#"
 	1    3375 5990
 	1    0    0    -1  
-$EndComp
-$Comp
-L CatWAN-Relay-rescue:R-agroin-rescue R8
-U 1 1 5B076F9E
-P 2870 5890
-F 0 "R8" V 2950 5890 50  0000 C CNN
-F 1 "2.2k" V 2870 5890 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2800 5890 50  0001 C CNN
-F 3 "" H 2870 5890 50  0001 C CNN
-F 4 "CRCW08052K20FKEB" V 2870 5890 60  0001 C CNN "manf#"
-	1    2870 5890
-	0    1    1    0   
 $EndComp
 Text Label 2970 6145 2    60   ~ 0
 IC2
@@ -2032,38 +1944,14 @@ Wire Wire Line
 Wire Wire Line
 	2715 3275 2640 3275
 Wire Wire Line
-	2640 3275 2640 3140
-Wire Wire Line
 	970  2610 1205 2610
 Wire Wire Line
 	1215 2735 970  2735
 Connection ~ 970  2735
-$Comp
-L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR047
-U 1 1 5B0CD439
-P 2545 4475
-F 0 "#PWR047" H 2545 4325 50  0001 C CNN
-F 1 "+24V" H 2545 4615 50  0000 C CNN
-F 2 "" H 2545 4475 50  0001 C CNN
-F 3 "" H 2545 4475 50  0001 C CNN
-	1    2545 4475
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2700 4550 2545 4550
 Wire Wire Line
 	2545 4550 2545 4475
-$Comp
-L CatWAN-Relay-rescue:+24V-agroin-rescue #PWR048
-U 1 1 5B0CE393
-P 2580 5795
-F 0 "#PWR048" H 2580 5645 50  0001 C CNN
-F 1 "+24V" H 2580 5935 50  0000 C CNN
-F 2 "" H 2580 5795 50  0001 C CNN
-F 3 "" H 2580 5795 50  0001 C CNN
-	1    2580 5795
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2720 5890 2580 5890
 Wire Wire Line
@@ -2196,6 +2084,131 @@ F 1 "OUTPUTS" H 10688 3440 50  0000 L CNN
 F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-9-5.08_1x09_P5.08mm_Horizontal" H 10660 3505 50  0001 C CNN
 F 3 "~" H 10660 3505 50  0001 C CNN
 	1    10660 3505
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1455 1140 1455 1195
+Wire Wire Line
+	2640 3140 2640 3275
+$Comp
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR047
+U 1 1 5F877236
+P 2640 3140
+F 0 "#PWR047" H 2640 2990 50  0001 C CNN
+F 1 "+3.3V" H 2640 3280 50  0000 C CNN
+F 2 "" H 2640 3140 50  0001 C CNN
+F 3 "" H 2640 3140 50  0001 C CNN
+	1    2640 3140
+	1    0    0    -1  
+$EndComp
+$Comp
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR016
+U 1 1 5F879B69
+P 2545 4475
+F 0 "#PWR016" H 2545 4325 50  0001 C CNN
+F 1 "+3.3V" H 2545 4615 50  0000 C CNN
+F 2 "" H 2545 4475 50  0001 C CNN
+F 3 "" H 2545 4475 50  0001 C CNN
+	1    2545 4475
+	1    0    0    -1  
+$EndComp
+$Comp
+L CatWAN-Relay-rescue:+3.3V-agroin-rescue #PWR035
+U 1 1 5F87A3E3
+P 2580 5795
+F 0 "#PWR035" H 2580 5645 50  0001 C CNN
+F 1 "+3.3V" H 2580 5935 50  0000 C CNN
+F 2 "" H 2580 5795 50  0001 C CNN
+F 3 "" H 2580 5795 50  0001 C CNN
+	1    2580 5795
+	1    0    0    -1  
+$EndComp
+$Comp
+L CatWAN-Relay-rescue:R-agroin-rescue R8
+U 1 1 5B076F9E
+P 2870 5890
+F 0 "R8" V 2950 5890 50  0000 C CNN
+F 1 "330R" V 2870 5890 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2800 5890 50  0001 C CNN
+F 3 "" H 2870 5890 50  0001 C CNN
+F 4 "CRCW08052K20FKEB" V 2870 5890 60  0001 C CNN "manf#"
+	1    2870 5890
+	0    1    1    0   
+$EndComp
+$Comp
+L CatWAN-Relay-rescue:R-agroin-rescue R6
+U 1 1 5B076E84
+P 2850 4550
+F 0 "R6" V 2930 4550 50  0000 C CNN
+F 1 "330R" V 2850 4550 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2780 4550 50  0001 C CNN
+F 3 "" H 2850 4550 50  0001 C CNN
+F 4 "CRCW08052K20FKEB" V 2850 4550 60  0001 C CNN "manf#"
+	1    2850 4550
+	0    1    1    0   
+$EndComp
+$Comp
+L CatWAN-Relay-rescue:R-agroin-rescue R3
+U 1 1 5AE7BE19
+P 2865 3275
+F 0 "R3" V 2945 3275 50  0000 C CNN
+F 1 "330R" V 2865 3275 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2795 3275 50  0001 C CNN
+F 3 "" H 2865 3275 50  0001 C CNN
+F 4 "CRCW08052K20FKEB" V 2865 3275 60  0001 C CNN "manf#"
+	1    2865 3275
+	0    1    1    0   
+$EndComp
+$Comp
+L CatWAN-Relay-rescue:Jumper_NC_Small-agroin-rescue JP1
+U 1 1 5AE4CD32
+P 3040 1195
+F 0 "JP1" H 3040 1275 50  0000 C CNN
+F 1 "ADJ" H 3040 1140 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3040 1195 50  0001 C CNN
+F 3 "" H 3040 1195 50  0001 C CNN
+	1    3040 1195
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3140 1195 3165 1195
+Connection ~ 3165 1195
+$Comp
+L CatWAN-Relay-rescue:MBR0520LT-agroin-rescue D8
+U 1 1 5F87B0CE
+P 2770 1195
+F 0 "D8" H 2770 1295 50  0000 C CNN
+F 1 "MBR120" H 2770 1095 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 2770 1020 50  0001 C CNN
+F 3 "" H 2770 1195 50  0001 C CNN
+F 4 "MBR120VLSFT3G" H 2770 1195 60  0001 C CNN "manf#"
+	1    2770 1195
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2595 1195 2620 1195
+Wire Wire Line
+	2920 1195 2940 1195
+$Comp
+L power:+24V #PWR0104
+U 1 1 5F8FD38D
+P 1455 1140
+F 0 "#PWR0104" H 1455 990 50  0001 C CNN
+F 1 "+24V" H 1470 1313 50  0000 C CNN
+F 2 "" H 1455 1140 50  0001 C CNN
+F 3 "" H 1455 1140 50  0001 C CNN
+	1    1455 1140
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+24V #PWR0103
+U 1 1 5F904D47
+P 1460 3945
+F 0 "#PWR0103" H 1460 3795 50  0001 C CNN
+F 1 "+24V" H 1475 4118 50  0000 C CNN
+F 2 "" H 1460 3945 50  0001 C CNN
+F 3 "" H 1460 3945 50  0001 C CNN
+	1    1460 3945
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
