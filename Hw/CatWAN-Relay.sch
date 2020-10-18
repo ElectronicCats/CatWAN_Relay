@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "CatWAN Relay"
-Date "2018-08-22"
-Rev "0.8"
+Date "2020-10-18"
+Rev "1.0"
 Comp "Electronic Cats"
 Comment1 "Eduardo Contreras"
 Comment2 ""
