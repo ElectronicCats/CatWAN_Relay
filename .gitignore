@@ -6,3 +6,5 @@
 *.kicad_pcb-bak
 
 *.sch-bak
+
+Hw/CatWAN-Relay-backups/
