@@ -9091,7 +9091,7 @@
 		)
 		(uuid "82959af5-e492-4ae5-a89e-c80cdb3b9043")
 	)
-	(label "Rx"
+	(label "RX"
 		(at 195.707 54.229 180)
 		(fields_autoplaced yes)
 		(effects
@@ -9245,7 +9245,7 @@
 		)
 		(uuid "acc425e4-8fa2-4db2-b368-8e5c02efadca")
 	)
-	(label "Rx_LED"
+	(label "RX_LED"
 		(at 259.08 30.48 0)
 		(fields_autoplaced yes)
 		(effects
@@ -9399,7 +9399,7 @@
 		)
 		(uuid "d1b9887e-0e19-42a5-b09d-1828c11bf9ac")
 	)
-	(label "Tx"
+	(label "TX"
 		(at 195.707 51.689 180)
 		(fields_autoplaced yes)
 		(effects
