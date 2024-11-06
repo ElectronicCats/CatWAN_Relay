@@ -10090,11 +10090,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "885012207072"
+		(property "manf#" ""
 			(at 87.63 35.56 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C15725"
+			(at 87.63 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 87.63 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -10307,6 +10325,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C916372"
+			(at 226.06 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 226.06 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d0fe8e6b-bf15-4203-ad5a-506c01e98955")
 		)
@@ -10377,11 +10413,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "UUR0G471MCL1GS"
+		(property "manf#" ""
 			(at 81.28 35.56 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5354997"
+			(at 81.28 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 81.28 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -10519,6 +10573,24 @@
 				(hide yes)
 			)
 		)
+		(property "Proveedor" "STEREN"
+			(at 77.47 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" "PINES"
+			(at 77.47 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8c689724-0d00-4c41-8f0c-3188986ceb45")
 		)
@@ -10552,7 +10624,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "FM4007W-W"
+		(property "Value" "RS1M"
 			(at 218.44 31.75 0)
 			(effects
 				(font
@@ -10561,7 +10633,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "agroin:F4007"
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 218.44 31.75 0)
 			(effects
 				(font
@@ -10588,11 +10660,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "FM4007W-W"
+		(property "manf#" ""
 			(at 223.52 34.29 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C513461"
+			(at 218.44 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 218.44 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -10859,11 +10949,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "885012207072"
+		(property "manf#" ""
 			(at 118.999 140.843 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C15725"
+			(at 118.999 140.843 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 118.999 140.843 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -11076,6 +11184,15 @@
 				(hide yes)
 			)
 		)
+		(property "Proveedor" "MOUSER"
+			(at 153.67 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "daf22760-79be-4e4c-8f2a-d893cf657967")
 		)
@@ -11143,12 +11260,11 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ae7b1c8")
 		(property "Reference" "U3"
-			(at 86.36 68.58 0)
+			(at 82.296 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "LTV-817"
@@ -11193,6 +11309,24 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" " C479627"
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -11270,11 +11404,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "CRCW08052K20FKEB"
+		(property "manf#" ""
 			(at 72.39 66.04 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C25231"
+			(at 72.39 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 72.39 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -11411,11 +11563,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RC0402FR-1010KL"
+		(property "manf#" ""
 			(at 96.52 58.42 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C15401"
+			(at 96.52 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 96.52 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -11617,11 +11787,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RC0805FR-071KL"
+		(property "manf#" ""
 			(at 215.9 46.99 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C115325"
+			(at 215.9 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 215.9 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -11704,6 +11892,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C916372"
+			(at 223.52 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 223.52 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d924d203-5f2f-431c-8cec-aca453687077")
 		)
@@ -11740,7 +11946,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "FM4007W-W"
+		(property "Value" "RS1M"
 			(at 218.44 82.55 0)
 			(effects
 				(font
@@ -11749,7 +11955,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "agroin:F4007"
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 218.44 82.55 0)
 			(effects
 				(font
@@ -11776,11 +11982,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "FM4007W-W"
+		(property "manf#" ""
 			(at 223.52 85.09 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C513461"
+			(at 218.44 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 218.44 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -11917,11 +12141,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RC0805FR-071KL"
+		(property "manf#" ""
 			(at 214.63 99.06 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C115325"
+			(at 214.63 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 214.63 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -12004,6 +12246,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C916372"
+			(at 226.06 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 226.06 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b2a9d37f-0d4a-4cfe-8887-5162844b53b9")
 		)
@@ -12040,7 +12300,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "FM4007W-W"
+		(property "Value" "RS1M"
 			(at 218.44 135.89 0)
 			(effects
 				(font
@@ -12049,7 +12309,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "agroin:F4007"
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 218.44 135.89 0)
 			(effects
 				(font
@@ -12076,11 +12336,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "FM4007W-W"
+		(property "manf#" ""
 			(at 223.52 138.43 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C513461"
+			(at 218.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 218.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -12160,6 +12438,24 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C90259"
+			(at 236.22 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 236.22 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -12314,11 +12610,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RC0805FR-071KL"
+		(property "manf#" ""
 			(at 215.9 149.86 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C115325"
+			(at 215.9 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 215.9 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -12475,7 +12789,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005b0502ec")
 		(property "Reference" "J4"
 			(at 203.2 72.39 0)
@@ -12485,7 +12799,7 @@
 				)
 			)
 		)
-		(property "Value" "SWD"
+		(property "Value" "I2C"
 			(at 203.2 78.74 0)
 			(effects
 				(font
@@ -12744,7 +13058,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005b066480")
 		(property "Reference" "J5"
 			(at 200.66 48.26 0)
@@ -12826,7 +13140,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "FM4007W-W"
+		(property "Value" "RS1M"
 			(at 35.56 76.2 0)
 			(effects
 				(font
@@ -12835,7 +13149,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123"
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 35.56 76.2 0)
 			(effects
 				(font
@@ -12862,11 +13176,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "FM4007W-W"
+		(property "manf#" ""
 			(at 33.02 81.28 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C513461"
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -12949,7 +13281,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "2337019-1"
+		(property "LCSC#" "C7426714"
+			(at 177.8 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
 			(at 177.8 124.46 0)
 			(effects
 				(font
@@ -13048,12 +13389,11 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b076e7e")
 		(property "Reference" "U4"
-			(at 86.36 104.14 0)
+			(at 82.804 98.806 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "LTV-817"
@@ -13098,6 +13438,24 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" " C479627"
+			(at 86.36 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 86.36 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -13175,11 +13533,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "CRCW08052K20FKEB"
+		(property "manf#" ""
 			(at 73.66 101.6 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C25231"
+			(at 73.66 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 73.66 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -13316,11 +13692,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RC0402FR-1010KL"
+		(property "manf#" ""
 			(at 97.79 92.71 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C15401"
+			(at 97.79 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 97.79 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -13415,12 +13809,11 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b076f98")
 		(property "Reference" "U5"
-			(at 86.36 137.16 0)
+			(at 82.55 131.572 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "LTV-817"
@@ -13465,6 +13858,24 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" " C479627"
+			(at 86.36 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 86.36 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -13542,11 +13953,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "CRCW08052K20FKEB"
+		(property "manf#" ""
 			(at 73.66 134.62 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C25231"
+			(at 73.66 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 73.66 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -13683,11 +14112,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RC0402FR-1010KL"
+		(property "manf#" ""
 			(at 96.52 125.73 90)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C15401"
+			(at 96.52 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 96.52 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -13891,6 +14338,15 @@
 			)
 		)
 		(property "manf#" "LM2596_DC-DC"
+			(at 44.196 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "UNIT"
 			(at 44.196 26.67 0)
 			(effects
 				(font
@@ -14243,6 +14699,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C150716"
+			(at 78.74 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 78.74 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "23fc9fab-b31d-4a0a-934c-15d1dffeb22a")
 		)
@@ -14380,11 +14854,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "MBR120VLSFT3G"
+		(property "manf#" ""
 			(at 97.79 168.91 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C130880"
+			(at 97.79 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 97.79 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -14521,11 +15013,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "GRM21BC80J106KE19L"
+		(property "manf#" ""
 			(at 90.17 172.72 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C85713 "
+			(at 90.17 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 90.17 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -14597,11 +15107,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "GRM21BC80J106KE19L"
+		(property "manf#" ""
 			(at 66.04 173.99 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C85713 "
+			(at 66.04 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 66.04 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -14879,6 +15407,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C205442"
+			(at 259.08 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 259.08 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8e9fbd4d-ddfd-4dd1-8011-43d1fca62044")
 		)
@@ -14953,6 +15499,24 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C130114"
+			(at 276.86 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 276.86 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -15165,6 +15729,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C22787"
+			(at 276.86 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 276.86 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4b97027-a445-4e12-a0ef-ea56afc3f8d7")
 		)
@@ -15239,6 +15821,24 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C22787"
+			(at 259.08 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 259.08 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -15378,6 +15978,15 @@
 			)
 		)
 		(property "manf#" "TRT-3 (3)"
+			(at 22.86 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "STEREN"
 			(at 22.86 86.36 0)
 			(effects
 				(font
@@ -15607,6 +16216,15 @@
 			)
 		)
 		(property "manf#" "TRT-3(3)"
+			(at 280.67 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "STEREN"
 			(at 280.67 88.9 0)
 			(effects
 				(font
@@ -15900,11 +16518,29 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "MBR120VLSFT3G"
+		(property "manf#" ""
 			(at 69.85 30.48 0)
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C130880"
+			(at 69.85 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 69.85 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -16108,7 +16744,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "GRM188R61E106KA73J"
+		(property "manf#" ""
 			(at 132.08 105.41 0)
 			(effects
 				(font
@@ -16126,7 +16762,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "LCSC"
 			(at 132.08 105.41 0)
 			(effects
 				(font
@@ -16404,7 +17040,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 176.53 107.95 0)
 			(effects
 				(font
@@ -16422,7 +17058,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C478888 "
+		(property "LCSC#" "C15725"
 			(at 176.53 107.95 0)
 			(effects
 				(font
@@ -16431,7 +17067,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "LCSC"
 			(at 176.53 107.95 0)
 			(effects
 				(font
@@ -16780,6 +17416,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C90259"
+			(at 233.68 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 233.68 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ebdafdf9-fd28-48d4-8b2d-23b190a08a17")
 		)
@@ -16867,7 +17521,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TMK107BJ105KA8T"
+		(property "manf#" ""
 			(at 123.19 105.41 0)
 			(effects
 				(font
@@ -16885,7 +17539,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "LCSC"
 			(at 123.19 105.41 0)
 			(effects
 				(font
@@ -17044,7 +17698,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C182438"
+		(property "LCSC#" "C151139"
+			(at 45.72 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
 			(at 45.72 142.24 0)
 			(effects
 				(font
@@ -17187,7 +17850,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "GRM188R61E106KA73J"
+		(property "manf#" ""
 			(at 140.97 105.41 0)
 			(effects
 				(font
@@ -17205,7 +17868,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "LCSC"
 			(at 140.97 105.41 0)
 			(effects
 				(font
@@ -17263,7 +17926,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1810170519_PANASONIC-ERJ3RBD5101V_C191782.pdf"
+		(property "Datasheet" ""
 			(at 123.19 60.96 0)
 			(effects
 				(font
@@ -17281,7 +17944,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "ERJ-3GEYJ332V "
+		(property "manf#" ""
 			(at 123.19 60.96 0)
 			(effects
 				(font
@@ -17290,7 +17953,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C403480"
+		(property "LCSC#" ""
 			(at 123.19 60.96 0)
 			(effects
 				(font
@@ -17308,7 +17971,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" ""
 			(at 123.19 60.96 0)
 			(effects
 				(font
@@ -17387,7 +18050,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 199.39 109.22 0)
 			(effects
 				(font
@@ -17405,7 +18068,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C478888 "
+		(property "LCSC#" "C15725"
 			(at 199.39 109.22 0)
 			(effects
 				(font
@@ -17414,7 +18077,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "LCSC"
 			(at 199.39 109.22 0)
 			(effects
 				(font
@@ -17567,6 +18230,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C90259"
+			(at 236.22 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 236.22 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "49820ae5-e4ea-40e3-a658-464ca440211a")
 		)
@@ -17634,7 +18315,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1810170519_PANASONIC-ERJ3RBD5101V_C191782.pdf"
+		(property "Datasheet" ""
 			(at 48.26 147.32 0)
 			(effects
 				(font
@@ -17661,7 +18342,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C407575"
+		(property "LCSC#" "C122969"
 			(at 48.26 147.32 0)
 			(effects
 				(font
@@ -17671,6 +18352,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 48.26 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
 			(at 48.26 147.32 0)
 			(effects
 				(font
@@ -17796,7 +18486,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1811151133_Walsin-Tech-Corp-WR06X104JTL_C163843.pdf"
+		(property "Datasheet" ""
 			(at 167.64 101.6 0)
 			(effects
 				(font
@@ -17814,7 +18504,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RMC1/16K1002DTP"
+		(property "manf#" ""
 			(at 167.64 101.6 0)
 			(effects
 				(font
@@ -17823,7 +18513,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C217281"
+		(property "LCSC#" "C15401"
 			(at 167.64 101.6 0)
 			(effects
 				(font
@@ -17841,7 +18531,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB "
+		(property "Proveedor" "LCSC"
 			(at 167.64 101.6 0)
 			(effects
 				(font
@@ -17964,7 +18654,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1810170519_PANASONIC-ERJ3RBD5101V_C191782.pdf"
+		(property "Datasheet" ""
 			(at 48.26 149.86 0)
 			(effects
 				(font
@@ -17991,7 +18681,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C407575"
+		(property "LCSC#" "C122969"
 			(at 48.26 149.86 0)
 			(effects
 				(font
@@ -18001,6 +18691,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 48.26 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
 			(at 48.26 149.86 0)
 			(effects
 				(font
@@ -18173,7 +18872,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "BOOT"
 			(at 207.137 103.378 0)
 			(effects
 				(font
@@ -18190,7 +18889,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2205161616_E-Switch-TL3342F450QG_C2886897.pdf"
+		(property "Datasheet" ""
 			(at 199.39 101.6 0)
 			(effects
 				(font
@@ -18359,7 +19058,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+		(property "Datasheet" ""
 			(at 29.21 157.48 0)
 			(effects
 				(font
@@ -18369,6 +19068,24 @@
 			)
 		)
 		(property "Description" "USB 2.0-only Type-C Plug connector"
+			(at 25.4 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C393939"
+			(at 25.4 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
 			(at 25.4 157.48 0)
 			(effects
 				(font
@@ -18509,7 +19226,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "RESET"
 			(at 176.53 100.4824 0)
 			(effects
 				(font
@@ -18526,7 +19243,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2205161616_E-Switch-TL3342F450QG_C2886897.pdf"
+		(property "Datasheet" ""
 			(at 176.53 100.33 0)
 			(effects
 				(font
