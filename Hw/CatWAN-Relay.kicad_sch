@@ -9719,7 +9719,7 @@
 		)
 		(uuid "a9e6ecfc-95ff-4c2d-8ace-423dcba67783")
 	)
-	(label "Rx_LED"
+	(label "RX_LED"
 		(at 259.08 30.48 0)
 		(fields_autoplaced yes)
 		(effects
