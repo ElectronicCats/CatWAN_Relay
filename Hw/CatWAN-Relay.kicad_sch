@@ -10607,102 +10607,6 @@
 		)
 	)
 	(symbol
-		(lib_id "CatWAN-Relay-rescue:FM4007W-W-agroin-rescue")
-		(at 218.44 31.75 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005ae4d0c1")
-		(property "Reference" "D1"
-			(at 218.44 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "RS1M"
-			(at 218.44 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 218.44 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 218.44 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 218.44 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" ""
-			(at 223.52 34.29 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C513461"
-			(at 218.44 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Proveedor" "LCSC"
-			(at 218.44 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8dee80bb-50a6-40b2-8eab-c7d12e14677d")
-		)
-		(pin "2"
-			(uuid "88247102-87ad-4fc3-8b64-fd29eb7223b0")
-		)
-		(instances
-			(project ""
-				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
-					(reference "D1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "CatWAN-Relay-rescue:+3.3V-agroin-rescue")
 		(at 90.17 26.67 0)
 		(unit 1)
@@ -11136,7 +11040,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "RFM95W-915-868"
@@ -11252,7 +11155,7 @@
 	)
 	(symbol
 		(lib_id "CatWAN-Relay-rescue:LTV-817-agroin-rescue")
-		(at 86.36 68.58 0)
+		(at 86.36 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11260,15 +11163,15 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ae7b1c8")
 		(property "Reference" "U3"
-			(at 82.296 63.5 0)
+			(at 82.296 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "LTV-817"
-			(at 86.36 68.58 0)
+		(property "Value" "AT3H7C-CuH-S"
+			(at 86.36 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11276,8 +11179,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-4_W7.62mm_Socket"
-			(at 86.36 68.58 0)
+		(property "Footprint" "Package_SO:SOP-4_4.4x2.6mm_P1.27mm"
+			(at 86.36 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11286,7 +11189,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 86.36 71.12 0)
+			(at 86.36 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11296,7 +11199,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 86.36 68.58 0)
+			(at 86.36 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11304,8 +11207,8 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "LTV-817"
-			(at 86.36 68.58 0)
+		(property "manf#" "AT3H7C-CuH-S"
+			(at 86.36 104.14 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -11313,8 +11216,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" " C479627"
-			(at 86.36 68.58 0)
+		(property "LCSC#" "C20612661"
+			(at 86.36 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11323,7 +11226,7 @@
 			)
 		)
 		(property "Proveedor" "LCSC"
-			(at 86.36 68.58 0)
+			(at 86.36 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11938,6 +11841,14 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b04d0e8")
 		(property "Reference" "D2"
+			(at 216.154 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SOD4007-MS"
 			(at 218.44 82.55 0)
 			(effects
 				(font
@@ -11946,16 +11857,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "RS1M"
-			(at 218.44 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SMA"
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
 			(at 218.44 82.55 0)
 			(effects
 				(font
@@ -11991,7 +11893,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C513461"
+		(property "LCSC#" "C3008061"
 			(at 218.44 82.55 0)
 			(effects
 				(font
@@ -12277,102 +12179,6 @@
 			(project ""
 				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
 					(reference "Q3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "CatWAN-Relay-rescue:FM4007W-W-agroin-rescue")
-		(at 218.44 135.89 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005b04d68f")
-		(property "Reference" "D3"
-			(at 218.44 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "RS1M"
-			(at 218.44 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 218.44 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 218.44 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 218.44 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" ""
-			(at 223.52 138.43 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C513461"
-			(at 218.44 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Proveedor" "LCSC"
-			(at 218.44 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5d66381f-6926-4329-bd7a-1bbc3486cd15")
-		)
-		(pin "2"
-			(uuid "71d72e28-e776-4571-981c-c69559e4c397")
-		)
-		(instances
-			(project ""
-				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
-					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -13123,102 +12929,6 @@
 		)
 	)
 	(symbol
-		(lib_id "CatWAN-Relay-rescue:FM4007W-W-agroin-rescue")
-		(at 35.56 76.2 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005b06c8a9")
-		(property "Reference" "D4"
-			(at 35.56 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "RS1M"
-			(at 35.56 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 35.56 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 35.56 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 35.56 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" ""
-			(at 33.02 81.28 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C513461"
-			(at 35.56 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Proveedor" "LCSC"
-			(at 35.56 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "69b063ec-44a8-4141-9bdb-d8206a4a7b01")
-		)
-		(pin "2"
-			(uuid "0c23dd3e-9cce-4d76-ae38-79965ea9421d")
-		)
-		(instances
-			(project ""
-				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
-					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "CatWAN-Relay-rescue:Antenna_Shield-agroin-rescue")
 		(at 177.8 124.46 0)
 		(unit 1)
@@ -13374,108 +13084,6 @@
 			(project ""
 				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
 					(reference "#PWR028")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "CatWAN-Relay-rescue:LTV-817-agroin-rescue")
-		(at 86.36 104.14 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005b076e7e")
-		(property "Reference" "U4"
-			(at 82.804 98.806 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LTV-817"
-			(at 86.36 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Package_DIP:DIP-4_W7.62mm_Socket"
-			(at 86.36 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 86.36 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 86.36 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" "LTV-817"
-			(at 86.36 104.14 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" " C479627"
-			(at 86.36 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Proveedor" "LCSC"
-			(at 86.36 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ee3cf6b1-cb35-4377-8d73-38c28ecff49a")
-		)
-		(pin "2"
-			(uuid "46b1da92-e179-4703-889b-8bbbb18d493d")
-		)
-		(pin "3"
-			(uuid "f915edb4-b021-44f4-ae01-4a08f570719d")
-		)
-		(pin "4"
-			(uuid "fb7aa49a-725e-4deb-b790-efedd6b79512")
-		)
-		(instances
-			(project ""
-				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
-					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -13794,108 +13402,6 @@
 			(project ""
 				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
 					(reference "#PWR030")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "CatWAN-Relay-rescue:LTV-817-agroin-rescue")
-		(at 86.36 137.16 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005b076f98")
-		(property "Reference" "U5"
-			(at 82.55 131.572 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LTV-817"
-			(at 86.36 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Package_DIP:DIP-4_W7.62mm_Socket"
-			(at 86.36 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 86.36 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 86.36 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" "LTV-817"
-			(at 86.36 137.16 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" " C479627"
-			(at 86.36 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Proveedor" "LCSC"
-			(at 86.36 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bb95d3c1-c0a4-4485-ae09-bbaec185a7d6")
-		)
-		(pin "2"
-			(uuid "5410d5cb-cf87-4685-9562-5ad8acc00a11")
-		)
-		(pin "3"
-			(uuid "2d8a45a1-f02f-481d-8062-1ab16912e5a5")
-		)
-		(pin "4"
-			(uuid "fdb1638d-a820-4634-a301-92ebc6d6f2d5")
-		)
-		(instances
-			(project ""
-				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
-					(reference "U5")
 					(unit 1)
 				)
 			)
@@ -14299,7 +13805,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "LM2596_DC-DC"
@@ -14646,12 +14151,11 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b0ccd1f")
 		(property "Reference" "U7"
-			(at 78.74 170.18 0)
+			(at 78.74 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "AP2114H-3.3TRG1"
@@ -18556,6 +18060,101 @@
 		)
 	)
 	(symbol
+		(lib_id "CatWAN-Relay-rescue:FM4007W-W-agroin-rescue")
+		(at 218.44 135.89 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "68ea6348-58dc-44a1-97c3-dbf0489aa311")
+		(property "Reference" "D3"
+			(at 216.154 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SOD4007-MS"
+			(at 218.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
+			(at 218.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 218.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 218.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" ""
+			(at 223.52 138.43 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C3008061"
+			(at 218.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 218.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c47fbbc2-6c22-4b9f-a189-7e2ff686043b")
+		)
+		(pin "2"
+			(uuid "e57ff1e3-6bb4-4539-b9c9-a81230bff8ae")
+		)
+		(instances
+			(project "CatWAN-Relay"
+				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "CatWAN-Relay-rescue:+3.3V-agroin-rescue")
 		(at 129.54 30.48 0)
 		(unit 1)
@@ -18959,6 +18558,108 @@
 		)
 	)
 	(symbol
+		(lib_id "CatWAN-Relay-rescue:LTV-817-agroin-rescue")
+		(at 86.36 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b373d6d4-d4e0-4bb9-b23a-93ce56e400fd")
+		(property "Reference" "U1"
+			(at 82.296 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AT3H7C-CuH-S"
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Package_SO:SOP-4_4.4x2.6mm_P1.27mm"
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" "AT3H7C-CuH-S"
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C20612661"
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e13fb649-8099-4091-90bf-d513b9c455a1")
+		)
+		(pin "2"
+			(uuid "6228dd37-4d23-4d3f-8a5f-9a6c485f5ffc")
+		)
+		(pin "3"
+			(uuid "930f1d1a-0c38-4192-a752-2cde3e3aacad")
+		)
+		(pin "4"
+			(uuid "2ff29334-23c1-4ec9-94c5-5a4db253c3ca")
+		)
+		(instances
+			(project "CatWAN-Relay"
+				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
+					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "CatWAN-Relay-rescue:+3.3V-agroin-rescue")
 		(at 118.11 55.88 0)
 		(unit 1)
@@ -19307,6 +19008,298 @@
 			(project "CatWAN-Relay"
 				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
 					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "CatWAN-Relay-rescue:LTV-817-agroin-rescue")
+		(at 86.36 137.16 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "eb61edf2-a134-49ae-8c8f-f9c60f1cf2b3")
+		(property "Reference" "U4"
+			(at 82.296 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AT3H7C-CuH-S"
+			(at 86.36 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Package_SO:SOP-4_4.4x2.6mm_P1.27mm"
+			(at 86.36 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" "AT3H7C-CuH-S"
+			(at 86.36 137.16 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C20612661"
+			(at 86.36 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 86.36 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ab67ff38-e212-47cb-a466-51ea5608fce2")
+		)
+		(pin "2"
+			(uuid "a254b202-fd6f-4fcd-866d-c57fc562c1af")
+		)
+		(pin "3"
+			(uuid "0220004c-a0d5-4376-81a6-30fd84936232")
+		)
+		(pin "4"
+			(uuid "c1cb7222-a6b7-4297-966d-8b60b5e36f0b")
+		)
+		(instances
+			(project "CatWAN-Relay"
+				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
+					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "CatWAN-Relay-rescue:FM4007W-W-agroin-rescue")
+		(at 35.56 76.2 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ed54b6e3-bcba-4423-813b-c8d5a7d91f65")
+		(property "Reference" "D4"
+			(at 35.56 73.914 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SOD4007-MS"
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" ""
+			(at 33.02 81.28 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C3008061"
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7351a842-8833-42b2-82c5-a19848b163d0")
+		)
+		(pin "2"
+			(uuid "c187b30e-d3c5-450d-abaa-7576732e8411")
+		)
+		(instances
+			(project "CatWAN-Relay"
+				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
+					(reference "D4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "CatWAN-Relay-rescue:FM4007W-W-agroin-rescue")
+		(at 218.44 31.75 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fe1f0064-3f3c-4d82-ab43-1bf3033eb3ee")
+		(property "Reference" "D1"
+			(at 216.154 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SOD4007-MS"
+			(at 218.44 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
+			(at 218.44 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 218.44 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 218.44 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" ""
+			(at 223.52 34.29 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C3008061"
+			(at 218.44 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "LCSC"
+			(at 218.44 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5ef66ff7-ff84-4f2f-9efd-ae18dfa2df45")
+		)
+		(pin "2"
+			(uuid "a7dcea25-13d3-43a3-8ec9-280a4b27bdc3")
+		)
+		(instances
+			(project "CatWAN-Relay"
+				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
+					(reference "D1")
 					(unit 1)
 				)
 			)
