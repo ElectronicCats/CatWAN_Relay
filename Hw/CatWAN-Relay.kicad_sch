@@ -16811,7 +16811,7 @@
 				)
 			)
 		)
-		(property "Footprint" "agroin:XCVR_ESP32-C6-WROOM-1-N8"
+		(property "Footprint" "PCM_Espressif:ESP32-C6-WROOM-1U"
 			(at 146.812 11.684 0)
 			(effects
 				(font
