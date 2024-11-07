@@ -11035,7 +11035,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ae5452e")
 		(property "Reference" "U2"
-			(at 153.67 140.97 0)
+			(at 153.67 125.984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11078,7 +11078,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RFM95W"
+		(property "manf#" "RFM95W-915S2/RFM95W-868S2"
 			(at 153.67 140.97 0)
 			(effects
 				(font
@@ -15180,21 +15180,19 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b0d38e2")
 		(property "Reference" "R9"
-			(at 276.86 35.56 0)
+			(at 279.654 33.782 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "120R"
-			(at 276.86 35.56 0)
+			(at 280.162 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
@@ -15276,21 +15274,19 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005b0d3e93")
 		(property "Reference" "R11"
-			(at 259.08 36.83 0)
+			(at 262.382 34.798 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "120R"
-			(at 259.08 36.83 0)
+			(at 262.636 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
@@ -16324,7 +16320,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.espressif.com/sites/default/files/documentation/esp32-c6-wroom-1_wroom-1u_datasheet_en.pdf"
 			(at 159.512 35.814 0)
 			(effects
 				(font
@@ -16342,17 +16338,8 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "ESP32-C6-WROOM-1-N4"
+		(property "manf#" "ESP32-C6-WROOM-1U-N4"
 			(at 145.796 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "provedor" "MOUSER"
-			(at 144.78 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17855,15 +17842,6 @@
 				(hide yes)
 			)
 		)
-		(property "provedor" "LCSC"
-			(at 48.26 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Proveedor" "LCSC"
 			(at 48.26 147.32 0)
 			(effects
@@ -18281,15 +18259,6 @@
 			)
 		)
 		(property "LCSC#" "C122969"
-			(at 48.26 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "provedor" "LCSC"
 			(at 48.26 149.86 0)
 			(effects
 				(font
