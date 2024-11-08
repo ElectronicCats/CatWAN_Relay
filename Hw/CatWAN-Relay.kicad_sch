@@ -18448,7 +18448,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK"
 			(at 199.39 101.6 0)
 			(effects
 				(font
@@ -18475,7 +18475,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TL3342F160QG"
+		(property "manf#" ""
 			(at 199.39 106.68 0)
 			(effects
 				(font
@@ -18484,7 +18484,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C318889"
+		(property "LCSC#" "C455281"
 			(at 199.39 106.68 0)
 			(effects
 				(font
@@ -18502,7 +18502,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "LCSC"
 			(at 199.39 106.68 0)
 			(effects
 				(font
@@ -18904,7 +18904,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK"
 			(at 176.53 100.33 0)
 			(effects
 				(font
@@ -18931,7 +18931,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TL3342F160QG"
+		(property "manf#" ""
 			(at 176.53 105.41 0)
 			(effects
 				(font
@@ -18940,7 +18940,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C318889"
+		(property "LCSC#" "C455281"
 			(at 176.53 105.41 0)
 			(effects
 				(font
@@ -18958,7 +18958,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "LCSC"
 			(at 176.53 105.41 0)
 			(effects
 				(font
