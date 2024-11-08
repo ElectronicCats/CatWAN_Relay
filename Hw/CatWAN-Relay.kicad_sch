@@ -5981,6 +5981,12 @@
 		(uuid "761629ac-87ab-435e-b6d9-56b2b984deb2")
 	)
 	(junction
+		(at 83.82 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7acc2aef-40d2-4c7f-87b0-2f29117e9492")
+	)
+	(junction
 		(at 168.91 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6023,12 +6029,6 @@
 		(uuid "a277ecdf-305b-41d9-8dba-3552711a723b")
 	)
 	(junction
-		(at 87.63 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a592fb85-a4ef-486a-8180-0e57f41a1980")
-	)
-	(junction
 		(at 228.6 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6057,12 +6057,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "dccb5172-4909-42fd-9f81-12582bcfc1d7")
-	)
-	(junction
-		(at 81.28 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e055ecb5-b698-49d5-b9b3-5da9cb4bdd2e")
 	)
 	(junction
 		(at 193.04 106.68)
@@ -6680,6 +6674,16 @@
 	)
 	(wire
 		(pts
+			(xy 83.82 30.48) (xy 83.82 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3adf8ff9-01d4-4dd1-97f9-79373cf77a9f")
+	)
+	(wire
+		(pts
 			(xy 90.17 176.53) (xy 90.17 180.34)
 		)
 		(stroke
@@ -6907,16 +6911,6 @@
 			(type default)
 		)
 		(uuid "4da51c13-788f-4c41-9d5c-f2511e803590")
-	)
-	(wire
-		(pts
-			(xy 81.28 30.48) (xy 81.28 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4dfc543f-7b78-4c88-9059-03407af7d7ca")
 	)
 	(wire
 		(pts
@@ -7340,6 +7334,16 @@
 	)
 	(wire
 		(pts
+			(xy 88.9 30.48) (xy 83.82 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "782d390b-1ef3-452b-a574-b89756dcb024")
+	)
+	(wire
+		(pts
 			(xy 96.52 132.08) (xy 96.52 134.62)
 		)
 		(stroke
@@ -7410,7 +7414,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 40.64) (xy 81.28 39.37)
+			(xy 83.82 40.64) (xy 83.82 39.37)
 		)
 		(stroke
 			(width 0)
@@ -7477,16 +7481,6 @@
 			(type default)
 		)
 		(uuid "8101c259-6e8a-483e-98dd-9199cf797cb2")
-	)
-	(wire
-		(pts
-			(xy 80.01 30.48) (xy 81.28 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "81c5ed28-e623-4b07-8f10-cb29d637b070")
 	)
 	(wire
 		(pts
@@ -7810,16 +7804,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 30.48) (xy 90.17 26.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a35af0f1-c091-4067-b461-67f7ba8823e8")
-	)
-	(wire
-		(pts
 			(xy 171.45 148.59) (xy 175.26 148.59)
 		)
 		(stroke
@@ -7960,6 +7944,16 @@
 	)
 	(wire
 		(pts
+			(xy 81.28 30.48) (xy 83.82 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b421336b-4f2e-443e-8d7a-2b1ddf8f5d88")
+	)
+	(wire
+		(pts
 			(xy 64.77 30.48) (xy 66.04 30.48)
 		)
 		(stroke
@@ -7977,16 +7971,6 @@
 			(type default)
 		)
 		(uuid "b6b79839-2cd3-4567-8ce7-28cfee1c764f")
-	)
-	(wire
-		(pts
-			(xy 87.63 40.64) (xy 87.63 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b8ed914b-8478-4b76-883b-69f403299827")
 	)
 	(wire
 		(pts
@@ -8017,6 +8001,16 @@
 			(type default)
 		)
 		(uuid "bc927112-842c-42ea-81ff-afd5d450d10f")
+	)
+	(wire
+		(pts
+			(xy 88.9 30.48) (xy 88.9 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bcade0d7-111e-46d3-a5e7-ae5e752b6fc5")
 	)
 	(wire
 		(pts
@@ -8260,16 +8254,6 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 30.48) (xy 87.63 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d5fec40a-5f50-4e35-8026-5de428d25ec0")
-	)
-	(wire
-		(pts
 			(xy 182.88 105.41) (xy 182.88 107.95)
 		)
 		(stroke
@@ -8337,16 +8321,6 @@
 			(type default)
 		)
 		(uuid "ddbfd752-a97c-43ce-9b42-66277cbc741c")
-	)
-	(wire
-		(pts
-			(xy 87.63 30.48) (xy 90.17 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dde1235c-c349-4e7f-b175-03a8c276662a")
 	)
 	(wire
 		(pts
@@ -8560,16 +8534,6 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 30.48) (xy 87.63 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f3f332a0-da05-4e1a-ba35-d8d310a91696")
-	)
-	(wire
-		(pts
 			(xy 36.83 34.29) (xy 40.386 34.29)
 		)
 		(stroke
@@ -8600,7 +8564,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 30.48) (xy 74.93 30.48)
+			(xy 73.66 30.48) (xy 76.2 30.48)
 		)
 		(stroke
 			(width 0)
@@ -10039,100 +10003,6 @@
 		(uuid "fe3a537a-224a-4fd9-b421-fa18631ab9b8")
 	)
 	(symbol
-		(lib_id "CatWAN-Relay-rescue:C-agroin-rescue")
-		(at 87.63 35.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005ae4c7d8")
-		(property "Reference" "C1"
-			(at 93.218 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 93.218 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 87.63 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 87.63 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 87.63 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" ""
-			(at 87.63 35.56 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C15725"
-			(at 87.63 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Proveedor" "LCSC"
-			(at 87.63 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "28a99420-1cd9-4f58-bd78-92e79bc69101")
-		)
-		(pin "2"
-			(uuid "34d5ede7-0eec-48d0-8e92-89023d307254")
-		)
-		(instances
-			(project ""
-				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "CatWAN-Relay-rescue:GND-agroin-rescue")
 		(at 67.31 35.56 0)
 		(unit 1)
@@ -10192,71 +10062,6 @@
 			(project ""
 				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
 					(reference "#PWR03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "CatWAN-Relay-rescue:GND-agroin-rescue")
-		(at 87.63 40.64 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005ae4c92e")
-		(property "Reference" "#PWR04"
-			(at 87.63 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 87.63 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 87.63 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 87.63 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 87.63 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6356515c-f75d-4090-b2dc-39b541e3cc12")
-		)
-		(instances
-			(project ""
-				(path "/5056a329-97a4-44e1-87f9-409d83bc2ae6"
-					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -10363,7 +10168,7 @@
 	)
 	(symbol
 		(lib_id "CatWAN-Relay-rescue:CP1-agroin-rescue")
-		(at 81.28 35.56 0)
+		(at 83.82 35.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10371,7 +10176,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ae4c9d7")
 		(property "Reference" "C2"
-			(at 75.946 34.798 0)
+			(at 78.486 34.798 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10379,7 +10184,7 @@
 			)
 		)
 		(property "Value" "470uF"
-			(at 75.946 37.338 0)
+			(at 78.486 37.338 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10387,7 +10192,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_Elec_6.3x7.7"
-			(at 81.28 35.56 0)
+			(at 83.82 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10396,7 +10201,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 81.28 35.56 0)
+			(at 83.82 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10405,7 +10210,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 81.28 35.56 0)
+			(at 83.82 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10414,7 +10219,7 @@
 			)
 		)
 		(property "manf#" ""
-			(at 81.28 35.56 0)
+			(at 83.82 35.56 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10423,7 +10228,7 @@
 			)
 		)
 		(property "LCSC#" "C5354997"
-			(at 81.28 35.56 0)
+			(at 83.82 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10432,7 +10237,7 @@
 			)
 		)
 		(property "Proveedor" "LCSC"
-			(at 81.28 35.56 0)
+			(at 83.82 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10457,7 +10262,7 @@
 	)
 	(symbol
 		(lib_id "CatWAN-Relay-rescue:GND-agroin-rescue")
-		(at 81.28 40.64 0)
+		(at 83.82 40.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10465,7 +10270,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ae4cb95")
 		(property "Reference" "#PWR05"
-			(at 81.28 46.99 0)
+			(at 83.82 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10474,7 +10279,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 81.28 44.45 0)
+			(at 83.82 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10482,7 +10287,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 81.28 40.64 0)
+			(at 83.82 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10491,7 +10296,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 81.28 40.64 0)
+			(at 83.82 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10500,7 +10305,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 81.28 40.64 0)
+			(at 83.82 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10522,7 +10327,7 @@
 	)
 	(symbol
 		(lib_id "CatWAN-Relay-rescue:Jumper_NC_Small-agroin-rescue")
-		(at 77.47 30.48 0)
+		(at 78.74 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10530,7 +10335,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ae4cd32")
 		(property "Reference" "JP1"
-			(at 77.47 27.94 0)
+			(at 78.74 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10538,7 +10343,7 @@
 			)
 		)
 		(property "Value" "ADJ"
-			(at 77.47 30.48 0)
+			(at 78.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10547,7 +10352,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 77.47 30.48 0)
+			(at 78.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10556,7 +10361,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 30.48 0)
+			(at 78.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10565,7 +10370,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 77.47 30.48 0)
+			(at 78.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10574,7 +10379,7 @@
 			)
 		)
 		(property "Proveedor" "STEREN"
-			(at 77.47 30.48 0)
+			(at 78.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10583,7 +10388,7 @@
 			)
 		)
 		(property "manf#" "PINES"
-			(at 77.47 30.48 0)
+			(at 78.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10608,7 +10413,7 @@
 	)
 	(symbol
 		(lib_id "CatWAN-Relay-rescue:+3.3V-agroin-rescue")
-		(at 90.17 26.67 0)
+		(at 88.9 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10616,7 +10421,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ae4d348")
 		(property "Reference" "#PWR06"
-			(at 90.17 30.48 0)
+			(at 88.9 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10625,7 +10430,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 90.17 23.114 0)
+			(at 88.9 24.384 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10633,7 +10438,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 26.67 0)
+			(at 88.9 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10642,7 +10447,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 26.67 0)
+			(at 88.9 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10651,7 +10456,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 90.17 26.67 0)
+			(at 88.9 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
