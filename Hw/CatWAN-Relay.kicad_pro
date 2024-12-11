@@ -550,15 +550,15 @@
         "pattern": "/COM3"
       },
       {
-        "netclass": "Vcc+",
+        "netclass": "usb",
         "pattern": "/IA2"
       },
       {
-        "netclass": "Vcc+",
+        "netclass": "usb",
         "pattern": "/IB2"
       },
       {
-        "netclass": "Vcc+",
+        "netclass": "usb",
         "pattern": "/IC2"
       },
       {
