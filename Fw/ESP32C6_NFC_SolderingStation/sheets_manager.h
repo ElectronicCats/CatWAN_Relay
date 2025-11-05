@@ -8,8 +8,8 @@
 
 struct EventData {
     String timestamp;
+    String deviceId;    // Identificador único del dispositivo
     String cardUID;
-    String userName;
     String action;      // "ENCENDER" o "APAGAR"
     String status;      // "EXITO" o "FALLO"
     int relayIndex;

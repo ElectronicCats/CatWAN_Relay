@@ -31,6 +31,13 @@
 #define NFC_DEBOUNCE_TIME   2000  // ms para evitar lectura repetida
 
 // ============================================
+// Identificador del Dispositivo
+// ============================================
+// Identificador único del dispositivo (cambiar para cada dispositivo)
+// Ejemplos: ESTACION1, ESTACION2, ESTACION3
+#define DEVICE_ID               "ESTACION1"  // Cambiar para cada dispositivo
+
+// ============================================
 // Configuración de Google Sheets / n8n
 // ============================================
 // Opción 1: Google Apps Script Web App

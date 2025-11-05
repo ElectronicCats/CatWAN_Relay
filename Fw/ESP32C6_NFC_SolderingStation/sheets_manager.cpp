@@ -39,8 +39,8 @@ String SheetsManager::createJSONPayload(EventData event) {
     StaticJsonDocument<JSON_BUFFER_SIZE> doc;
     
     doc["ts"] = event.timestamp;
+    doc["dev"] = event.deviceId;    // Device ID
     doc["uid"] = event.cardUID;
-    doc["usr"] = event.userName;
     doc["act"] = event.action;
     doc["st"] = event.status;
     doc["rel"] = event.relayIndex;

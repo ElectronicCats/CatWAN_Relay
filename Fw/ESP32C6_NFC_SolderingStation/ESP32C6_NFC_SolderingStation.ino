@@ -230,8 +230,8 @@ void processNFC() {
                 // Registrar intento fallido
                 EventData event;
                 event.timestamp = "";
+                event.deviceId = String(DEVICE_ID);
                 event.cardUID = uid;
-                event.userName = "DESCONOCIDO";
                 event.action = "ACCESO DENEGADO";
                 event.status = "FALLO";
                 event.relayIndex = -1;
@@ -269,8 +269,8 @@ void toggleSolderingIron(int relayIndex, String cardUID) {
     // Preparar evento para logging
     EventData event;
     event.timestamp = "";
+    event.deviceId = String(DEVICE_ID);  // Identificador único del dispositivo
     event.cardUID = cardUID;
-    event.userName = "Usuario"; // Se puede obtener de Google Sheets si está configurado
     event.action = action;
     event.status = "EXITO";
     event.relayIndex = relayIndex;
@@ -428,6 +428,9 @@ void printHelp() {
 
 void printStatus() {
     Serial.println("\n=== Estado del Sistema ===");
+    Serial.print("Device ID: ");
+    Serial.println(DEVICE_ID);
+    
     Serial.print("WiFi: ");
     Serial.println(WiFi.status() == WL_CONNECTED ? "Conectado" : "Desconectado");
     if (WiFi.status() == WL_CONNECTED) {
