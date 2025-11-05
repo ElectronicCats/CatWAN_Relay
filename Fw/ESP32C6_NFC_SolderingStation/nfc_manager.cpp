@@ -1,9 +1,8 @@
 #include "nfc_manager.h"
 
 NFCManager::NFCManager() : initialized(false), lastScanTime(0), lastUID(""), lastUIDTime(0) {
-    // Para I2C, usar constructor con IRQ y RESET (no SDA/SCL)
-    // Si IRQ y RESET no están conectados, usar -1
-    nfc = new Adafruit_PN532(PN532_IRQ, PN532_RESET);
+    // Para I2C, usar constructor con IRQ y RESET en -1 (no conectados)
+    nfc = new Adafruit_PN532(-1, -1);
 }
 
 NFCManager::~NFCManager() {
@@ -13,13 +12,9 @@ NFCManager::~NFCManager() {
 }
 
 bool NFCManager::begin() {
-    // Inicializar I2C con los pines específicos para ESP32-C6
-    // Si no se especifican pines, usar los pines por defecto del ESP32-C6
-    #if PN532_SDA != -1 && PN532_SCL != -1
-    Wire.begin(PN532_SDA, PN532_SCL);
-    #else
-    Wire.begin(); // Usar pines por defecto
-    #endif
+    // Inicializar I2C con pines por defecto del ESP32-C6
+    Wire.begin();
+    delay(100); // Dar tiempo para estabilización
     
     // Inicializar PN532 con I2C
     // El begin() de Adafruit_PN532 detectará automáticamente I2C

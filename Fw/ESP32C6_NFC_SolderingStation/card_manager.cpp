@@ -3,6 +3,7 @@
 CardManager::CardManager() : cardCount(0), initialized(false) {
     for (int i = 0; i < MAX_AUTHORIZED_CARDS; i++) {
         authorizedCards[i] = "";
+        cardRelays[i] = -1; // -1 = no asignado
     }
 }
 
@@ -50,7 +51,19 @@ bool CardManager::loadCardsFromSPIFFS() {
         String line = file.readStringUntil('\n');
         line.trim();
         if (line.length() > 0) {
-            authorizedCards[cardCount] = line;
+            // Formato: UID o UID:relé (ej: "04A5B6C7D8" o "04A5B6C7D8:0")
+            int colonIndex = line.indexOf(':');
+            if (colonIndex > 0) {
+                // Formato con relé asignado
+                authorizedCards[cardCount] = line.substring(0, colonIndex);
+                authorizedCards[cardCount].toUpperCase();
+                cardRelays[cardCount] = line.substring(colonIndex + 1).toInt();
+            } else {
+                // Formato sin asignación (solo UID)
+                authorizedCards[cardCount] = line;
+                authorizedCards[cardCount].toUpperCase();
+                cardRelays[cardCount] = -1; // No asignado
+            }
             cardCount++;
         }
     }
@@ -69,7 +82,14 @@ bool CardManager::saveCardsToSPIFFS() {
     }
     
     for (int i = 0; i < cardCount; i++) {
-        file.println(authorizedCards[i]);
+        // Guardar en formato: UID:relé (si tiene asignación) o solo UID (si no tiene)
+        if (cardRelays[i] >= 0) {
+            file.print(authorizedCards[i]);
+            file.print(':');
+            file.println(cardRelays[i]);
+        } else {
+            file.println(authorizedCards[i]);
+        }
     }
     
     file.close();
@@ -112,6 +132,7 @@ bool CardManager::addCard(String uid) {
     }
     
     authorizedCards[cardCount] = uid;
+    cardRelays[cardCount] = -1; // Sin asignación por defecto
     cardCount++;
     
     if (saveCardsToSPIFFS()) {
@@ -139,9 +160,11 @@ bool CardManager::removeCard(String uid) {
     // Mover todas las tarjetas después del índice hacia arriba
     for (int i = index; i < cardCount - 1; i++) {
         authorizedCards[i] = authorizedCards[i + 1];
+        cardRelays[i] = cardRelays[i + 1];
     }
     cardCount--;
     authorizedCards[cardCount] = "";
+    cardRelays[cardCount] = -1;
     
     if (saveCardsToSPIFFS()) {
         #if DEBUG_SERIAL
@@ -169,7 +192,14 @@ void CardManager::listCards() {
     for (int i = 0; i < cardCount; i++) {
         Serial.print(i + 1);
         Serial.print(": ");
-        Serial.println(authorizedCards[i]);
+        Serial.print(authorizedCards[i]);
+        if (cardRelays[i] >= 0) {
+            Serial.print(" -> Relé ");
+            Serial.print(cardRelays[i] + 1);
+        } else {
+            Serial.print(" -> Sin asignación");
+        }
+        Serial.println();
     }
     Serial.print("Total: ");
     Serial.println(cardCount);
@@ -179,6 +209,7 @@ void CardManager::clearAllCards() {
     cardCount = 0;
     for (int i = 0; i < MAX_AUTHORIZED_CARDS; i++) {
         authorizedCards[i] = "";
+        cardRelays[i] = -1;
     }
     saveCardsToSPIFFS();
     #if DEBUG_SERIAL
@@ -191,5 +222,68 @@ String CardManager::getCardAt(int index) {
         return authorizedCards[index];
     }
     return "";
+}
+
+bool CardManager::assignCardToRelay(String uid, int relayIndex) {
+    uid.toUpperCase();
+    int index = findCardIndex(uid);
+    
+    if (index < 0) {
+        #if DEBUG_SERIAL
+        Serial.println("Tarjeta no encontrada");
+        #endif
+        return false;
+    }
+    
+    if (relayIndex < 0 || relayIndex >= MAX_RELAYS) {
+        #if DEBUG_SERIAL
+        Serial.println("Relé inválido (0-");
+        Serial.print(MAX_RELAYS - 1);
+        Serial.println(")");
+        #endif
+        return false;
+    }
+    
+    cardRelays[index] = relayIndex;
+    
+    if (saveCardsToSPIFFS()) {
+        #if DEBUG_SERIAL
+        Serial.print("Tarjeta ");
+        Serial.print(uid);
+        Serial.print(" asignada a Relé ");
+        Serial.println(relayIndex + 1);
+        #endif
+        return true;
+    }
+    
+    return false;
+}
+
+int CardManager::getCardRelay(String uid) {
+    uid.toUpperCase();
+    int index = findCardIndex(uid);
+    
+    if (index < 0) {
+        return -1; // Tarjeta no encontrada
+    }
+    
+    return cardRelays[index]; // Retorna el índice del relé (-1 si no tiene asignación)
+}
+
+void CardManager::listAssignments() {
+    if (cardCount == 0) {
+        Serial.println("No hay asignaciones");
+        return;
+    }
+    
+    Serial.println("=== Asignaciones ===");
+    for (int i = 0; i < cardCount; i++) {
+        if (cardRelays[i] >= 0) {
+            Serial.print("Tarjeta: ");
+            Serial.print(authorizedCards[i]);
+            Serial.print(" -> Cautín ");
+            Serial.println(cardRelays[i] + 1);
+        }
+    }
 }
 

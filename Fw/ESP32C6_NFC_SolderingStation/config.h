@@ -6,21 +6,17 @@
 // ============================================
 
 // Pines para PN532 (I2C)
-#define PN532_SDA     6   // GPIO 8 - I2C Data
-#define PN532_SCL     7   // GPIO 9 - I2C Clock
-#define PN532_IRQ     -1  // GPIO 10 - Interrupt (opcional)
-#define PN532_RESET   -1  // GPIO 11 - Reset (opcional)
+//#define PN532_SDA     6   // GPIO 6 - I2C Data
+//#define PN532_SCL     7   // GPIO 7 - I2C Clock
 
 // Pines para Relés (múltiples cautines soportados)
-#define RELAY_1      8  // GPIO 12 - Relé Cautín 1
-#define RELAY_2       10  // GPIO 13 - Relé Cautín 2
-#define RELAY_3       1  // GPIO 14 - Relé Cautín 3
+#define RELAY_1      8  // GPIO 8 - Relé Cautín 1
+#define RELAY_2      10  // GPIO 10 - Relé Cautín 2
+#define RELAY_3      1  // GPIO 1 - Relé Cautín 3
 #define MAX_RELAYS    3   // Número máximo de relés
 
 // Pines para Feedback
-#define LED_GREEN     11  // GPIO 15 - LED Verde (éxito)
-#define LED_RED       -1  // GPIO 16 - LED Rojo (error)
-#define BUZZER        -1  // GPIO 17 - Buzzer
+#define LED_GREEN     11  // GPIO 11 - LED Verde (éxito)
 
 // ============================================
 // Configuración de WiFi
@@ -77,6 +73,8 @@
 #define CMD_ADD_CARD      "ADD_CARD"
 #define CMD_REMOVE_CARD   "REMOVE_CARD"
 #define CMD_LIST_CARDS    "LIST_CARDS"
+#define CMD_ASSIGN_CARD   "ASSIGN_CARD"
+#define CMD_LIST_ASSIGN   "LIST_ASSIGN"
 #define CMD_TEST_RELAY    "TEST_RELAY"
 #define CMD_STATUS        "STATUS"
 #define CMD_CLEAR_CARDS   "CLEAR_CARDS"

@@ -9,6 +9,7 @@
 class CardManager {
 private:
     String authorizedCards[MAX_AUTHORIZED_CARDS];
+    int cardRelays[MAX_AUTHORIZED_CARDS]; // Asignación de relé para cada tarjeta (-1 = no asignado)
     int cardCount;
     bool initialized;
     
@@ -26,6 +27,11 @@ public:
     void clearAllCards();
     int getCardCount() { return cardCount; }
     String getCardAt(int index);
+    
+    // Funciones para asignación tarjeta-relé
+    bool assignCardToRelay(String uid, int relayIndex);
+    int getCardRelay(String uid); // Retorna el índice del relé asignado (-1 si no tiene asignación)
+    void listAssignments(); // Listar todas las asignaciones
 };
 
 #endif // CARD_MANAGER_H

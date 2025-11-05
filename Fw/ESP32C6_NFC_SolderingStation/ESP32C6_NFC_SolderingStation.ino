@@ -110,9 +110,6 @@ void setup() {
 }
 
 void loop() {
-    // Actualizar feedback (buzzer timers)
-    feedbackManager.update();
-    
     // Verificar timeout de seguridad
     relayManager.checkSafetyTimeout();
     
@@ -210,8 +207,19 @@ void processNFC() {
                 #endif
                 feedbackManager.showSuccess();
                 
-                // Toggle del cautín (encender/apagar)
-                toggleSolderingIron(currentRelayIndex, uid);
+                // Obtener el relé asignado a esta tarjeta
+                int assignedRelay = cardManager.getCardRelay(uid);
+                
+                // Si la tarjeta no tiene asignación, usar el relé por defecto (0)
+                if (assignedRelay < 0) {
+                    assignedRelay = currentRelayIndex; // Usar relé por defecto
+                    #if DEBUG_SERIAL
+                    Serial.println("Tarjeta sin asignación, usando relé por defecto");
+                    #endif
+                }
+                
+                // Toggle del cautín asignado (encender/apagar)
+                toggleSolderingIron(assignedRelay, uid);
                 
             } else {
                 #if DEBUG_SERIAL
@@ -300,6 +308,33 @@ void handleSerialCommands() {
     } else if (command == CMD_LIST_CARDS) {
         cardManager.listCards();
         
+    } else if (command == CMD_LIST_ASSIGN) {
+        cardManager.listAssignments();
+        
+    } else if (command.startsWith(CMD_ASSIGN_CARD)) {
+        // Formato: ASSIGN_CARD <UID> <relay_index>
+        // Ejemplo: ASSIGN_CARD 04A5B6C7D8 0
+        int space1 = command.indexOf(' ');
+        if (space1 > 0) {
+            int space2 = command.indexOf(' ', space1 + 1);
+            if (space2 > 0) {
+                String uid = command.substring(space1 + 1, space2);
+                uid.trim();
+                uid.toUpperCase();
+                int relayIndex = command.substring(space2 + 1).toInt();
+                
+                if (cardManager.assignCardToRelay(uid, relayIndex)) {
+                    Serial.println("Asignación exitosa");
+                }
+            } else {
+                Serial.println("Formato: ASSIGN_CARD <UID> <relay_index>");
+                Serial.println("Ejemplo: ASSIGN_CARD 04A5B6C7D8 0");
+            }
+        } else {
+            Serial.println("Formato: ASSIGN_CARD <UID> <relay_index>");
+            Serial.println("Índices de relé: 0, 1, 2 (Cautín 1, 2, 3)");
+        }
+        
     } else if (command.startsWith(CMD_ADD_CARD)) {
         // Formato: ADD_CARD <UID> o ADD_CARD (sin UID para leer automáticamente)
         int spaceIndex = command.indexOf(' ');
@@ -381,6 +416,10 @@ void printHelp() {
     Serial.println("LIST_CARDS        - Listar tarjetas autorizadas");
     Serial.println("ADD_CARD          - Agregar tarjeta (coloca tarjeta NFC)");
     Serial.println("ADD_CARD <UID>    - Agregar tarjeta con UID manual");
+    Serial.println("ASSIGN_CARD <UID> <relay> - Asignar tarjeta a cautín");
+    Serial.println("  Ejemplo: ASSIGN_CARD 04A5B6C7D8 0");
+    Serial.println("  Relés: 0=Cautín1, 1=Cautín2, 2=Cautín3");
+    Serial.println("LIST_ASSIGN       - Listar asignaciones tarjeta-cautín");
     Serial.println("REMOVE_CARD <UID> - Remover tarjeta autorizada");
     Serial.println("CLEAR_CARDS       - Eliminar todas las tarjetas");
     Serial.println("TEST_RELAY <i> <ON|OFF> - Probar relé");
