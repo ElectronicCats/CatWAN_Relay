@@ -4,44 +4,100 @@
 
 Sistema de control de cautines mediante autenticación NFC MIFARE S50 para ESP32-C6. Permite controlar el encendido y apagado de cautines solo con tarjetas NFC autorizadas, registrando todos los eventos en Google Sheets o n8n. Soporta múltiples dispositivos con identificadores únicos.
 
+Incluye **feedback visual avanzado mediante pantalla OLED**, mostrando estados del sistema, conexión WiFi, eventos NFC y errores.
+
 ## Características
 
-- ✅ Autenticación NFC MIFARE S50
-- ✅ Control de múltiples cautines (hasta 3 relés por dispositivo)
-- ✅ Gestión de tarjetas autorizadas (almacenamiento local SPIFFS)
-- ✅ Asignación manual de tarjetas a relés específicos
-- ✅ Identificador único de dispositivo (Device ID)
-- ✅ Registro de eventos en Google Sheets o n8n
-- ✅ WiFi Manager con captive portal para configuración
-- ✅ Feedback visual (LED verde)
-- ✅ Sistema de seguridad con timeout automático (2 horas)
-- ✅ Comandos seriales para gestión y debug
+Este proyecto está diseñado como un sistema industrial ligero, robusto y escalable para el control de cautines mediante autenticación NFC. A continuación se describen las características de forma más detallada:
+
+* ✅ **Autenticación NFC MIFARE S50**
+  El sistema valida tarjetas NFC autorizadas usando su UID. Las tarjetas no autorizadas son rechazadas y el evento queda registrado.
+
+* ✅ **Control de múltiples cautines (hasta 3 relés por dispositivo)**
+  Cada tarjeta puede estar asociada a un relé específico o usar un relé por defecto. Esto permite que un solo dispositivo controle varias estaciones.
+
+* ✅ **Gestión persistente de tarjetas autorizadas (SPIFFS)**
+  Las tarjetas y asignaciones se almacenan en memoria flash, por lo que no se pierden al reiniciar el equipo.
+
+* ✅ **Asignación manual de tarjetas a relés**
+  Mediante comandos seriales es posible asignar una tarjeta a un cautín específico.
+
+* ✅ **Identificador único de dispositivo (Device ID)**
+  Cada ESP32 tiene un identificador único configurable que permite distinguir eventos cuando se usan múltiples estaciones.
+
+* ✅ **Registro de eventos en Google Sheets o n8n**
+  Todos los eventos (éxito, fallo, encendido, apagado, timeout) se envían vía HTTP en formato JSON.
+
+* ✅ **WiFiManager con Captive Portal**
+  Permite configurar WiFi y la URL de n8n sin recompilar el firmware.
+
+* ✅ **Feedback visual mediante OLED y LED**
+  La pantalla OLED muestra el estado del sistema (bienvenida, esperando tarjeta, tarjeta válida, errores, timeout).
+
+* ✅ **Sistema de seguridad con timeout automático**
+  Si un cautín permanece encendido más del tiempo configurado, se apaga automáticamente.
+
+* ✅ **Comandos seriales para gestión y debug**
+  Permite mantenimiento y diagnóstico sin necesidad de reprogramar el equipo.
+
+* ✅ Autenticación NFC MIFARE S50
+
+* ✅ Control de múltiples cautines (hasta 3 relés por dispositivo)
+
+* ✅ Gestión de tarjetas autorizadas (almacenamiento local SPIFFS)
+
+* ✅ Asignación manual de tarjetas a relés específicos
+
+* ✅ Identificador único de dispositivo (Device ID)
+
+* ✅ Registro de eventos en Google Sheets o n8n
+
+* ✅ WiFi Manager con captive portal para configuración
+
+* ✅ Feedback visual por **pantalla OLED (I2C)**
+
+* ✅ Feedback visual por LED verde
+
+* ✅ Sistema de seguridad con timeout automático (2 horas)
+
+* ✅ Comandos seriales para gestión y debug
 
 ## Hardware Requerido
 
-- **ESP32-C6** - Microcontrolador con WiFi
-- **PN532** - Módulo NFC (I2C)
-- **Relé/es** - Para controlar cautín/es (hasta 3 por dispositivo)
-- **LED Verde** - Feedback de éxito
-- **Fuente de alimentación** - 5V o 3.3V según requerimientos
+* **ESP32-C6** - Microcontrolador con WiFi
+* **PN532** - Módulo NFC (I2C)
+* **Pantalla OLED** - SSD1306 / SH1106 (I2C)
+* **Relé/es** - Para controlar cautín/es (hasta 3 por dispositivo)
+* **LED Verde** - Feedback de éxito
+* **Fuente de alimentación** - 5V o 3.3V según requerimientos
 
 ## Conexiones Hardware
 
 ### PN532 (I2C)
-- VCC → 3.3V
-- GND → GND
-- SDA → I2C Data (pines por defecto del ESP32-C6)
-- SCL → I2C Clock (pines por defecto del ESP32-C6)
 
-**Nota:** El PN532 se conecta por I2C sin necesidad de especificar pines SDA/SCL explícitos.
+* VCC → 3.3V
+* GND → GND
+* SDA → I2C Data (pines por defecto del ESP32-C6)
+* SCL → I2C Clock (pines por defecto del ESP32-C6)
+
+### Pantalla OLED (I2C)
+
+* VCC → 3.3V
+* GND → GND
+* SDA → I2C Data
+* SCL → I2C Clock
+
+**Nota:** El PN532 y la OLED comparten el bus I2C.
 
 ### Relés
-- RELAY_1 → GPIO 8 (Cautín 1)
-- RELAY_2 → GPIO 10 (Cautín 2)
-- RELAY_3 → GPIO 1 (Cautín 3)
+
+* RELAY_1 → GPIO 8 (Cautín 1)
+* RELAY_2 → GPIO 10 (Cautín 2)
+* RELAY_3 → GPIO 1 (Cautín 3)
 
 ### Feedback
-- LED_GREEN → GPIO 11 (Feedback de éxito)
+
+* LED_GREEN → GPIO 11
 
 **Nota:** Los pines son configurables en `config.h`
 
@@ -51,362 +107,312 @@ Sistema de control de cautines mediante autenticación NFC MIFARE S50 para ESP32
 
 Instala las siguientes librerías desde el Arduino Library Manager:
 
-- **Adafruit PN532** - Para comunicación NFC
-- **WiFiManager** - Para gestión de WiFi
-- **ArduinoJson** - Para parsing JSON
-- **SPIFFS** - Sistema de archivos (incluida en ESP32)
+* **Adafruit PN532** – Comunicación NFC
+* **WiFiManager** – Gestión de WiFi
+* **ArduinoJson** – Parsing de JSON
+* **Adafruit SSD1306** – Control de pantalla OLED
+* **Adafruit GFX Library** – Gráficos para OLED
+* **SPIFFS** – Sistema de archivos (incluido en ESP32)
 
-### 2. Configuración
+### 2. Archivos Nuevos Añadidos
+
+El proyecto incluye un gestor dedicado para la pantalla OLED:
+
+```
+/oledManager.h
+/oledManager.cpp
+```
+
+**Funciones principales de `oledManager`:**
+
+* Inicialización de la pantalla
+* Mensajes de estado (boot, WiFi, NFC)
+* Visualización de UID
+* Mensajes de éxito / error
+* Indicadores de envío HTTP
+
+### 3. Configuración
 
 1. Abre `config.h` y configura:
-   - **Device ID:** Cambia `DEVICE_ID` a `"ESTACION1"`, `"ESTACION2"`, `"ESTACION3"`, etc. según el dispositivo
-   - Pines del hardware (si son diferentes)
-   - URLs de Google Sheets o n8n
-   - Configuraciones de seguridad
 
-2. **Importante:** Para cada dispositivo físico, cambia el `DEVICE_ID` en `config.h`:
-   ```cpp
-   #define DEVICE_ID "ESTACION1"  // Para el primer dispositivo
-   #define DEVICE_ID "ESTACION2"  // Para el segundo dispositivo
-   #define DEVICE_ID "ESTACION3"  // Para el tercer dispositivo
-   ```
+   * `DEVICE_ID`
+   * Pines de relés y LED
+   * URL de Google Sheets o n8n
+   * Parámetros de seguridad
 
-3. Para Google Sheets:
-   - Configura `GOOGLE_SCRIPT_URL` con la URL de tu Web App
-   - Configura `USE_GOOGLE_APPS_SCRIPT` en `true`
-   - Lee la sección "Configuración de Google Sheets" más abajo
+2. Configura el tipo de backend:
 
-4. Para n8n:
-   - Configura `N8N_WEBHOOK_URL` con la URL de tu webhook
-   - Configura `USE_N8N` en `true`
+```cpp
+#define USE_GOOGLE_APPS_SCRIPT false
+#define USE_N8N true
+```
 
-### 3. Compilación y Carga
+3. Configura la URL del webhook de n8n:
 
-1. Selecciona la placa: **ESP32-C6 Dev Module**
-2. Selecciona el puerto COM correcto
-3. Compila y carga el firmware
-4. **Repite para cada dispositivo** cambiando el `DEVICE_ID` antes de compilar
+```cpp
+#define N8N_WEBHOOK_URL "https://tu-n8n/webhook/catwan"
+```
+
+## Documentación de Funciones Principales
+
+### setup()
+
+Función de inicialización del sistema. Se ejecuta una sola vez al encender el dispositivo.
+
+Responsabilidades:
+
+* Inicializar comunicación serial
+* Montar SPIFFS
+* Configurar WiFi mediante WiFiManager
+* Inicializar PN532
+* Inicializar pantalla OLED
+* Mostrar mensaje de bienvenida
+
+---
+
+### loop()
+
+Función principal de ejecución continua.
+
+Responsabilidades:
+
+* Verificar conexión WiFi
+* Revisar si el sistema está listo
+* Mostrar estado "Esperando tarjeta" en OLED
+* Detectar tarjetas NFC
+* Procesar lógica de autorización
+* Controlar relés
+* Enviar eventos HTTP
+* Manejar timeouts
+
+---
+
+### NFCManager::begin()
+
+Inicializa el módulo PN532 y verifica que esté correctamente conectado por I2C.
+
+### NFCManager::isCardPresent()
+
+Devuelve `true` si una tarjeta NFC está presente en el lector.
+
+### NFCManager::readCardUID()
+
+Lee el UID de la tarjeta detectada y lo devuelve como `String`.
+
+### NFCManager::reset()
+
+Reinicia el estado del lector para evitar múltiples lecturas de la misma tarjeta.
+
+---
+
+### OLEDManager::showWelcome()
+
+Muestra un mensaje de bienvenida al encender el dispositivo.
+
+### OLEDManager::showWaiting()
+
+Muestra el mensaje "Esperando tarjeta NFC" cuando el sistema está en reposo.
+
+### OLEDManager::showCardAdded(uid)
+
+Muestra el UID de la tarjeta detectada y confirma la acción realizada.
+
+### OLEDManager::showTimeout()
+
+Muestra un mensaje de error cuando se excede el tiempo de espera para detectar tarjeta.
+
+---
+
+### sendEventToN8n(json)
+
+Envía un payload JSON vía HTTP POST a n8n o Google Sheets.
+Incluye información del dispositivo, tarjeta, acción y duración.
+
+---
 
 ## Uso
 
-### Primera Configuración
+### Primera Configuración WiFi
 
-1. Al encender el dispositivo por primera vez, se creará un punto de acceso WiFi:
-   - **SSID:** `CatWAN-SolderingStation`
-   - **Contraseña:** `soldering123`
+1. El dispositivo crea un AP:
 
-2. Conecta tu dispositivo a este WiFi y serás redirigido al captive portal
-3. Selecciona tu red WiFi y proporciona la contraseña
-4. El dispositivo se conectará automáticamente
-
-### Agregar Tarjetas Autorizadas
-
-#### Método 1: Comando Serial con UID
-
-1. Abre el Serial Monitor (115200 baud)
-2. Ejecuta el comando:
-   ```
-   ADD_CARD <UID>
-   ```
-   Ejemplo: `ADD_CARD 04A5B6C7D8`
-
-#### Método 2: Comando Serial Automático (Recomendado)
-
-1. Abre el Serial Monitor (115200 baud)
-2. Ejecuta el comando:
-   ```
-   ADD_CARD
-   ```
-3. Coloca la tarjeta NFC en el lector dentro de 30 segundos
-4. El sistema detectará automáticamente el UID y agregará la tarjeta
-
-### Asignar Tarjeta a un Relé Específico
-
-Para asignar una tarjeta a un relé específico (Cautín 1, 2 o 3):
-
-```
-ASSIGN_CARD <UID> <relayIndex>
-```
-
-Ejemplos:
-- `ASSIGN_CARD 04A5B6C7D8 0` - Asigna tarjeta al Cautín 1 (Relé 0)
-- `ASSIGN_CARD 04A5B6C7D8 1` - Asigna tarjeta al Cautín 2 (Relé 1)
-- `ASSIGN_CARD 04A5B6C7D8 2` - Asigna tarjeta al Cautín 3 (Relé 2)
-
-**Nota:** Si una tarjeta no tiene asignación, se usará el relé por defecto (Relé 0).
+   * **SSID:** `CatWAN-SolderingStation`
+   * **Password:** `soldering123`
+2. Configura tu red WiFi desde el portal cautivo
+3. El estado se muestra en la pantalla OLED
 
 ### Operación Normal
 
-1. Coloca una tarjeta NFC autorizada en el lector
-2. El LED verde parpadeará indicando éxito
-3. El cautín asignado se encenderá/apagará según su estado actual
-4. El evento se registrará en Google Sheets o n8n con el Device ID del dispositivo
+1. Presenta tarjeta NFC
+2. OLED muestra UID y acción
+3. Relé cambia de estado
+4. Evento enviado a Google Sheets o n8n
+5. OLED confirma envío exitoso
 
-### Comandos Serial Disponibles
+## Arquitectura del Software
 
-| Comando | Descripción |
-|---------|-------------|
-| `HELP` | Mostrar ayuda |
-| `STATUS` | Estado del sistema (incluye Device ID) |
-| `LIST_CARDS` | Listar tarjetas autorizadas |
-| `ADD_CARD` o `ADD_CARD <UID>` | Agregar tarjeta autorizada |
-| `REMOVE_CARD <UID>` | Remover tarjeta autorizada |
-| `CLEAR_CARDS` | Eliminar todas las tarjetas |
-| `ASSIGN_CARD <UID> <relayIndex>` | Asignar tarjeta a un relé específico |
-| `LIST_ASSIGN` | Listar todas las asignaciones tarjeta-relé |
-| `TEST_RELAY <i> <ON\|OFF>` | Probar relé |
+El firmware está organizado de forma modular para facilitar mantenimiento, escalabilidad y depuración. Cada módulo tiene una responsabilidad clara.
 
-Ejemplos:
-```
-ADD_CARD
-ADD_CARD 04A5B6C7D8
-REMOVE_CARD 04A5B6C7D8
-ASSIGN_CARD 04A5B6C7D8 1
-LIST_ASSIGN
-TEST_RELAY 0 ON
-```
+### Módulos Principales
 
-## Configuración de Google Sheets
+* **CATWAN_RELAY.ino**
+  Archivo principal. Contiene `setup()` y `loop()`, coordina todos los managers y define el flujo general del sistema.
 
-### Opción 1: Google Apps Script (Recomendado)
+* **NFCManager**
+  Encapsula toda la lógica relacionada con el PN532:
 
-1. Crea una nueva hoja de Google Sheets
-2. Crea tres hojas:
-   - **"Dispositivos"** - Tabla de mapeo Device ID → Nombre Dispositivo
-   - **"Usuarios"** - Tabla de mapeo UID → Nombre Usuario
-   - **"Eventos"** - Registro de todos los eventos
+  * Inicialización del lector NFC
+  * Detección de tarjetas
+  * Lectura del UID
+  * Reset del lector para evitar lecturas duplicadas
 
-3. En la hoja **"Dispositivos"**, crea dos columnas:
-   | Device ID | Nombre Dispositivo |
-   |-----------|-------------------|
-   | ESTACION1 | Estación 1        |
-   | ESTACION2 | Estación 2        |
-   | ESTACION3 | Estación 3        |
+* **CardManager**
+  Gestiona las tarjetas autorizadas:
 
-4. En la hoja **"Usuarios"**, crea dos columnas:
-   | UID Tarjeta | Nombre Usuario |
-   |-------------|----------------|
-   | 04A5B6C7D8  | Juan Pérez     |
-   | 1A2B3C4D5E  | María García   |
+  * Agregar / eliminar tarjetas
+  * Asignar tarjetas a relés
+  * Guardar y leer datos desde SPIFFS
 
-5. Ve a **Extensiones** → **Apps Script**
-6. Crea un nuevo script con el siguiente código:
+* **RelayManager**
+  Controla los relés físicos:
 
-```javascript
-function doPost(e) {
-  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
-  var devicesSheet = spreadsheet.getSheetByName('Dispositivos');
-  var usersSheet = spreadsheet.getSheetByName('Usuarios');
-  var eventsSheet = spreadsheet.getSheetByName('Eventos');
-  
-  // Si las hojas no existen, usar la hoja activa
-  if (!eventsSheet) {
-    eventsSheet = spreadsheet.getActiveSheet();
-  }
-  
-  var data = JSON.parse(e.postData.contents);
-  
-  // Buscar nombre del dispositivo
-  var deviceName = data.dev || '';
-  if (devicesSheet) {
-    var deviceRange = devicesSheet.getDataRange();
-    var deviceValues = deviceRange.getValues();
-    for (var i = 1; i < deviceValues.length; i++) {
-      if (deviceValues[i][0] == data.dev) {
-        deviceName = deviceValues[i][1];
-        break;
-      }
-    }
-  }
-  
-  // Buscar nombre del usuario
-  var userName = '';
-  if (usersSheet) {
-    var userRange = usersSheet.getDataRange();
-    var userValues = userRange.getValues();
-    for (var i = 1; i < userValues.length; i++) {
-      if (userValues[i][0] == data.uid) {
-        userName = userValues[i][1];
-        break;
-      }
-    }
-  }
-  
-  // Registrar evento
-  var row = [
-    new Date(),
-    data.ts || '',
-    data.dev || '',
-    deviceName,
-    data.uid || '',
-    userName,
-    data.act || '',
-    data.st || '',
-    data.rel || '',
-    data.dur || ''
-  ];
-  
-  eventsSheet.appendRow(row);
-  
-  return ContentService.createTextOutput(JSON.stringify({status: 'success'}))
-    .setMimeType(ContentService.MimeType.JSON);
-}
+  * Encender / apagar relés
+  * Llevar control del estado actual
+  * Medir tiempo de encendido
+
+* **WiFiManagerHelper**
+  Extiende WiFiManager para:
+
+  * Configurar WiFi
+  * Configurar la URL de n8n desde el captive portal
+
+* **OLEDManager (nuevo)**
+  Maneja la pantalla OLED por I2C:
+
+  * Mensaje de bienvenida
+  * Estado "Esperando tarjeta"
+  * Mostrar UID leído
+  * Mostrar mensajes de error y timeout
+
+* **FeedbackManager**
+  Controla el LED verde para indicar éxito visual inmediato.
+
+---
+
+## Flujo General del Sistema
+
+```text
+[ Encendido ]
+      |
+      v
+[ Inicialización ]
+- Serial
+- WiFi
+- SPIFFS
+- PN532
+- OLED
+      |
+      v
+[ Mostrar Bienvenida OLED ]
+      |
+      v
+[ Esperando Tarjeta NFC ] <-------------------+
+      |                                      |
+      v                                      |
+[ Tarjeta Detectada ]                         |
+      |                                      |
+      v                                      |
+[ ¿Tarjeta Autorizada? ] -- NO --> [ Error ] -+
+      |
+     SI
+      |
+      v
+[ Activar / Desactivar Relé ]
+      |
+      v
+[ Enviar JSON a n8n / Sheets ]
+      |
+      v
+[ Mostrar Resultado en OLED ]
+      |
+      v
+[ Volver a Espera ]
 ```
 
-7. Guarda el script y despliégala como **Web App**:
-   - Ejecutar como: Yo
-   - Quién tiene acceso: Cualquiera
-8. Copia la URL del Web App y configúrala en `config.h` como `GOOGLE_SCRIPT_URL`
-9. Configura `USE_GOOGLE_APPS_SCRIPT` en `true`
-
-### Opción 2: n8n
-
-1. Crea un workflow en n8n
-2. Agrega un nodo **Webhook** (HTTP Request)
-3. Configura el método como POST
-4. Agrega un nodo para buscar el nombre del usuario en base de datos o Google Sheets
-5. Agrega un nodo **Google Sheets** para escribir datos en la hoja "Eventos"
-6. Copia la URL del webhook y configúrala en `config.h` como `N8N_WEBHOOK_URL`
-7. Configura `USE_N8N` en `true`
+---
 
 ## Estructura de Datos
 
 ### JSON enviado por ESP32
 
-El ESP32 envía el siguiente JSON a Google Sheets o n8n:
+### JSON enviado a n8n
 
 ```json
 {
-  "ts": "02:30:45",           // Timestamp
-  "dev": "ESTACION1",         // Device ID (identificador único del dispositivo)
-  "uid": "04A5B6C7D8",       // UID de la tarjeta NFC
-  "act": "ENCENDER",         // Acción: ENCENDER o APAGAR
-  "st": "EXITO",             // Estado: EXITO o FALLO
-  "rel": 0,                  // Índice del relé (0, 1, 2)
-  "dur": 120000              // Duración de uso en ms (0 si enciende)
+  "ts": "02:30:45",
+  "dev": "ESTACION1",
+  "uid": "04A5B6C7D8",
+  "act": "ENCENDER",
+  "st": "EXITO",
+  "rel": 0,
+  "dur": 120000
 }
 ```
 
-### Estructura de Datos en Google Sheets
+### Uso del JSON en n8n
 
-#### Hoja "Eventos"
+En n8n el JSON puede usarse para:
 
-Los eventos se registran con las siguientes columnas:
-
-| Columna | Descripción | Ejemplo |
-|---------|-------------|---------|
-| Fecha/Hora | Timestamp del servidor | 2024-01-15 14:30:45 |
-| Timestamp | Timestamp del evento | 02:30:45 |
-| Device ID | Identificador del dispositivo | ESTACION1 |
-| Nombre Dispositivo | Nombre del dispositivo | Estación 1 |
-| UID Tarjeta | UID de la tarjeta NFC | 04A5B6C7D8 |
-| Nombre Usuario | Nombre del usuario | Juan Pérez |
-| Acción | ENCENDER o APAGAR | ENCENDER |
-| Estado | EXITO o FALLO | EXITO |
-| Relé | Índice del relé (0, 1, 2) | 0 |
-| Duración | Duración de uso en ms | 120000 |
-
-**Nota:** El nombre del dispositivo y del usuario se buscan automáticamente en las hojas "Dispositivos" y "Usuarios" respectivamente.
+* Buscar usuario por UID
+* Buscar estación por Device ID
+* Registrar eventos
+* Calcular tiempo de uso
+* Activar alertas o dashboards
 
 ## Flujo del Sistema
 
-### 1. Evento en el Dispositivo
-
-1. Usuario coloca tarjeta NFC en el lector
-2. Sistema valida la tarjeta (autorizada o no)
-3. Si está autorizada, activa/desactiva el relé asignado
-4. Sistema envía evento a Google Sheets/n8n con:
-   - Device ID del dispositivo
-   - UID de la tarjeta
-   - Acción realizada
-   - Estado (éxito/fallo)
-   - Índice del relé
-   - Duración de uso
-
-### 2. Procesamiento en Google Sheets/n8n
-
-1. Recibe el evento con Device ID y UID
-2. Busca el nombre del dispositivo en la hoja "Dispositivos" usando el Device ID
-3. Busca el nombre del usuario en la hoja "Usuarios" usando el UID
-4. Registra el evento completo en la hoja "Eventos" con todos los datos
-
-### 3. Ventajas de este Flujo
-
-- El dispositivo no almacena nombres de usuario (más simple y eficiente)
-- Los nombres se pueden actualizar sin cambiar firmware
-- Soporta múltiples dispositivos con identificadores únicos
-- Centralización de datos en Google Sheets
+1. Lectura NFC
+2. Validación local
+3. Acción sobre relé
+4. Feedback OLED + LED
+5. Envío HTTP POST
+6. Registro centralizado
 
 ## Seguridad
 
-- **Timeout Automático:** Los cautines se apagan automáticamente después de 2 horas (configurable en `MAX_USAGE_TIME`)
-- **Validación de Tarjetas:** Solo tarjetas autorizadas pueden activar los cautines
-- **Registro de Eventos:** Todos los intentos (exitosos y fallidos) se registran
-- **Debounce:** Protección contra lectura repetida accidental (2 segundos)
-
-## Múltiples Dispositivos
-
-Para usar múltiples dispositivos:
-
-1. **Compila el firmware para cada dispositivo:**
-   - Dispositivo 1: `#define DEVICE_ID "ESTACION1"`
-   - Dispositivo 2: `#define DEVICE_ID "ESTACION2"`
-   - Dispositivo 3: `#define DEVICE_ID "ESTACION3"`
-
-2. **Carga el firmware en cada dispositivo**
-
-3. **Configura Google Sheets:**
-   - Agrega cada Device ID en la hoja "Dispositivos"
-   - Asocia cada Device ID con un nombre descriptivo
-
-4. **Todos los dispositivos pueden usar la misma configuración:**
-   - Misma URL de Google Sheets/n8n
-   - Mismas tarjetas autorizadas (cada dispositivo puede tener sus propias tarjetas)
-   - Los eventos se diferencian por Device ID
+* Timeout automático configurable
+* Debounce de lecturas NFC
+* Registro de intentos fallidos
+* Sin almacenamiento de nombres en el ESP32
 
 ## Troubleshooting
 
-### NFC no detecta tarjetas
-- Verifica las conexiones I2C del PN532
-- Verifica que los pines estén correctamente configurados en `config.h`
-- Asegúrate de usar tarjetas MIFARE S50
-- Revisa los mensajes de debug en el Serial Monitor
+### HTTP Error: -1
 
-### WiFi no conecta
-- Verifica que la red WiFi esté disponible
-- Usa el captive portal para reconfigurar (apaga y enciende el dispositivo)
-- Revisa los logs seriales
+* No hay conexión WiFi
+* URL inválida
+* Error DNS
+* Webhook n8n inactivo
 
-### Google Sheets no recibe datos
-- Verifica que la URL del Web App sea correcta
-- Asegúrate de que el Web App esté desplegado
-- Verifica que el WiFi esté conectado
-- Revisa que `USE_GOOGLE_APPS_SCRIPT` esté en `true`
-- Verifica los logs seriales para errores HTTP
+### OLED no muestra información
 
-### Relés no funcionan
-- Verifica las conexiones de los relés
-- Usa el comando `TEST_RELAY` para probar
-- Verifica que los pines estén correctamente configurados en `config.h`
-- Revisa el comando `STATUS` para ver el estado de los relés
+* Verifica dirección I2C (0x3C / 0x3D)
+* Verifica librerías Adafruit
+* Confirma alimentación estable
 
-### Device ID no aparece en STATUS
-- Verifica que `DEVICE_ID` esté definido en `config.h`
-- Recompila y carga el firmware
-
-### Errores I2C esporádicos
-- Los errores I2C ocasionales pueden aparecer después de un tiempo de ejecución
-- No afectan el funcionamiento general del sistema
-- Si persisten, verifica las conexiones I2C y la alimentación
-
+---
 ## Licencia
 
 Este firmware está bajo licencia GNU AGPL v3.0.
 
-## Autor
+---
 
-Electronic Cats
+## 👨‍💻 Autor
 
+ElectronicCats.
+
+---
 ## Soporte
 
 Para más información, visita: https://electroniccats.com
+

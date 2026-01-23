@@ -18,5 +18,3 @@ public:
 };
 
 #endif // FEEDBACK_MANAGER_H
-
-

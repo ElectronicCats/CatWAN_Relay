@@ -10,9 +10,9 @@
 //#define PN532_SCL     7   // GPIO 7 - I2C Clock
 
 // Pines para Relés (múltiples cautines soportados)
-#define RELAY_1      8  // GPIO 8 - Relé Cautín 1
-#define RELAY_2      10  // GPIO 10 - Relé Cautín 2
-#define RELAY_3      1  // GPIO 1 - Relé Cautín 3
+//#define RELAY_1      8  // GPIO 8 - Relé Cautín 1
+//#define RELAY_2      10  // GPIO 10 - Relé Cautín 2
+//#define RELAY_3      1  // GPIO 1 - Relé Cautín 3
 #define MAX_RELAYS    3   // Número máximo de relés
 
 // Pines para Feedback
@@ -21,8 +21,8 @@
 // ============================================
 // Configuración de WiFi
 // ============================================
-#define WIFI_AP_NAME   "CatWAN-SolderingStation"
-#define WIFI_AP_PASS   "soldering123"
+#define WIFI_AP_NAME   "CatWAN_Relay"
+#define WIFI_AP_PASS   "admin123"
 
 // ============================================
 // Configuración de NFC
@@ -30,12 +30,20 @@
 #define NFC_SCAN_INTERVAL   500   // ms entre escaneos
 #define NFC_DEBOUNCE_TIME   2000  // ms para evitar lectura repetida
 
-// ============================================
-// Identificador del Dispositivo
-// ============================================
-// Identificador único del dispositivo (cambiar para cada dispositivo)
-// Ejemplos: ESTACION1, ESTACION2, ESTACION3
-#define DEVICE_ID               "ESTACION1"  // Cambiar para cada dispositivo
+// ================== ESTACIONES ==================
+#define NUM_STATIONS 3
+
+struct StationConfig {
+    const char* stationId;
+    int relayPin;
+};
+
+static StationConfig stations[NUM_STATIONS] = {
+    { "ESTACION1", 8 },
+    { "ESTACION2", 10 },
+    { "ESTACION3", 1 }
+};
+
 
 // ============================================
 // Configuración de Google Sheets / n8n
@@ -45,7 +53,7 @@
 #define GOOGLE_SCRIPT_URL       ""  // URL del Web App (configurar)
 
 // Opción 2: n8n
-#define USE_N8N                  false
+#define USE_N8N                  true
 #define N8N_WEBHOOK_URL          ""  // URL del webhook n8n (configurar)
 
 // ============================================
@@ -74,6 +82,9 @@
 #define SERIAL_BAUD           115200
 #define SERIAL_TIMEOUT        1000
 
+#define DEVICE_ID "ESTACION_SOLDADURA_1"
+
+
 // ============================================
 // Comandos Serial
 // ============================================
@@ -88,4 +99,3 @@
 #define CMD_HELP          "HELP"
 
 #endif // CONFIG_H
-

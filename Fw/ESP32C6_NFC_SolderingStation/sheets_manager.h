@@ -8,13 +8,15 @@
 
 struct EventData {
     String timestamp;
-    String deviceId;    // Identificador único del dispositivo
+    String deviceId;
+    String stationId;   // ← NUEVO
     String cardUID;
-    String action;      // "ENCENDER" o "APAGAR"
-    String status;      // "EXITO" o "FALLO"
+    String action;
+    String status;
     int relayIndex;
-    unsigned long duration;  // Tiempo de uso en ms
+    unsigned long duration;
 };
+
 
 class SheetsManager {
 private:
@@ -39,5 +41,3 @@ public:
 };
 
 #endif // SHEETS_MANAGER_H
-
-

@@ -2,11 +2,8 @@
 
 RelayManager::RelayManager() {
     numRelays = MAX_RELAYS;
-    relayPins[0] = RELAY_1;
-    relayPins[1] = RELAY_2;
-    relayPins[2] = RELAY_3;
-    
     for (int i = 0; i < numRelays; i++) {
+        relayPins[i] = stations[i].relayPin;  // ← ahora desde config.h
         relayStates[i] = false;
         relayStartTimes[i] = 0;
     }
@@ -19,10 +16,11 @@ void RelayManager::begin() {
         relayStates[i] = false;
     }
     #if DEBUG_SERIAL
-    Serial.print("Relays: ");
+    Serial.print("Relays (estaciones): ");
     Serial.println(numRelays);
     #endif
 }
+
 
 bool RelayManager::setRelay(int relayIndex, bool state) {
     if (relayIndex < 0 || relayIndex >= numRelays) {
@@ -91,4 +89,3 @@ void RelayManager::checkSafetyTimeout() {
         }
     }
 }
-

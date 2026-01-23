@@ -9,7 +9,7 @@
  * - Feedback visual y sonoro
  * - WiFi Manager para configuración de red
  */
-
+#include <Wire.h>
 #include <WiFi.h>
 #include <WiFiManager.h>
 #include <SPIFFS.h>
@@ -19,6 +19,10 @@
 #include "card_manager.h"
 #include "sheets_manager.h"
 #include "feedback_manager.h"
+#include "oled_manager.h"
+
+
+char n8n_url[150] = "";
 
 // Instancias globales
 NFCManager nfcManager;
@@ -27,6 +31,8 @@ CardManager cardManager;
 SheetsManager sheetsManager;
 FeedbackManager feedbackManager;
 WiFiManager wifiManager;
+OLEDManager oledManager;
+
 
 // Variables de estado
 bool systemReady = false;
@@ -44,16 +50,60 @@ void toggleSolderingIron(int relayIndex, String cardUID);
 void printHelp();
 void printStatus();
 
+String getStationIdByRelay(int relayIndex) {
+    if (relayIndex >= 0 && relayIndex < NUM_STATIONS) {
+        return String(stations[relayIndex].stationId);
+    }
+    return "DESCONOCIDA";
+}
+
+void saveN8NURL() {
+  File f = SPIFFS.open("/n8n.txt", "w");
+  if (f) {
+    f.println(n8n_url);
+    f.close();
+  }
+}
+
+void loadN8NURL() {
+  if (SPIFFS.exists("/n8n.txt")) {
+    File f = SPIFFS.open("/n8n.txt", "r");
+    if (f) {
+      String line = f.readStringUntil('\n');
+      line.trim();
+      line.toCharArray(n8n_url, sizeof(n8n_url));
+      f.close();
+    }
+  }
+}
+
+
 void setup() {
     Serial.begin(SERIAL_BAUD);
     while(!Serial);
-    
-    #if DEBUG_SERIAL
-    Serial.println("\nCatWAN Soldering Station\n");
-    #endif
-    
+
+    Wire.begin();
+    delay(100);
+
+
+
     feedbackManager.begin();
+    oledManager.begin();
+    oledManager.showWelcome();
+    delay(2000);
     feedbackManager.showWaiting();
+
+   
+
+    loadN8NURL();      // <-- cargar URL guardada
+    setupWiFi();       // <-- aquí se mostrará el campo para n8n
+    saveN8NURL();      // <-- guardar la nueva si el usuario la cambió
+
+    sheetsManager.setN8NURL(String(n8n_url));  // <-- usar URL configurada
+    sheetsManager.begin();
+
+
+
     
     if (!SPIFFS.begin(true)) {
         #if DEBUG_SERIAL
@@ -126,11 +176,13 @@ void loop() {
             // Modo de espera para agregar tarjeta
             if (waitStartTime == 0) {
                 waitStartTime = millis();
+                oledManager.showWaiting();
             }
             
             // Verificar timeout (30 segundos)
             if (millis() - waitStartTime > 30000) {
                 Serial.println("Timeout: No se detecto tarjeta");
+                oledManager.showTimeout();
                 waitingForCard = false;
                 waitStartTime = 0;
             } else {
@@ -138,6 +190,7 @@ void loop() {
                 if (nfcManager.isCardPresent()) {
                     String uid = nfcManager.readCardUID();
                     if (uid.length() > 0) {
+                        oledManager.showCardAdded(uid);
                         // Tarjeta detectada, agregarla
                         if (cardManager.addCard(uid)) {
                             Serial.println("Tarjeta agregada exitosamente");
@@ -165,26 +218,32 @@ void loop() {
 }
 
 void setupWiFi() {
-    #if DEBUG_SERIAL
-    Serial.println("WiFi...");
-    #endif
-    
+    WiFiManager wifiManager;
+
+    WiFiManagerParameter custom_n8n_url(
+      "n8nurl",
+      "URL Webhook n8n",
+      n8n_url,
+      150
+    );
+
+    wifiManager.addParameter(&custom_n8n_url);
+
     wifiManager.setConfigPortalTimeout(180);
-    wifiManager.setAPStaticIPConfig(IPAddress(192,168,4,1), IPAddress(192,168,4,1), IPAddress(255,255,255,0));
-    
+
     if (!wifiManager.autoConnect(WIFI_AP_NAME, WIFI_AP_PASS)) {
-        #if DEBUG_SERIAL
         Serial.println("WiFi FAIL - Restart");
-        #endif
         delay(3000);
         ESP.restart();
     }
-    
-    #if DEBUG_SERIAL
-    Serial.print("WiFi OK: ");
-    Serial.println(WiFi.localIP());
-    #endif
+
+    // Guardar lo que el usuario escribió
+    strncpy(n8n_url, custom_n8n_url.getValue(), sizeof(n8n_url));
+
+    Serial.print("n8n URL configurada: ");
+    Serial.println(n8n_url);
 }
+
 
 void processNFC() {
     // Detectar tarjeta
@@ -231,6 +290,7 @@ void processNFC() {
                 EventData event;
                 event.timestamp = "";
                 event.deviceId = String(DEVICE_ID);
+                event.stationId = "NINGUNA";
                 event.cardUID = uid;
                 event.action = "ACCESO DENEGADO";
                 event.status = "FALLO";
@@ -253,39 +313,46 @@ void processNFC() {
 }
 
 void toggleSolderingIron(int relayIndex, String cardUID) {
-    // No procesar si estamos en modo de espera de tarjeta
-    if (waitingForCard) {
-        return;
-    }
+    if (waitingForCard) return;
+
     bool currentState = relayManager.getRelayState(relayIndex);
     bool newState = !currentState;
-    
+
     String action = newState ? "ENCENDER" : "APAGAR";
     unsigned long duration = newState ? 0 : relayManager.getRelayUptime(relayIndex);
-    
-    // Cambiar estado del relé
+    String stationId = getStationIdByRelay(relayIndex);
+
     relayManager.setRelay(relayIndex, newState);
-    
-    // Preparar evento para logging
+
     EventData event;
     event.timestamp = "";
-    event.deviceId = String(DEVICE_ID);  // Identificador único del dispositivo
+    event.deviceId = String(DEVICE_ID);
+    event.stationId = stationId;     // ← estación real
     event.cardUID = cardUID;
     event.action = action;
     event.status = "EXITO";
     event.relayIndex = relayIndex;
     event.duration = duration;
-    
-    // Registrar en Google Sheets / n8n
+
+    String jsonPayload =
+    "{\"uid\":\"" + cardUID +
+    "\", \"act\":\"" + action +
+    "\", \"relay\":" + String(relayIndex) +
+    "}";
+
+    oledManager.showJSON(jsonPayload);
+
+
     sheetsManager.logEvent(event);
-    
+
     #if DEBUG_SERIAL
-    Serial.print("Cautín ");
-    Serial.print(relayIndex + 1);
+    Serial.print("Estación ");
+    Serial.print(stationId);
     Serial.print(": ");
     Serial.println(newState ? "ON" : "OFF");
     #endif
 }
+
 
 void handleSerialCommands() {
     String command = Serial.readStringUntil('\n');
@@ -464,4 +531,3 @@ void printStatus() {
     
     Serial.println("===========================\n");
 }
-

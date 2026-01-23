@@ -35,5 +35,3 @@ public:
 };
 
 #endif // CARD_MANAGER_H
-
-

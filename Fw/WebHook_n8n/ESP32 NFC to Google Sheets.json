@@ -1,0 +1,209 @@
+{
+  "name": "ESP32 NFC to Google Sheets",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "notificacion_esp32",
+        "options": {}
+      },
+      "id": "2e035340-3a75-419e-afe3-c1f6f480bcbe",
+      "name": "Webhook - Recibir NFC",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        -192,
+        160
+      ],
+      "webhookId": "nfc-reader"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.item.json;\n\n// 1. Procesar la Fecha Actual\nconst fechaReloj = new Date();\nconst opcionesFecha = { \n  weekday: 'long', \n  year: 'numeric', \n  month: 'long', \n  day: 'numeric' \n};\n// Resultado ej: \"lunes, 19 de enero de 2026\"\nconst fechaFormateada = fechaReloj.toLocaleDateString('es-ES', opcionesFecha);\n\n// 2. Función para convertir HH:MM:SS a formato 12h (am/pm)\nfunction formatarAMPM(horaString) {\n  if (!horaString) return \"00:00 am\";\n  \n  let [horas, minutos, segundos] = horaString.split(':');\n  horas = parseInt(horas);\n  \n  const ampm = horas >= 12 ? 'pm' : 'am';\n  horas = horas % 12;\n  horas = horas ? horas : 12; // La hora '0' debe ser '12'\n  \n  return `${horas.toString().padStart(2, '0')}:${minutos} ${ampm}`;\n}\n\nconst horaAmPm = formatarAMPM(input.ts);\n\nreturn {\n  fecha_completa: fechaFormateada,\n  hora_encendido: horaAmPm,\n  timestamp_legible: `${fechaFormateada} a las ${horaAmPm}`,\n  dispositivo: $input.first().json.body.dev,\n  estado:$input.first().json.body.st ,\n  uid: $input.first().json.body.uid\n};"
+      },
+      "id": "5ed7d4c9-f6ff-40c2-9d03-f5a3234ccbb3",
+      "name": "Procesar Datos",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        32,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1DE8Xdc0CyIAIKDB61xI3PBotMjJM3vpfVdpqZaTLz-w",
+          "mode": "list",
+          "cachedResultName": "Control",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DE8Xdc0CyIAIKDB61xI3PBotMjJM3vpfVdpqZaTLz-w/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11vC3gkuzpBAbaji7OxHgs7IpwK3tNgtfXvLQEEzYK_4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Usuario": "={{ $json.uid }}",
+            "Hoario": "={{ $('Webhook - Recibir NFC').item.json.body.ts }}",
+            "Estación": "={{ $('Webhook - Recibir NFC').item.json.body.stn }}",
+            "Fecha": "={{ $json.fecha_completa }}",
+            "ON/OFF": "={{ $('Webhook - Recibir NFC').item.json.body.act }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Usuario",
+              "displayName": "Usuario",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Fecha",
+              "displayName": "Fecha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Hoario",
+              "displayName": "Hoario",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Estación",
+              "displayName": "Estación",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ON/OFF",
+              "displayName": "ON/OFF",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "c7925ce9-5de0-4fcf-9051-9dc9855a326b",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [
+        256,
+        160
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "G9xNnDKU9isCb371",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ {\n  \"success\": true,\n  \"message\": \"NFC registrado correctamente\",\n  \"uid\": $json.uid,\n  \"timestamp\": $json.timestamp,\n  \"device_id\": $json.device_id\n} }}",
+        "options": {}
+      },
+      "id": "8f25898d-cbc8-46fd-ac17-ce011725425f",
+      "name": "Responder al ESP32",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        160
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook - Recibir NFC": {
+      "main": [
+        [
+          {
+            "node": "Procesar Datos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Procesar Datos": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Responder al ESP32",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "338dca6c-f429-42f7-9d4e-f7d810e477ec",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4891dff9bf499396faf349dabea0020ebde826befb743e60c4c2953ffa10fc31"
+  },
+  "id": "HtG48Fi3KPlf3Rn7AOfui",
+  "tags": [
+    {
+      "updatedAt": "2026-01-16T21:16:44.974Z",
+      "createdAt": "2026-01-16T21:16:44.974Z",
+      "id": "YfSk02NBqvJ5anHI",
+      "name": "ESP32"
+    },
+    {
+      "updatedAt": "2026-01-16T21:16:44.936Z",
+      "createdAt": "2026-01-16T21:16:44.936Z",
+      "id": "vT98D1qzNXndmJnp",
+      "name": "IoT"
+    }
+  ]
+}

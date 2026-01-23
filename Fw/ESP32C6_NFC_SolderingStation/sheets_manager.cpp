@@ -37,20 +37,21 @@ String SheetsManager::getCurrentTimestamp() {
 
 String SheetsManager::createJSONPayload(EventData event) {
     StaticJsonDocument<JSON_BUFFER_SIZE> doc;
-    
-    doc["ts"] = event.timestamp;
-    doc["dev"] = event.deviceId;    // Device ID
+
+    doc["ts"]  = event.timestamp;
+    doc["dev"] = event.deviceId;
+    doc["stn"] = event.stationId;   // ← estación
     doc["uid"] = event.cardUID;
     doc["act"] = event.action;
-    doc["st"] = event.status;
+    doc["st"]  = event.status;
     doc["rel"] = event.relayIndex;
     doc["dur"] = event.duration;
-    
+
     String jsonString;
     serializeJson(doc, jsonString);
-    
     return jsonString;
 }
+
 
 bool SheetsManager::sendToGoogleScript(EventData event) {
     if (scriptURL.length() == 0) {
@@ -179,4 +180,3 @@ void SheetsManager::setN8NURL(String url) {
     Serial.println("n8n Webhook URL configurada");
     #endif
 }
-

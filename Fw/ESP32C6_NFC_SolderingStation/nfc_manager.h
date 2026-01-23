@@ -24,4 +24,3 @@ public:
 };
 
 #endif // NFC_MANAGER_H
-
