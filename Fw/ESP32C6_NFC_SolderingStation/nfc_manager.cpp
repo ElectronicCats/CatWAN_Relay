@@ -1,82 +1,113 @@
 #include "nfc_manager.h"
 
-NFCManager::NFCManager()
-: initialized(false),
-  lastScanTime(0),
-  lastUID(""),
-  lastUIDTime(0)
-{
+NFCManager::NFCManager() : initialized(false), lastScanTime(0), lastUID(""), lastUIDTime(0) {
+    // Para I2C, usar constructor con IRQ y RESET en -1 (no conectados)
     nfc = new Adafruit_PN532(-1, -1);
 }
 
 NFCManager::~NFCManager() {
-    delete nfc;
+    if (nfc != nullptr) {
+        delete nfc;
+    }
 }
 
 bool NFCManager::begin() {
+    // Inicializar I2C con pines por defecto del ESP32-C6
     Wire.begin();
-    delay(100);
-
+    delay(100); // Dar tiempo para estabilización
+    
+    // Inicializar PN532 con I2C
+    // El begin() de Adafruit_PN532 detectará automáticamente I2C
     nfc->begin();
+    
+    // Intentar obtener versión del firmware
     uint32_t versiondata = nfc->getFirmwareVersion();
-
     if (!versiondata) {
+        #if DEBUG_SERIAL
+        Serial.println("PN532 no encontrado");
+        #endif
         initialized = false;
         return false;
     }
-
+    
+    #if DEBUG_SERIAL
+    Serial.print("PN532 v");
+    Serial.print((versiondata >> 24) & 0xFF, DEC);
+    Serial.print('.');
+    Serial.println((versiondata >> 16) & 0xFF, DEC);
+    #endif
+    
+    // Configurar SAM (Secure Access Module) para modo normal
     nfc->SAMConfig();
+    
     initialized = true;
+    #if DEBUG_SERIAL
+    Serial.println("NFC OK");
+    #endif
     return true;
 }
 
 bool NFCManager::isCardPresent() {
-    if (!initialized) return false;
-
-    unsigned long now = millis();
-    if (now - lastScanTime < NFC_SCAN_INTERVAL) return false;
-
-    lastScanTime = now;
-
-    uint8_t uid[7];
+    if (!initialized || nfc == nullptr) return false;
+    
+    unsigned long currentTime = millis();
+    if (currentTime - lastScanTime < NFC_SCAN_INTERVAL) {
+        return false;
+    }
+    
+    lastScanTime = currentTime;
+    
+    // Intentar leer tarjeta MIFARE ISO14443A
+    uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };
     uint8_t uidLength;
-
-    return nfc->readPassiveTargetID(
-        PN532_MIFARE_ISO14443A,
-        uid,
-        &uidLength,
-        100
-    );
+    
+    bool success = nfc->readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLength, 100);
+    
+    return success;
 }
 
 String NFCManager::readCardUID() {
-    if (!initialized) return "";
-
-    uint8_t uid[7];
+    if (!initialized || nfc == nullptr) return "";
+    
+    // Verificar debounce para evitar lectura repetida
+    unsigned long currentTime = millis();
+    if (!lastUID.isEmpty() && (currentTime - lastUIDTime) < NFC_DEBOUNCE_TIME) {
+        return ""; // Aún en período de debounce
+    }
+    
+    uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };
     uint8_t uidLength;
-
-    if (!nfc->readPassiveTargetID(
-        PN532_MIFARE_ISO14443A,
-        uid,
-        &uidLength,
-        100
-    )) {
+    
+    if (!nfc->readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLength, 100)) {
+        // Si no se detecta tarjeta, resetear lastUID después de un tiempo
+        if (!lastUID.isEmpty() && (currentTime - lastUIDTime) > NFC_DEBOUNCE_TIME * 2) {
+            lastUID = "";
+        }
         return "";
     }
-
-    String uidStr;
+    
+    // Convertir UID a String hexadecimal
+    String uidString = "";
     for (uint8_t i = 0; i < uidLength; i++) {
-        if (uid[i] < 0x10) uidStr += "0";
-        uidStr += String(uid[i], HEX);
+        if (uid[i] < 0x10) uidString += "0";
+        uidString += String(uid[i], HEX);
     }
-    uidStr.toUpperCase();
-
-    if (uidStr == lastUID) return "";
-
-    lastUID = uidStr;
-    lastUIDTime = millis();
-
-    return uidStr;
+    uidString.toUpperCase();
+    
+    // Si es la misma tarjeta, no retornar
+    if (uidString == lastUID) {
+        return "";
+    }
+    
+    lastUID = uidString;
+    lastUIDTime = currentTime;
+    
+    #if DEBUG_SERIAL
+    Serial.print("UID: ");
+    Serial.println(uidString);
+    #endif
+    
+    return uidString;
 }
 
 void NFCManager::reset() {

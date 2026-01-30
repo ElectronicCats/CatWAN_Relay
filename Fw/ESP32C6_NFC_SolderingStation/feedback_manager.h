@@ -7,6 +7,7 @@
 class FeedbackManager {
 private:
     int ledGreenPin;
+    unsigned long ledOffTime = 0;
     
 public:
     FeedbackManager();
@@ -14,6 +15,7 @@ public:
     void showSuccess();
     void showError();
     void showWaiting();
+    void update();
     void setGreenLED(bool state);
 };
 

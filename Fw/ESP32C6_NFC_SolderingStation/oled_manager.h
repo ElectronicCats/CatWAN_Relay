@@ -14,6 +14,8 @@ public:
     OLEDManager();
     bool begin();
 
+    void showMessage(String msg);
+    void showCardAdded(String uid, String name);
     void clear();
     void showWelcome();
     void showWaiting();
@@ -21,6 +23,8 @@ public:
     void showTimeout();
     void showJSON(const String& json);
     void showCardAdded(const String& uid);
+    void showCommand(String cmd);
+    void showWelcomeName(String name);
 };
 
 #endif

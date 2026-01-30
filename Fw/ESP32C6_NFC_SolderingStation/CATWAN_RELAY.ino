@@ -21,34 +21,51 @@
 #include "feedback_manager.h"
 #include "oled_manager.h"
 
-
 char n8n_url[150] = "";
+char n8n_time_url[150] = "";
 
 // Instancias globales
-NFCManager nfcManager;
 RelayManager relayManager;
 CardManager cardManager;
 SheetsManager sheetsManager;
 FeedbackManager feedbackManager;
 WiFiManager wifiManager;
 OLEDManager oledManager;
+EventData queuedEvent;
+NFCManager nfcManager; 
+// 255 = pin dummy (no usado físicamente)
 
 
 // Variables de estado
+String pendingCardName = "";
+bool waitingForCardName = false;
 bool systemReady = false;
-String lastScannedUID = "";
-unsigned long lastCardTime = 0;
 int currentRelayIndex = 0; // Relé activo actualmente (0 = primer cautín)
 bool waitingForCard = false; // Flag para modo de espera de tarjeta
 unsigned long waitStartTime = 0; // Tiempo de inicio de espera
+unsigned long lastWifiCheck = 0;
+bool pendingEvent = false;
+unsigned long n8nEpoch = 0;
+unsigned long n8nMillis = 0;
+bool timeSynced = false;
+bool triedTimeSync = false;
+bool nfcBusy = false;
+String lastScannedUID = "";      // Stores the last card ID read
+unsigned long lastCardTime = 0;  // Stores the timestamp of the last read
+
 
 // Prototipos de funciones
 void setupWiFi();
-void handleSerialCommands();
 void processNFC();
+void handleSerialCommands();
 void toggleSolderingIron(int relayIndex, String cardUID);
 void printHelp();
 void printStatus();
+void reconnectWiFi();
+void handleWiFi();
+void handleAddCard(const String& uidStr);
+void handleAccessCard(const String& uidStr);
+
 
 String getStationIdByRelay(int relayIndex) {
     if (relayIndex >= 0 && relayIndex < NUM_STATIONS) {
@@ -57,64 +74,67 @@ String getStationIdByRelay(int relayIndex) {
     return "DESCONOCIDA";
 }
 
+void processCard(String uid) {
+    Serial.print("Tarjeta detectada: ");
+    Serial.println(uid);
+
+    if (cardManager.isCardAuthorized(uid)) {
+        int relay = cardManager.getCardRelay(uid);
+        toggleSolderingIron(relay, uid);
+    } else {
+        feedbackManager.showError();
+        oledManager.showMessage("Acceso denegado");
+    }
+}
+
+
 void saveN8NURL() {
   File f = SPIFFS.open("/n8n.txt", "w");
   if (f) {
     f.println(n8n_url);
+    f.println(n8n_time_url);
     f.close();
-  }
-}
-
-void loadN8NURL() {
-  if (SPIFFS.exists("/n8n.txt")) {
-    File f = SPIFFS.open("/n8n.txt", "r");
-    if (f) {
-      String line = f.readStringUntil('\n');
-      line.trim();
-      line.toCharArray(n8n_url, sizeof(n8n_url));
-      f.close();
-    }
   }
 }
 
 
 void setup() {
-    Serial.begin(SERIAL_BAUD);
-    while(!Serial);
+    Serial.begin(115200);
+    delay(1000);
 
     Wire.begin();
     delay(100);
 
-
-
-    feedbackManager.begin();
     oledManager.begin();
     oledManager.showWelcome();
+
+    feedbackManager.begin();
     delay(2000);
     feedbackManager.showWaiting();
 
    
+    if (!SPIFFS.begin(true)) {
+        
+        Serial.println("SPIFFS ERROR");
+
+    }
 
     loadN8NURL();      // <-- cargar URL guardada
     setupWiFi();       // <-- aquí se mostrará el campo para n8n
     saveN8NURL();      // <-- guardar la nueva si el usuario la cambió
 
     sheetsManager.setN8NURL(String(n8n_url));  // <-- usar URL configurada
-    sheetsManager.begin();
+    sheetsManager.setN8NTimeURL(String(n8n_time_url));
 
-
-
-    
-    if (!SPIFFS.begin(true)) {
-        #if DEBUG_SERIAL
-        Serial.println("SPIFFS ERROR");
-        #endif
-        feedbackManager.showError();
-        while(1) delay(1000);
+    // Sincronizar hora si estamos conectados
+    if (WiFi.status() == WL_CONNECTED) {
+        sheetsManager.syncTime();
     }
-    
-    setupWiFi();
-    
+
+
+    WiFi.setSleep(false);
+
+
     if (!nfcManager.begin()) {
         #if DEBUG_SERIAL
         Serial.println("NFC ERROR");
@@ -122,6 +142,10 @@ void setup() {
         feedbackManager.showError();
         delay(2000);
     }
+
+    
+    
+
     
     relayManager.begin();
     
@@ -159,15 +183,45 @@ void setup() {
     feedbackManager.showWaiting();
 }
 
+
+void loadN8NURL() {
+  if (SPIFFS.exists("/n8n.txt")) {
+    File f = SPIFFS.open("/n8n.txt", "r");
+    if (f) {
+      String line = f.readStringUntil('\n');
+      line.trim();
+      line.toCharArray(n8n_url, sizeof(n8n_url));
+      
+      if (f.available()) {
+        String line2 = f.readStringUntil('\n');
+        line2.trim();
+        line2.toCharArray(n8n_time_url, sizeof(n8n_time_url));
+      }
+
+      f.close();
+    }
+  }
+}
+
+
+
 void loop() {
-    // Verificar timeout de seguridad
+    handleWiFi();
+    
+    // Sync queued events to Sheets/n8n when online
+    // Sync queued events to Sheets/n8n when online
+    if (pendingEvent && WiFi.status() == WL_CONNECTED) {
+        sheetsManager.logEvent(queuedEvent);
+        pendingEvent = false; // Intentar solo una vez y liberar
+    }
+
     relayManager.checkSafetyTimeout();
     
-    // Procesar comandos seriales
     if (Serial.available()) {
         handleSerialCommands();
     }
     
+    // Core NFC Logic
     // Procesar NFC
     if (systemReady && nfcManager.isInitialized()) {
         if (!waitingForCard) {
@@ -176,13 +230,11 @@ void loop() {
             // Modo de espera para agregar tarjeta
             if (waitStartTime == 0) {
                 waitStartTime = millis();
-                oledManager.showWaiting();
             }
             
             // Verificar timeout (30 segundos)
             if (millis() - waitStartTime > 30000) {
                 Serial.println("Timeout: No se detecto tarjeta");
-                oledManager.showTimeout();
                 waitingForCard = false;
                 waitStartTime = 0;
             } else {
@@ -190,9 +242,8 @@ void loop() {
                 if (nfcManager.isCardPresent()) {
                     String uid = nfcManager.readCardUID();
                     if (uid.length() > 0) {
-                        oledManager.showCardAdded(uid);
                         // Tarjeta detectada, agregarla
-                        if (cardManager.addCard(uid)) {
+                        if (cardManager.addCard(uid, pendingCardName)) {
                             Serial.println("Tarjeta agregada exitosamente");
                         } else {
                             Serial.println("Error al agregar tarjeta");
@@ -206,45 +257,9 @@ void loop() {
         }
     }
     
-    if (WiFi.status() != WL_CONNECTED) {
-        #if DEBUG_SERIAL
-        Serial.println("WiFi reconnect");
-        #endif
-        WiFi.reconnect();
-        delay(1000);
-    }
-    
-    delay(100); // Pequeño delay para evitar saturación
+
+    delay(10); // Stability delay
 }
-
-void setupWiFi() {
-    WiFiManager wifiManager;
-
-    WiFiManagerParameter custom_n8n_url(
-      "n8nurl",
-      "URL Webhook n8n",
-      n8n_url,
-      150
-    );
-
-    wifiManager.addParameter(&custom_n8n_url);
-
-    wifiManager.setConfigPortalTimeout(180);
-
-    if (!wifiManager.autoConnect(WIFI_AP_NAME, WIFI_AP_PASS)) {
-        Serial.println("WiFi FAIL - Restart");
-        delay(3000);
-        ESP.restart();
-    }
-
-    // Guardar lo que el usuario escribió
-    strncpy(n8n_url, custom_n8n_url.getValue(), sizeof(n8n_url));
-
-    Serial.print("n8n URL configurada: ");
-    Serial.println(n8n_url);
-}
-
-
 void processNFC() {
     // Detectar tarjeta
     if (nfcManager.isCardPresent()) {
@@ -290,7 +305,6 @@ void processNFC() {
                 EventData event;
                 event.timestamp = "";
                 event.deviceId = String(DEVICE_ID);
-                event.stationId = "NINGUNA";
                 event.cardUID = uid;
                 event.action = "ACCESO DENEGADO";
                 event.status = "FALLO";
@@ -312,6 +326,78 @@ void processNFC() {
     }
 }
 
+
+
+void handleWiFi() {
+
+    static unsigned long lastAttempt = 0;
+
+    static wl_status_t lastStatus = WL_IDLE_STATUS;
+
+    wl_status_t status = WiFi.status();
+
+    if (status != lastStatus) {
+        lastStatus = status;
+
+        if (status == WL_CONNECTED) {
+            Serial.println("WiFi conectado");
+            Serial.print("IP: ");
+            Serial.println(WiFi.localIP());
+            oledManager.showMessage("WiFi OK");
+        } else {
+            Serial.println("WiFi desconectado");
+            oledManager.showMessage("WiFi OFF");
+        }
+    }
+
+    if (status != WL_CONNECTED && millis() - lastAttempt > 10000){
+        lastAttempt = millis();
+        WiFi.reconnect();
+    }    // Si se perdió conexión, ESP32 se reconecta solo
+}
+
+
+void setupWiFi() {
+    
+    WiFiManagerParameter custom_n8n_url(
+      "n8nurl",
+      "URL Webhook n8n (Logs)",
+      n8n_url,
+      150
+    );
+
+    WiFiManagerParameter custom_n8n_time_url(
+      "n8ntimeurl",
+      "URL Webhook n8n (Hora)",
+      n8n_time_url,
+      150
+    );
+
+    wifiManager.addParameter(&custom_n8n_url);
+    wifiManager.addParameter(&custom_n8n_time_url);
+
+    wifiManager.setConfigPortalTimeout(180);
+
+    if (!wifiManager.autoConnect(WIFI_AP_NAME, WIFI_AP_PASS)) {
+        Serial.println("WiFi FAIL - Restart");
+        delay(3000);
+        ESP.restart();
+    }
+
+    // Guardar lo que el usuario escribió
+    strncpy(n8n_url, custom_n8n_url.getValue(), sizeof(n8n_url));
+    strncpy(n8n_time_url, custom_n8n_time_url.getValue(), sizeof(n8n_time_url));
+
+    Serial.print("n8n URL logs: ");
+    Serial.println(n8n_url);
+    Serial.print("n8n URL hora: ");
+    Serial.println(n8n_time_url);
+
+    WiFi.setAutoReconnect(true);
+    WiFi.persistent(false);
+    WiFi.setSleep(false);
+}
+
 void toggleSolderingIron(int relayIndex, String cardUID) {
     if (waitingForCard) return;
 
@@ -321,6 +407,12 @@ void toggleSolderingIron(int relayIndex, String cardUID) {
     String action = newState ? "ENCENDER" : "APAGAR";
     unsigned long duration = newState ? 0 : relayManager.getRelayUptime(relayIndex);
     String stationId = getStationIdByRelay(relayIndex);
+    String cardName = cardManager.getCardName(cardUID);
+
+    if (cardName.length() == 0) {
+    cardName = "SIN_NOMBRE";    
+    }
+
 
     relayManager.setRelay(relayIndex, newState);
 
@@ -333,6 +425,7 @@ void toggleSolderingIron(int relayIndex, String cardUID) {
     event.status = "EXITO";
     event.relayIndex = relayIndex;
     event.duration = duration;
+    event.cardName = cardName;
 
     String jsonPayload =
     "{\"uid\":\"" + cardUID +
@@ -340,10 +433,11 @@ void toggleSolderingIron(int relayIndex, String cardUID) {
     "\", \"relay\":" + String(relayIndex) +
     "}";
 
-    oledManager.showJSON(jsonPayload);
 
 
-    sheetsManager.logEvent(event);
+
+    queuedEvent = event;
+    pendingEvent = true;
 
     #if DEBUG_SERIAL
     Serial.print("Estación ");
@@ -351,6 +445,11 @@ void toggleSolderingIron(int relayIndex, String cardUID) {
     Serial.print(": ");
     Serial.println(newState ? "ON" : "OFF");
     #endif
+
+    feedbackManager.showWaiting();
+    delay(300);
+
+    nfcBusy = false;
 }
 
 
@@ -360,12 +459,33 @@ void handleSerialCommands() {
     command.toUpperCase();
     
     if (command.length() == 0) return;
+
+    oledManager.showCommand(command);
     
     #if DEBUG_SERIAL
     Serial.print("Cmd: ");
     Serial.println(command);
     #endif
+
+    // ====== MODO CAPTURA DE NOMBRE ======
+    if (waitingForCardName) {
+        pendingCardName = command;
+        pendingCardName.trim();
+
+        if (pendingCardName.length() > 0) {
+            Serial.print("Nombre recibido: ");
+            Serial.println(pendingCardName);
+
+            oledManager.showMessage("Acerque tarjeta NFC");
+
+            waitingForCardName = false;
+            waitingForCard = true;
+            waitStartTime = 0;
+        }
+        return; // ← Added missing return here
+    }
     
+    // ====== COMANDOS NORMALES ======
     if (command == CMD_HELP) {
         printHelp();
         
@@ -402,25 +522,32 @@ void handleSerialCommands() {
             Serial.println("Índices de relé: 0, 1, 2 (Cautín 1, 2, 3)");
         }
         
-    } else if (command.startsWith(CMD_ADD_CARD)) {
+    } else if (command == CMD_ADD_CARD) {
+        Serial.println("Ingrese el nombre de la persona:");
+        oledManager.showMessage("Ingrese nombre");
+
+        pendingCardName = "";
+        waitingForCardName = true;
+
         // Formato: ADD_CARD <UID> o ADD_CARD (sin UID para leer automáticamente)
         int spaceIndex = command.indexOf(' ');
         if (spaceIndex > 0) {
             // Método 1: UID proporcionado manualmente
             String uid = command.substring(spaceIndex + 1);
             uid.trim();
-            if (cardManager.addCard(uid)) {
+            if (cardManager.addCard(uid, "SIN_NOMBRE")) {
                 Serial.println("Tarjeta agregada exitosamente");
             }
         } else {
             // Método 2: Esperar tarjeta NFC automáticamente
             Serial.println("Coloca una tarjeta NFC en el lector...");
-            Serial.println("Tienes 30 segundos para colocar la tarjeta");
+            Serial.println("Tienes 60 segundos para colocar la tarjeta");
             waitingForCard = true;
             waitStartTime = 0; // Resetear tiempo
-            nfcManager.reset(); // Resetear estado NFC
+
         }
-        
+       
+
     } else if (command.startsWith(CMD_REMOVE_CARD)) {
         // Formato: REMOVE_CARD <UID>
         int spaceIndex = command.indexOf(' ');
@@ -448,7 +575,7 @@ void handleSerialCommands() {
             }
         }
         
-    } else if (command.startsWith(CMD_TEST_RELAY)) {
+        } else if (command.startsWith(CMD_TEST_RELAY)) {
         // Formato: TEST_RELAY <index> <state>
         // Ejemplo: TEST_RELAY 0 ON
         int space1 = command.indexOf(' ');
@@ -465,15 +592,21 @@ void handleSerialCommands() {
                 Serial.print(relayIndex);
                 Serial.print(" configurado a: ");
                 Serial.println(relayState ? "ON" : "OFF");
+            } else {
+                Serial.println("Formato: TEST_RELAY <index> <ON|OFF>");
             }
         } else {
             Serial.println("Formato: TEST_RELAY <index> <ON|OFF>");
         }
-        
+
+    } else if (command == CMD_WIFI_RECONNECT) {
+        reconnectWiFi();
+
     } else {
         Serial.println("Comando no reconocido. Escribe 'HELP' para ver comandos disponibles");
     }
 }
+
 
 
 void printHelp() {
@@ -490,8 +623,19 @@ void printHelp() {
     Serial.println("REMOVE_CARD <UID> - Remover tarjeta autorizada");
     Serial.println("CLEAR_CARDS       - Eliminar todas las tarjetas");
     Serial.println("TEST_RELAY <i> <ON|OFF> - Probar relé");
+    Serial.println("WIFI_ RECONNECT   -Forzar reconexión WiFi");
     Serial.println("===========================\n");
 }
+
+void reconnectWiFi() {
+    Serial.println("Reiniciando WiFi...");
+    oledManager.showMessage("Reset WiFi");
+
+    WiFi.disconnect(true);
+    delay(200);
+    WiFi.begin();   // usa credenciales guardadas
+}
+
 
 void printStatus() {
     Serial.println("\n=== Estado del Sistema ===");
@@ -500,6 +644,7 @@ void printStatus() {
     
     Serial.print("WiFi: ");
     Serial.println(WiFi.status() == WL_CONNECTED ? "Conectado" : "Desconectado");
+
     if (WiFi.status() == WL_CONNECTED) {
         Serial.print("IP: ");
         Serial.println(WiFi.localIP());

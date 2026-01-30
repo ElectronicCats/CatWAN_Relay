@@ -10,9 +10,6 @@
 //#define PN532_SCL     7   // GPIO 7 - I2C Clock
 
 // Pines para Relés (múltiples cautines soportados)
-//#define RELAY_1      8  // GPIO 8 - Relé Cautín 1
-//#define RELAY_2      10  // GPIO 10 - Relé Cautín 2
-//#define RELAY_3      1  // GPIO 1 - Relé Cautín 3
 #define MAX_RELAYS    3   // Número máximo de relés
 
 // Pines para Feedback
@@ -55,6 +52,7 @@ static StationConfig stations[NUM_STATIONS] = {
 // Opción 2: n8n
 #define USE_N8N                  true
 #define N8N_WEBHOOK_URL          ""  // URL del webhook n8n (configurar)
+#define N8N_TIME_WEBHOOK_URL     ""  // URL del webhook para hora (configurar)
 
 // ============================================
 // Configuración de Seguridad
@@ -97,5 +95,7 @@ static StationConfig stations[NUM_STATIONS] = {
 #define CMD_STATUS        "STATUS"
 #define CMD_CLEAR_CARDS   "CLEAR_CARDS"
 #define CMD_HELP          "HELP"
+#define CMD_WIFI_RECONNECT "WIFI_RECONNECT"
+
 
 #endif // CONFIG_H

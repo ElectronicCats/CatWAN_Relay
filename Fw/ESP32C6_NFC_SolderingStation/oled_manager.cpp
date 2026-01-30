@@ -36,25 +36,25 @@ void OLEDManager::showWelcome() {
 
 void OLEDManager::showWaiting() {
     display.clearDisplay();
-    display.setCursor(0, 20);
+    display.setCursor(0, 10);
     display.println("Sistema listo");
-    display.setCursor(0, 35);
+    display.setCursor(0, 40);
     display.println("Acerque tarjeta");
     display.display();
 }
 
 void OLEDManager::showWaitingCard() {
     display.clearDisplay();
-    display.setCursor(0, 20);
+    display.setCursor(0, 10);
     display.println("Esperando tarjeta");
-    display.setCursor(0, 35);
+    display.setCursor(0, 40);
     display.println("para registrar...");
     display.display();
 }
 
 void OLEDManager::showTimeout() {
     display.clearDisplay();
-    display.setCursor(0, 25);
+    display.setCursor(0, 10);
     display.println("Timeout");
     display.setCursor(0, 40);
     display.println("Sin tarjeta");
@@ -63,10 +63,10 @@ void OLEDManager::showTimeout() {
 
 void OLEDManager::showCardAdded(const String& uid) {
     display.clearDisplay();
-    display.setCursor(0, 15);
+    display.setCursor(0, 10);
     display.println("Tarjeta");
     display.println("agregada:");
-    display.setCursor(0, 45);
+    display.setCursor(0, 40);
     display.println(uid);
     display.display();
 }
@@ -78,3 +78,59 @@ void OLEDManager::showJSON(const String& json) {
     display.println(json);
     display.display();
 }
+
+void OLEDManager::showCommand(String cmd) {
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(0, 0);
+
+    display.println("COMANDO:");
+    display.println(cmd);
+
+    display.display();
+}
+
+
+void OLEDManager::showMessage(String msg) {
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(0, 0);
+
+    display.println("MENSAJE");
+    display.println("----------");
+
+    display.println(msg);
+
+    for (int i = 0; i < msg.length(); i += 20){
+        display.println(msg.substring(i, i + 20));
+    }
+
+    display.display();
+}
+
+void OLEDManager::showCardAdded(String uid, String name) {
+    display.clearDisplay();
+    display.println("Tarjeta OK");
+    display.println(name);
+    display.println(uid);
+    display.display();
+}
+
+void OLEDManager::showWelcomeName(String name) {
+    display.clearDisplay();
+
+    display.setTextSize(1);
+    display.setCursor(0, 0);
+    display.println("Bienvenido");
+
+    display.setTextSize(2);
+    display.setCursor(0, 16);
+    display.println(name);
+
+    display.display();
+}
+
+
+

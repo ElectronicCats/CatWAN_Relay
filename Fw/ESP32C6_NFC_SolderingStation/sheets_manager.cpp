@@ -1,8 +1,9 @@
 #include "sheets_manager.h"
 
-SheetsManager::SheetsManager() : useGoogleScript(USE_GOOGLE_APPS_SCRIPT), useN8N(USE_N8N), connected(false) {
+SheetsManager::SheetsManager() : useGoogleScript(USE_GOOGLE_APPS_SCRIPT), useN8N(USE_N8N), connected(false), epochBase(0), millisAtSync(0), isTimeSynced(false) {
     scriptURL = String(GOOGLE_SCRIPT_URL);
     n8nURL = String(N8N_WEBHOOK_URL);
+    n8nTimeURL = String(N8N_TIME_WEBHOOK_URL);
 }
 
 bool SheetsManager::begin() {
@@ -18,8 +19,22 @@ bool SheetsManager::begin() {
 }
 
 String SheetsManager::getCurrentTimestamp() {
-    // Obtener timestamp desde servidor NTP o usar millis()
-    // Por simplicidad, usaremos una aproximación
+    if (isTimeSynced) {
+        // Calcular tiempo actual real
+        unsigned long currentSeconds = epochBase + ((millis() - millisAtSync) / 1000);
+        
+        // Formato HH:MM:SS
+        // Nota: Esto es UTC a menos que se ajuste el offset en epochBase
+        unsigned long seconds = currentSeconds % 60;
+        unsigned long minutes = (currentSeconds / 60) % 60;
+        unsigned long hours = (currentSeconds / 3600) % 24;
+        
+        char timestamp[30];
+        snprintf(timestamp, sizeof(timestamp), "%02lu:%02lu:%02lu", hours, minutes, seconds);
+        return String(timestamp);
+    }
+
+    // Fallback: tiempo relativo
     unsigned long seconds = millis() / 1000;
     unsigned long minutes = seconds / 60;
     unsigned long hours = minutes / 60;
@@ -38,7 +53,6 @@ String SheetsManager::getCurrentTimestamp() {
 String SheetsManager::createJSONPayload(EventData event) {
     StaticJsonDocument<JSON_BUFFER_SIZE> doc;
 
-    doc["ts"]  = event.timestamp;
     doc["dev"] = event.deviceId;
     doc["stn"] = event.stationId;   // ← estación
     doc["uid"] = event.cardUID;
@@ -46,6 +60,7 @@ String SheetsManager::createJSONPayload(EventData event) {
     doc["st"]  = event.status;
     doc["rel"] = event.relayIndex;
     doc["dur"] = event.duration;
+    doc["Nam"] = event.cardName;
 
     String jsonString;
     serializeJson(doc, jsonString);
@@ -136,9 +151,9 @@ bool SheetsManager::sendToN8N(EventData event) {
 }
 
 bool SheetsManager::logEvent(EventData event) {
-    if (!connected || WiFi.status() != WL_CONNECTED) {
+    if (WiFi.status() != WL_CONNECTED) {
         #if DEBUG_SERIAL
-        Serial.println("WiFi desconectado");
+        Serial.println("SheetsManager: WiFi no conectado");
         #endif
         return false;
     }
@@ -159,6 +174,8 @@ bool SheetsManager::logEvent(EventData event) {
         #endif
         return false;
     }
+
+    connected = success;
     
     return success;
 }
@@ -179,4 +196,52 @@ void SheetsManager::setN8NURL(String url) {
     #if DEBUG_SERIAL
     Serial.println("n8n Webhook URL configurada");
     #endif
+}
+
+void SheetsManager::setN8NTimeURL(String url) {
+    n8nTimeURL = url;
+}
+
+bool SheetsManager::syncTime() {
+    if (WiFi.status() != WL_CONNECTED) return false;
+    if (n8nTimeURL.length() == 0) return false;
+
+    HTTPClient http;
+    http.begin(n8nTimeURL);
+    // GET request para obtener la hora
+    int httpResponseCode = http.GET();
+    
+    bool success = false;
+    if (httpResponseCode > 0) {
+        String response = http.getString();
+        #if DEBUG_SERIAL
+        Serial.println("Time Sync Response: " + response);
+        #endif
+        
+        // Parsear JSON: {"epoch": 123456789} o {"timestamp": 123456789}
+        StaticJsonDocument<200> doc;
+        DeserializationError error = deserializeJson(doc, response);
+
+        if (!error) {
+            unsigned long epoch = 0;
+            if (doc.containsKey("epoch")) {
+                epoch = doc["epoch"];
+            } else if (doc.containsKey("timestamp")) {
+                epoch = doc["timestamp"];
+            }
+
+            if (epoch > 0) {
+                epochBase = epoch;
+                millisAtSync = millis();
+                isTimeSynced = true;
+                success = true;
+                #if DEBUG_SERIAL
+                Serial.print("Tiempo sincronizado (Epoch): ");
+                Serial.println(epoch);
+                #endif
+            }
+        }
+    }
+    http.end();
+    return success;
 }
