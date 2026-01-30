@@ -1,0 +1,74 @@
+{
+  "name": "Time Sync API",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "time",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Webhook Time",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        340
+      ],
+      "webhookId": "time-sync-hook"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      epoch: Math.floor(Date.now() / 1000),\n      readable: new Date().toISOString()\n    }\n  }\n];"
+      },
+      "id": "code-node",
+      "name": "Get Epoch Time",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        680,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "respond-node",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        900,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook Time": {
+      "main": [
+        [
+          {
+            "node": "Get Epoch Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Epoch Time": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
