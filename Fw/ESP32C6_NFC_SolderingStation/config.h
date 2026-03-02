@@ -57,7 +57,7 @@ static StationConfig stations[NUM_STATIONS] = {
 // ============================================
 // Configuración de Seguridad
 // ============================================
-#define MAX_USAGE_TIME      7200000  // 2 horas en ms (timeout seguridad)
+#define MAX_USAGE_TIME      14400000  // 4 horas en ms (timeout seguridad)
 #define MAX_FAILED_ATTEMPTS 5        // Intentos fallidos antes de bloquear
 
 // ============================================

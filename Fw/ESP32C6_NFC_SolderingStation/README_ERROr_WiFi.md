@@ -1,45 +1,182 @@
-# 🛠️ Resumen de Trabajo y Corrección de Errores (WiFi / I2C)
+# 📘 README – Corrección de errores NFC y sobresaturación por WiFiManager
 
-## 1. 🚨 Diagnóstico de Errores (WiFi y I2C)
+## 1. Contexto del problema
 
-El sistema presentaba inestabilidad general y fallos en la detección del lector NFC PN532 cuando se activaban las funciones de red.
+Durante el desarrollo del proyecto **CATWAN_RELAY**, se integraron varios módulos críticos en un ESP32, principalmente:
 
-### A. Error del Bus I2C / NFC
-**Síntoma:** El lector NFC no era detectado o dejaba de funcionar aleatoriamente.
-**Causa Raíz:**
-1.  **Constructor Incorrecto:** La instanciación de la librería `Adafruit_PN532` no usaba el constructor adecuado para el bus I2C por hardware, lo que forzaba comportamientos inestables o por software (bit-banging) no deseados.
-2.  **Conflictos de Inicialización:** El orden de inicialización en `setup()` permitía que otros periféricos interfirieran antes de que el bus I2C estuviera listo.
+* **PN532 (NFC) vía I2C**
+* **WiFiManager** para configuración dinámica de red
+* Comunicación con servicios externos (n8n)
 
-**Solución:**
-*   Se corrigió el constructor para pasar el puntero `&Wire` explícitamente.
-*   Se aseguró una inicialización limpia con `Wire.begin()` antes de iniciar el subsistema NFC.
-
-### B. Inestabilidad WiFi y Bloqueos
-**Síntoma:** El ESP32 se reiniciaba o quedaba en bucles infinitos de "Desconectado" que bloqueaban el resto del código (incluyendo NFC).
-**Causa Raíz:**
-*   El manejo de la conexión WiFi y el portal cautivo (`WiFiManager`) era **bloqueante**. Si la conexión fallaba, el código quedaba atrapado intentando reconectar indefinidamente, impidiendo que el ciclo `loop()` principal se ejecutara.
-
-**Solución:**
-*   Se implementó un manejo **no bloqueante** en el `loop()`.
-*   Se añadieron timeouts para evitar quedarse "colgado" esperando respuesta del router.
-*   Se optimizó la lógica de reconexión para que ocurra en segundo plano sin detener la lectura de tarjetas NFC.
+Conforme el proyecto creció, comenzaron a presentarse errores constantes relacionados con NFC, identificados principalmente como **"NFC ERROR"**, pérdida total de detección de tarjetas y ausencia de mensajes por el monitor Serial.
 
 ---
 
-## 2. ✨ Nuevas Funcionalidades Implementadas
+## 2. Síntomas observados
 
-Además de las correcciones, se integraron mejoras operativas:
+1. El monitor Serial dejaba de mostrar información después de cargar nuevo código.
+2. El PN532 no detectaba tarjetas NFC aunque el cableado fuera correcto.
+3. Aparecían errores de compilación y linker relacionados con `NFCManager`.
+4. WiFiManager se quedaba bloqueado o reiniciaba el sistema.
+5. El sistema funcionaba parcialmente si se deshabilitaba WiFiManager o NFC, pero no ambos juntos.
 
-### 🕒 Sincronización de Hora (n8n)
-*   Se añadió la capacidad de obtener la hora real desde un webhook de **n8n**.
-*   Esto permite que los registros (logs) en Google Sheets tengan marcas de tiempo precisas incluso si el ESP32 se reinicia.
-*   **Implementación:** Función `sheetsManager.syncTime()` que consulta el endpoint configurado.
+---
 
-### 🔌 Seguridad en Relés (Estado Inicial)
-*   Se garantizó que todos los relés (cautines) inicien en estado **OFF (Apagado)** al arrancar el sistema.
-*   Esto previene accidentes en caso de cortes de energía y reinicios automáticos; los cautines no se calentarán hasta que una tarjeta autorizada lo solicite.
+## 3. Causas reales del problema
 
-### ⚙️ Configuración Dinámica de URLs
-*   Se agregaron campos personalizados en el portal WiFi (`WiFiManager`) para ingresar las URLs de los Webhooks de n8n sin necesidad de reprogramar el código.
-    *   `n8n URL logs`: Para registro de eventos.
-    *   `n8n URL hora`: Para sincronización de fecha/hora.
+### 3.1 Sobresaturación del sistema por WiFiManager
+
+WiFiManager crea:
+
+* Portales cautivos
+* Servidor web
+* DNS interno
+
+Esto **consume memoria, tiempo de CPU y bloquea el loop principal**, especialmente si:
+
+* Se inicializa antes que otros periféricos
+* No se limita su tiempo de ejecución
+
+Esto provocaba que:
+
+* El bus I2C no se inicializara correctamente
+* El PN532 no respondiera a `getFirmwareVersion()`
+
+---
+
+### 3.2 Uso incorrecto del constructor de Adafruit_PN532
+
+Se intentaron múltiples constructores inválidos:
+
+* `Adafruit_PN532(Wire)` ❌
+* `Adafruit_PN532(PN532_I2C_ADDRESS)` ❌
+
+La librería **NO soporta esos constructores**.
+
+El constructor correcto para I2C es:
+
+```
+Adafruit_PN532(uint8_t irq, uint8_t reset, TwoWire *theWire)
+```
+
+Al no usarlo correctamente:
+
+* El objeto `nfc` se creaba mal
+* Las llamadas internas fallaban silenciosamente
+
+---
+
+### 3.3 Inicialización incorrecta del bus I2C
+
+El PN532 se conectó usando:
+
+* **SDA = GPIO 6**
+* **SCL = GPIO 7**
+
+Problemas:
+
+* GPIO 6 está reservado internamente (SPI Flash)
+* GPIO 7 no es un pin I2C recomendado
+
+Esto hacía que:
+
+* `Wire.begin()` no funcionara correctamente
+* El PN532 nunca respondiera
+
+---
+
+### 3.4 Inconsistencias entre `.h` y `.cpp`
+
+Se detectaron errores graves de diseño:
+
+* Métodos declarados en `.h` pero no definidos en `.cpp`
+* Firmas distintas (`readCardUID()` vs `readCardUID(char*)`)
+* Destructor declarado pero no implementado
+
+Esto causaba:
+
+* Errores de linker (`undefined reference`)
+* Fallos en tiempo de ejecución
+
+---
+
+## 4. Solución aplicada
+
+### 4.1 Reestructuración de NFCManager
+
+Se unificaron completamente las firmas:
+
+* `bool readCardUID(char* uidBuffer)`
+* Eliminación de métodos no usados
+* Estado interno claro (`initialized`)
+
+---
+
+### 4.2 Corrección del constructor PN532
+
+Se adoptó el constructor correcto:
+
+```
+Adafruit_PN532 nfc(IRQ_PIN, RESET_PIN, &Wire);
+```
+
+Y se inicializó correctamente:
+
+```
+Wire.begin(SDA_PIN, SCL_PIN);
+```
+
+---
+
+### 4.3 Corrección de pines I2C
+
+Se cambiaron los pines a valores seguros:
+
+* SDA = GPIO 21
+* SCL = GPIO 22
+
+Esto permitió:
+
+* Comunicación estable
+* Lectura correcta del firmware PN532
+
+---
+
+### 4.4 Control de ejecución de WiFiManager
+
+Se evitó que WiFiManager:
+
+* Bloqueara el `loop()`
+* Se ejecutara permanentemente
+
+Ahora:
+
+* Se inicializa solo cuando es necesario
+* No interfiere con NFC
+
+---
+
+## 5. Resultado final
+
+✔ NFC detecta tarjetas de forma estable
+✔ UID leído correctamente sin repeticiones
+✔ WiFiManager funciona sin bloquear el sistema
+✔ No hay errores de compilación ni linker
+✔ Monitor Serial estable
+
+---
+
+## 6. Conclusión técnica
+
+El problema **NO era el PN532**, sino:
+
+* Mala inicialización de I2C
+* Uso incorrecto de librerías
+* Saturación del sistema por WiFiManager
+* Errores estructurales en C++
+
+Una correcta arquitectura y control de recursos permitió estabilizar todo el sistema.
+
+---
+
+📌 *Este README documenta los cambios realizados para futuras referencias, mantenimiento y evaluación técnica del proyecto.*
